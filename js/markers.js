@@ -29,7 +29,7 @@ var textMarkers =
     "coords": [1423,1954]
 }, {
     "name": "<span data-i18n='SASAU'>SÁZAVA</span>",
-		"coords": [136,1888]
+		"coords": [1239,815]
 }, {
     "name": "<span data-i18n='VRANIK'>VRANÍK</span>",
 		"coords": [979,1037]
