@@ -2,7 +2,7 @@
 var textMarkers =
 [{
     "name": "<span data-i18n='SKALITZ'>SKALICE</span>",
-	  "coords": [697,3518]
+		"coords": [3518,697]
 }, {
     "name": "<span data-i18n='PRIBYSLAVITZ'>PŘIBYSLAVICE</span>",
     "coords": [3774,1535]
@@ -17,28 +17,28 @@ var textMarkers =
     "coords": [2878,2279]
 }, {
     "name": "<span data-i18n='UZHITZ'>UŽICE</span>",
-	  "coords": [3068,3427]
+		"coords": [3427,3068]
 }, {
     "name": "<span data-i18n='SAMOPESH'>SAMOPEŠ</span>",
     "coords": [2102,1158]
 }, {
     "name": "<span data-i18n='MONASTERY'>KLÁŠTER</span>",
-		"coords": [888,1793]
+		"coords": [1793,888]
 }, {
     "name": "<span data-i18n='LEDETCHKO'>LEDEČKO</span>",
     "coords": [1423,1954]
 }, {
     "name": "<span data-i18n='SASAU'>SÁZAVA</span>",
-		"coords": [1108,1361]
+		"coords": [136,1888]
 }, {
     "name": "<span data-i18n='VRANIK'>VRANÍK</span>",
-		"coords": [1037,979]
+		"coords": [979,1037]
 }, {
     "name": "<span data-i18n='RATTAY'>RATAJE</span>",
-		"coords": [2584,681]
+		"coords": [681,2584]
 }, {
     "name": "<span data-i18n='NEUHOF'>NEUHOF</span>",
-		"coords": [3466,1491]
+	  "coords": [1491,3466]
 }]
 //Game Markers
 var markers = [
