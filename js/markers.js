@@ -20,7 +20,7 @@ var textMarkers =
 		"coords": [3427,3068]
 }, {
     "name": "<span data-i18n='SAMOPESH'>SAMOPEŠ</span>",
-    "coords": [2102,1158]
+		"coords": [2331,1066]
 }, {
     "name": "<span data-i18n='MONASTERY'>KLÁŠTER</span>",
 		"coords": [1793,888]
