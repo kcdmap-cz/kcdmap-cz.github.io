@@ -361,6 +361,18 @@ Spade to bury Henry's parents
 },
 // Bandit Camps
 {
+	"name": "<span data-i18n='bandit_camp'>Bandit Camp</span>",
+	"group": "bandit_camp",
+	"icon": "bandit_camp",
+	"coords": [1000, 935],
+},
+{
+	"name": "<span data-i18n='bandit_camp'>Bandit Camp</span>",
+	"group": "bandit_camp",
+	"icon": "bandit_camp",
+	"coords": [1600, 3708],
+},
+{
 "name": "<span data-i18n='bandit_camp'>Bandit Camp</span>",
 "group": "bandit_camp",
 "icon": "bandit_camp",
