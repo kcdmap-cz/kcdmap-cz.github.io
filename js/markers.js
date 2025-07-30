@@ -55,7 +55,7 @@ Spade to bury Henry's parents
 "group": "woodland_garden",
 "icon": "woodland_garden",
 "kcditems": [
-			{"item":"belladonna","qnt":""},
+			{"item":"belladonnax","qnt":""},
 			{"item":"herb_paris","qnt":""},
 			{"item":"valerian","qnt":""}],
 "coords": [426.735901,3670.262695],
@@ -537,15 +537,6 @@ Spade to bury Henry's parents
 "icon": "church",
 "coords": [858.726990,1164.180420],
 },
-/*
-// Fast Travel Location Quest ?
-{
-"name": "<span data-i18n='fast_travel_location_quest'>Fast Travel Quest</span>",
-"group": "fast_travel_location_quest",
-"icon": "fast_travel_location_quest",
-"coords": [1404.876587,1457.647217],
-},
-*/
 {
 //FT NEUHOF
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
@@ -567,13 +558,6 @@ Spade to bury Henry's parents
 "icon": "fast_travel",
 "coords": [2359.924316,2844.108398],
 },
-/*{
-//replaced by former "unknown" above
-"name": "<span data-i18n='fast_travel'>Fast Travel</span>",
-"group": "fast_travel",
-"icon": "fast_travel",
-"coords": [2359.892090,2845.200195],
-},*/
 {
 //FT SAMOPESH
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
@@ -581,13 +565,6 @@ Spade to bury Henry's parents
 "icon": "fast_travel",
 "coords": [1140.762817,2241.165039],
 },
-/*{
-//replaced by former "unknown" above
-"name": "<span data-i18n='fast_travel'>Fast Travel</span>",
-"group": "fast_travel",
-"icon": "fast_travel",
-"coords": [1141.026855,2241.849609],
-},*/
 {
 //FT VRANIK
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
@@ -602,13 +579,6 @@ Spade to bury Henry's parents
 "icon": "fast_travel",
 "coords": [3048.656982,3332.118896],
 },
-/*{
-//replaced by former "unknown" above
-"name": "<span data-i18n='fast_travel'>Fast Travel</span>",
-"group": "fast_travel",
-"icon": "fast_travel",
-"coords": [3047.200195,3333.661377],
-},*/
 {
 //FT RATTAY UPPER
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
@@ -630,13 +600,7 @@ Spade to bury Henry's parents
 "icon": "fast_travel",
 "coords": [1241.739380,3118.611816],
 },
-/*{
-//replaced by former "unknown" above
-"name": "<span data-i18n='fast_travel'>Fast Travel</span>",
-"group": "fast_travel",
-"icon": "fast_travel",
-"coords": [1241.644165,3118.362793],
-},*/
+
 {
 //FT RATTAY MILL
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
@@ -659,13 +623,6 @@ Spade to bury Henry's parents
 "icon": "fast_travel",
 "coords": [1635.787964,2618.271973],
 },
-/*{
-//replaced by former "unknown" above
-"name": "<span data-i18n='fast_travel'>Fast Travel</span>",
-"group": "fast_travel",
-"icon": "fast_travel",
-"coords": [1636.226440,2618.788086],
-},*/
 {
 //FT SASAU
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
@@ -694,13 +651,13 @@ Spade to bury Henry's parents
 "icon": "unknown",
 "coords": [2519.114502,498.302307],
 },
-/*{
-//replaced by former "unknown" above
+{
+//FT RATTAY UPPER
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [2518.414795,499.061035],
-},*/
+},
 {
 "name": "<span data-i18n='lodgings'>Lodgings</span>",
 "group": "lodgings",
