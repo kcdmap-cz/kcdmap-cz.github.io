@@ -55,9 +55,9 @@ Spade to bury Henry's parents
 "group": "woodland_garden",
 "icon": "woodland_garden",
 "kcditems": [
-			{"item":"belladonnax","qnt":""},
-			{"item":"herb_paris","qnt":""},
-			{"item":"valerian","qnt":""}],
+	{"item":"belladonna","name":"Rulík zlomocný","qnt":""},
+	{"item":"herb_paris","qnt":""},
+	{"item":"valerian","qnt":""}],
 "coords": [426.735901,3670.262695],
 },
 {
