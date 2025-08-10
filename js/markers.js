@@ -41,6 +41,14 @@ var textMarkers =
 	  "coords": [1491,3466]
 }]
 //Game Markers
+{
+  "belladonna": "Rulík",
+  "comfrey": "Kostival",
+  "herb_paris": "Vraní oko",
+  "mint": "Máta",
+  "nettle": "Kopřiva",
+  "valerian": "Kozlík",
+}
 var markers = [
 /*
 
@@ -55,7 +63,7 @@ Spade to bury Henry's parents
 "group": "woodland_garden",
 "icon": "woodland_garden",
 "kcditems": [
-	{"item":"belladonna","name":"Rulík zlomocný","qnt":""},
+	{"item":"belladonna","qnt":""},
 	{"item":"herb_paris","qnt":""},
 	{"item":"valerian","qnt":""}],
 "coords": [426.735901,3670.262695],
