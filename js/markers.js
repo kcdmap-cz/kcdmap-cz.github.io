@@ -41,14 +41,6 @@ var textMarkers =
 	  "coords": [1491,3466]
 }]
 //Game Markers
-{
-  "belladonna": "Rulík",
-  "comfrey": "Kostival",
-  "herb_paris": "Vraní oko",
-  "mint": "Máta",
-  "nettle": "Kopřiva",
-  "valerian": "Kozlík",
-}
 var markers = [
 /*
 
