@@ -316,7 +316,7 @@ var usr_markers =
 {
 	"name": "<span data-i18n='treasure_map'>Mapa k pokladu</span>",
 	"desc": "Mapa k pokladu II",
-	"desc2": "Jakmile vstoupíte jižní branou kláštera, vyjděte po schodech doleva a pokračujte, dokud se nedostanete do honosné ložnice v omezeném prostoru; mapa je na stole vedle postele.",
+	"desc2": "Jakmile vstoupíte jižní branou kláštera, vyjděte po schodech doleva a pokračujte, dokud se nedostanete do honosné ložnice v omezeném prostoru, mapa je na stole vedle postele.",
 	"group": "treasure_map",
 	"icon": "treasure_map",
 	"coords": [940,1640],

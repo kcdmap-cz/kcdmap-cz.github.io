@@ -586,8 +586,8 @@ Spade to bury Henry's parents
 "coords": [3048.656982,3332.118896],
 },
 {
-//FT RATTAY DOWN
-"name": "<span data-i18n='fast_travel'>Rataje dolní brána</span>",
+//FT RATTAY upper
+"name": "<span data-i18n='fast_travel'>Rataje horní brána</span>",
 "desc": "Rychlé Cestování",
 "group": "fast_travel",
 "icon": "fast_travel",
@@ -659,8 +659,8 @@ Spade to bury Henry's parents
 "coords": [2056.820313,1306.923462],
 },
 {
-//FT RATTAY UPPER
-"name": "<span data-i18n='fast_travel'>Rataje horní brána</span>",
+//FT RATTAY Down
+"name": "<span data-i18n='fast_travel'>Rataje dolní brána</span>",
 "desc": "Rychlé Cestování",
 "group": "fast_travel",
 "icon": "fast_travel",
