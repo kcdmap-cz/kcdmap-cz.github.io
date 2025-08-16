@@ -614,7 +614,6 @@ Spade to bury Henry's parents
 //FT RATTAY MILL
 "name": "<span data-i18n='fast_travel'>Rataje mlýn</span>",
 "desc": "Rychlé Cestování",
-//"desc": "<span data-i18n='rattay_mill'>Rattay Mill</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [2445.578125,690.725647],
@@ -939,9 +938,8 @@ Spade to bury Henry's parents
 "icon": "shrine",
 "coords": [1376.456055,2613.312744],
 },
-////tuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
 {
-"name": "<span data-i18n='vegetable_shop'>Vegetable Shop</span>",
+"name": "<span data-i18n='vegetable_shop'>Zelinář</span>",
 "group": "vegetable_shop",
 "icon": "vegetable_shop",
 "coords": [3139.731201,3352.857910],
@@ -965,7 +963,7 @@ Spade to bury Henry's parents
 "coords": [3146.615967,1374.179810],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1722.116821,2393.340576],
@@ -989,7 +987,7 @@ Spade to bury Henry's parents
 "coords": [2621.913086,476.923828],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1475.933594,2459.887207],
@@ -1031,7 +1029,7 @@ Spade to bury Henry's parents
 "coords": [1759.166626,2918.937744],
 },
 {
-"name": "<span data-i18n='vegetable_shop'>Vegetable Shop</span>",
+"name": "<span data-i18n='vegetable_shop'>Zelinář</span>",
 "group": "vegetable_shop",
 "icon": "vegetable_shop",
 "coords": [1984.055054,1331.095459],
@@ -1049,26 +1047,26 @@ Spade to bury Henry's parents
 "coords": [3727.079590,1088.634155],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [1169.096802,2856.662842],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1919.987305,2253.651855],
 },
 {
-"name": "<span data-i18n='scribe'>Scribe</span>",
+"name": "<span data-i18n='scribe'>Písař</span>",
 "group": "scribe",
 "icon": "scribe",
 "coords": [3013.256592,3347.702637],
 },
 {
 
-"name": "<span data-i18n='mine'>Mine</span>",
+"name": "<span data-i18n='mine'>Vchod do dolu</span>",
 "group": "mine",
 "icon": "mine",
 "coords": [509.006653,3271.981445],
@@ -1086,7 +1084,7 @@ Spade to bury Henry's parents
 "coords": [2359.897217,3042.610352],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [1282.082520,2965.147949],
@@ -1134,7 +1132,7 @@ Spade to bury Henry's parents
 "coords": [808.450500,1988.689697],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1330.760376,2548.116943],
@@ -1188,7 +1186,7 @@ Spade to bury Henry's parents
 "coords": [1974.294556,2227.360352],
 },
 {
-"name": "<span data-i18n='archery_range'>Archery Range</span>",
+"name": "<span data-i18n='archery_range'>Lukostřelnice</span>",
 "group": "archery_range",
 "icon": "archery_range",
 "coords": [2928.509033,3380.168701],
@@ -1224,7 +1222,7 @@ Spade to bury Henry's parents
 "coords": [1762.317627,2573.870850],
 },
 {
-"name": "<span data-i18n='butcher'>Butcher</span>",
+"name": "<span data-i18n='butcher'>Řezník</span>",
 "group": "butcher",
 "icon": "butcher",
 "coords": [946.583923,1550.314453],
@@ -1242,13 +1240,13 @@ Spade to bury Henry's parents
 "coords": [1595.638550,3895.014160],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1191.182983,2680.059570],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [2606.297363,473.850708],
@@ -1290,20 +1288,19 @@ Spade to bury Henry's parents
 "coords": [1675.369385,2539.313477],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [2791.063965,1244.038818],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [295.148743,1432.335205],
 },
 {
 "name": "<span data-i18n='deer_hunting_spot'>Loviště Vysoké</span>",
-"desc": "Hunting Spot north",
 "group": "deer_hunting_spot",
 "icon": "deer_hunting_spot",
 "coords": [479.824921,3861.567627],
@@ -1333,7 +1330,7 @@ Spade to bury Henry's parents
 "coords": [2041.066772,2364.521729],
 },
 {
-"name": "<span data-i18n='trader'>Trader</span>",
+"name": "<span data-i18n='trader'>Kupec</span>",
 "group": "trader",
 "icon": "trader",
 "coords": [2564.908447,578.937439],
@@ -1345,7 +1342,7 @@ Spade to bury Henry's parents
 "coords": [1743.940063,1657.744873],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [1646.785156,2629.281738],
@@ -1418,7 +1415,7 @@ Spade to bury Henry's parents
 "coords": [3619.518066,2624.810303],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1616.036377,1094.192871],
@@ -1442,7 +1439,7 @@ Spade to bury Henry's parents
 "coords": [1814.461304,2661.483887],
 },
 {
-"name": "<span data-i18n='trader'>Trader</span>",
+"name": "<span data-i18n='trader'>Kupec</span>",
 "group": "trader",
 "icon": "trader",
 "coords": [2025.163818,1347.841553],
@@ -1479,7 +1476,7 @@ Spade to bury Henry's parents
 "coords": [1944.079834,923.304199],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [2140.532715,2277.026611],
@@ -1515,38 +1512,38 @@ Spade to bury Henry's parents
 "coords": [1489.399536,3026.589355],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [1198.446167,3185.930176],
 },
 {
-"name": "<span data-i18n='huntsman'>Huntsman</span>",
+"name": "<span data-i18n='huntsman'>Lovec</span>",
 "group": "huntsman",
 "icon": "huntsman",
 "coords": [2627.584717,646.821106],
 },
 {
-"name": "<span data-i18n='alchemy_bench'>Alchemy Bench</span>",
+"name": "<span data-i18n='alchemy_bench'>Alchymistický stůl</span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [952.196899,2345.984619],
 },
 {
 
-"name": "<span data-i18n='mine'>Mine</span>",
+"name": "<span data-i18n='mine'>Vchod do dolu</span>",
 "group": "mine",
 "icon": "mine",
 "coords": [1031.129639,2703.688965],
 },
 {
-"name": "<span data-i18n='cave'>Cave</span>",
+"name": "<span data-i18n='cave'>Jeskyně</span>",
 "group": "cave",
 "icon": "cave",
 "coords": [1801.564331,2909.052246],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [2475.504883,749.438538],
@@ -1570,7 +1567,7 @@ Spade to bury Henry's parents
 "coords": [1663.151855,2968.643311],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1570.211670,3083.435791],
@@ -1582,7 +1579,7 @@ Spade to bury Henry's parents
 "coords": [2218.489990,2707.154541],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1505.569336,2980.244873],
@@ -1666,7 +1663,7 @@ Spade to bury Henry's parents
 "coords": [940.130432,1764.960571],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [267.969574,3088.127197],
@@ -1708,7 +1705,7 @@ Spade to bury Henry's parents
 "coords": [241.645737,464.850250],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1221.544556,1150.053467],
@@ -1727,7 +1724,7 @@ Spade to bury Henry's parents
 "coords": [1088.163086,482.989655],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [3208.079590,1788.567139],
@@ -1806,7 +1803,7 @@ Spade to bury Henry's parents
 "coords": [3870.600342,1560.985718],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [3691.317139,1260.198120],
@@ -1848,7 +1845,7 @@ Spade to bury Henry's parents
 "coords": [3812.944580,1127.030518],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [3062.848633,3384.130615],
@@ -1860,7 +1857,7 @@ Spade to bury Henry's parents
 "coords": [3757.291016,1190.316772],
 },
 {
-"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Rybářský plácek</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [1267.830566,1074.262817],
@@ -1890,13 +1887,13 @@ Spade to bury Henry's parents
 "coords": [3108.713379,3466.058105],
 },
 {
-"name": "<span data-i18n='tailor'>Tailor</span>",
+"name": "<span data-i18n='tailor'>Krejčí</span>",
 "group": "tailor",
 "icon": "tailor",
 "coords": [796.783447,3486.407715],
 },
 {
-"name": "<span data-i18n='cave'>Cave</span>",
+"name": "<span data-i18n='cave'>Jeskyně</span>",
 "group": "cave",
 "icon": "cave",
 "coords": [2417.881348,1704.783203],
@@ -1962,13 +1959,13 @@ Spade to bury Henry's parents
 "coords": [1019.282104,1196.779419],
 },
 {
-"name": "<span data-i18n='miller'>Miller</span>",
+"name": "<span data-i18n='miller'>Mlinář</span>",
 "group": "miller",
 "icon": "miller",
 "coords": [2459.114258,704.810425],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [829.434509,748.494751],
@@ -1980,7 +1977,7 @@ Spade to bury Henry's parents
 "coords": [3177.381348,338.678314],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [3685.535400,1944.841675],
@@ -2016,13 +2013,13 @@ Spade to bury Henry's parents
 "coords": [3420.125000,1952.151733],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [3283.323486,2158.355469],
 },
 {
-"name": "<span data-i18n='archery_range'>Archery Range</span>",
+"name": "<span data-i18n='archery_range'>Lukostřelnice</span>",
 "group": "archery_range",
 "icon": "archery_range",
 "coords": [1465.498535,2734.519775],
@@ -2040,7 +2037,7 @@ Spade to bury Henry's parents
 "coords": [3555.410400,1618.969482],
 },
 {
-"name": "<span data-i18n='huntsman'>Huntsman</span>",
+"name": "<span data-i18n='huntsman'>Lovec</span>",
 "group": "huntsman",
 "icon": "huntsman",
 "coords": [2444.702881,2643.914063],
@@ -2082,13 +2079,13 @@ Spade to bury Henry's parents
 "coords": [540.821899,2602.847656],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [886.777588,3290.454102],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [3474.233643,2022.405884],
@@ -2124,13 +2121,13 @@ Spade to bury Henry's parents
 "coords": [3656.666992,1656.946289],
 },
 {
-"name": "<span data-i18n='combat_arena'>Combat Arena</span>",
+"name": "<span data-i18n='combat_arena'>Kobyliště</span>",
 "group": "combat_arena",
 "icon": "combat_arena",
 "coords": [2311.021973,2809.260254],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [511.443817,1955.640259],
@@ -2160,7 +2157,7 @@ Spade to bury Henry's parents
 "coords": [3550.469971,2067.456055],
 },
 {
-"name": "<span data-i18n='cave'>Cave</span>",
+"name": "<span data-i18n='cave'>Jeskyně</span>",
 "group": "cave",
 "icon": "cave",
 "coords": [1875.309448,985.811584],
@@ -2172,7 +2169,7 @@ Spade to bury Henry's parents
 "coords": [3222.244385,2013.071045],
 },
 {
-"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Rybářský plácek</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [2317.873047,1367.402954],
@@ -2196,7 +2193,7 @@ Spade to bury Henry's parents
 "coords": [3768.913086,1994.513550],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [2311.524902,1773.411621],
@@ -2214,7 +2211,7 @@ Spade to bury Henry's parents
 "coords": [2927.964355,3613.911621],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [2179.253174,1168.439453],
@@ -2250,13 +2247,13 @@ Spade to bury Henry's parents
 "coords": [2602.547363,178.842316],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [3870.477295,883.446228],
 },
 {
-"name": "<span data-i18n='combat_arena'>Combat Arena</span>",
+"name": "<span data-i18n='combat_arena'>Kobyliště</span>",
 "group": "combat_arena",
 "icon": "combat_arena",
 "coords": [757.950073,3393.668457],
@@ -2268,7 +2265,7 @@ Spade to bury Henry's parents
 "coords": [3258.577393,1826.112305],
 },
 {
-"name": "<span data-i18n='cave'>Cave</span>",
+"name": "<span data-i18n='cave'>Jeskyně</span>",
 "group": "cave",
 "icon": "cave",
 "coords": [3343.041016,443.262573],
@@ -2286,7 +2283,7 @@ Spade to bury Henry's parents
 "coords": [2491.285156,560.880554],
 },
 {
-"name": "<span data-i18n='miller'>Miller</span>",
+"name": "<span data-i18n='miller'>Mlinář</span>",
 "group": "miller",
 "icon": "miller",
 "coords": [2821.937500,1234.331177],
@@ -2436,7 +2433,7 @@ Spade to bury Henry's parents
 "coords": [684.996094,1758.320557],
 },
 {
-"name": "<span data-i18n='alchemy_bench'>Alchemy Bench</span>",
+"name": "<span data-i18n='alchemy_bench'>Alchymistický stůl</span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [3256.170166,1522.979004],
@@ -2461,7 +2458,7 @@ Spade to bury Henry's parents
 "coords": [2082.476563,3519.600098],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [500.794037,2689.343262],
@@ -2491,7 +2488,7 @@ Spade to bury Henry's parents
 "coords": [1758.071899,3877.982422],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [1479.936890,2015.833862],
@@ -2503,7 +2500,7 @@ Spade to bury Henry's parents
 "coords": [401.353973,403.441956],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [412.671356,1231.968506],
@@ -2611,13 +2608,13 @@ Spade to bury Henry's parents
 "coords": [1394.007690,3698.796875],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [1071.604980,1511.026245],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [1156.918579,2953.610107],
@@ -2629,7 +2626,7 @@ Spade to bury Henry's parents
 "coords": [1608.920898,3135.389648],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [499.469025,2183.533447],
@@ -2647,19 +2644,19 @@ Spade to bury Henry's parents
 "coords": [2360.409424,1955.579956],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1184.838379,3608.240234],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [738.494080,3780.848145],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1399.430176,3160.581787],
@@ -2695,19 +2692,19 @@ Spade to bury Henry's parents
 "coords": [1304.730103,3575.337402],
 },
 {
-"name": "<span data-i18n='blacksmith'>blacksmith</span>",
+"name": "<span data-i18n='blacksmith'>Kovář</span>",
 "group": "blacksmith",
 "icon": "blacksmith",
 "coords": [1102.101318,2231.560059],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [1205.746704,3188.979248],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [818.473633,654.106201],
@@ -2755,7 +2752,7 @@ Spade to bury Henry's parents
 "coords": [1277.636108,2993.419189],
 },
 {
-"name": "<span data-i18n='cave'>Cave</span>",
+"name": "<span data-i18n='cave'>Jeskyně</span>",
 "group": "cave",
 "icon": "cave",
 "coords": [3753.061279,2544.739990],
@@ -2779,7 +2776,7 @@ Spade to bury Henry's parents
 "coords": [621.648987,3820.926025],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1311.265503,1850.158081],
@@ -2821,7 +2818,7 @@ Spade to bury Henry's parents
 "coords": [289.437622,1956.107544],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [901.720947,3841.673584],
@@ -2851,7 +2848,7 @@ Spade to bury Henry's parents
 "coords": [3384.359619,621.278320],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1280.584961,718.038208],
@@ -2876,7 +2873,7 @@ Spade to bury Henry's parents
 "coords": [968.831238,3668.485596],
 },
 {
-"name": "<span data-i18n='herbalist'>herbalist</span>",
+"name": "<span data-i18n='herbalist'>Bylinář</span>",
 "group": "herbalist",
 "icon": "herbalist",
 "coords": [2314.842285,3311.461670],
@@ -2919,7 +2916,7 @@ Spade to bury Henry's parents
 },
 {
 
-"name": "<span data-i18n='mine'>Mine</span>",
+"name": "<span data-i18n='mine'>Vchod do dolu</span>",
 "group": "mine",
 "icon": "mine",
 "coords": [982.328857,2668.793213],
@@ -2931,7 +2928,7 @@ Spade to bury Henry's parents
 "coords": [2791.122803,3348.604004],
 },
 {
-"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Rybářský plácek</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [1170.426392,2036.477905],
@@ -2949,7 +2946,7 @@ Spade to bury Henry's parents
 "coords": [1049.351196,3870.582031],
 },
 {
-"name": "<span data-i18n='butcher'>Butcher</span>",
+"name": "<span data-i18n='butcher'>Řezník</span>",
 "group": "butcher",
 "icon": "butcher",
 "coords": [900.181580,1204.259277],
@@ -2979,7 +2976,7 @@ Spade to bury Henry's parents
 "coords": [985.604248,3725.889893],
 },
 {
-"name": "<span data-i18n='cave'>Cave</span>",
+"name": "<span data-i18n='cave'>Jeskyně</span>",
 "group": "cave",
 "icon": "cave",
 "coords": [1660.894897,3285.771973],
@@ -2991,7 +2988,7 @@ Spade to bury Henry's parents
 "coords": [455.284454,3611.978271],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [217.975159,3475.544189],
@@ -3027,7 +3024,7 @@ Spade to bury Henry's parents
 "coords": [690.944641,751.469910],
 },
 {
-"name": "<span data-i18n='grindstone'>Grindstone</span>",
+"name": "<span data-i18n='grindstone'>Brusné kolo</span>",
 "group": "grindstone",
 "icon": "grindstone",
 "coords": [1023.419800,1313.434937],
@@ -3063,7 +3060,7 @@ Spade to bury Henry's parents
 "coords": [578.526550,2934.617432],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [1437.002930,1444.872559],
@@ -3081,7 +3078,7 @@ Spade to bury Henry's parents
 "coords": [942.176331,3116.738037],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1123.817139,2962.400879],
@@ -3099,7 +3096,7 @@ Spade to bury Henry's parents
 "coords": [1422.470703,1535.601563],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [606.554688,2791.814209],
@@ -3124,7 +3121,7 @@ Spade to bury Henry's parents
 },
 {
 
-"name": "<span data-i18n='mine'>Mine</span>",
+"name": "<span data-i18n='mine'>Vchod do dolu</span>",
 "group": "mine",
 "icon": "mine",
 "coords": [552.094788,3222.113770],
@@ -3137,7 +3134,7 @@ Spade to bury Henry's parents
 },
 {
 
-"name": "<span data-i18n='mine'>Mine</span>",
+"name": "<span data-i18n='mine'>Vchod do dolu</span>",
 "group": "mine",
 "icon": "mine",
 "coords": [705.003052,2723.492188],
@@ -3150,13 +3147,13 @@ Spade to bury Henry's parents
 },
 {
 
-"name": "<span data-i18n='mine'>Mine</span>",
+"name": "<span data-i18n='mine'>Vchod do dolu</span>",
 "group": "mine",
 "icon": "mine",
 "coords": [412.883850,3299.285645],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [2131.418945,1291.042114],
@@ -3194,7 +3191,7 @@ Spade to bury Henry's parents
 },
 {
 
-"name": "<span data-i18n='mine'>Mine</span>",
+"name": "<span data-i18n='mine'>Vchod do dolu</span>",
 "group": "mine",
 "icon": "mine",
 "coords": [884.615540,2945.972412],
@@ -3207,7 +3204,7 @@ Spade to bury Henry's parents
 },
 {
 
-"name": "<span data-i18n='mine'>Mine</span>",
+"name": "<span data-i18n='mine'>Vchod do dolu</span>",
 "group": "mine",
 "icon": "mine",
 "coords": [859.313354,2663.604736],
@@ -3232,20 +3229,20 @@ Spade to bury Henry's parents
 "coords": [321.738983,1913.270996],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [817.196472,2558.515625],
 },
 {
 
-"name": "<span data-i18n='mine'>Mine</span>",
+"name": "<span data-i18n='mine'>Vchod do dolu</span>",
 "group": "mine",
 "icon": "mine",
 "coords": [751.556152,3243.532959],
 },
 {
-"name": "<span data-i18n='cave'>Cave</span>",
+"name": "<span data-i18n='cave'>Jeskyně</span>",
 "group": "cave",
 "icon": "cave",
 "coords": [165.592453,1224.943237],
@@ -3264,7 +3261,7 @@ Spade to bury Henry's parents
 },
 {
 
-"name": "<span data-i18n='mine'>Mine</span>",
+"name": "<span data-i18n='mine'>Vchod do dolu</span>",
 "group": "mine",
 "icon": "mine",
 "coords": [1089.735962,2769.016357],
@@ -3289,13 +3286,13 @@ Spade to bury Henry's parents
 },
 {
 
-"name": "<span data-i18n='mine'>Mine</span>",
+"name": "<span data-i18n='mine'>Vchod do dolu</span>",
 "group": "mine",
 "icon": "mine",
 "coords": [295.109650,3350.917969],
 },
 {
-"name": "<span data-i18n='alchemy_bench'>Alchemy Bench</span>",
+"name": "<span data-i18n='alchemy_bench'>Alchymistický stůl</span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [2312.275879,3308.354492],
@@ -3320,7 +3317,7 @@ Spade to bury Henry's parents
 },
 {
 //UNOFFICIAL, MINE ENTRANCE?
-"name": "<span data-i18n='mine'>Mine</span>",
+"name": "<span data-i18n='mine'>Vchod do dolu</span>",
 "group": "mine",
 "icon": "mine",
 "coords": [625.334473,3104.312500],
@@ -3332,14 +3329,14 @@ Spade to bury Henry's parents
 "coords": [2304.757324,2716.864014],
 },
 {
-"name": "<span data-i18n='blacksmith'>blacksmith</span>",
+"name": "<span data-i18n='blacksmith'>Kovář</span>",
 "group": "blacksmith",
 "icon": "blacksmith",
 "coords": [2105.925049,2986.559326],
 },
 {
 
-"name": "<span data-i18n='mine'>Mine</span>",
+"name": "<span data-i18n='mine'>Vchod do dolu</span>",
 "group": "mine",
 "icon": "mine",
 "coords": [1135.702393,2832.732910],
@@ -3351,7 +3348,7 @@ Spade to bury Henry's parents
 "coords": [3445.011475,2714.302246],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [542.866394,3524.053955],
@@ -3393,19 +3390,19 @@ Spade to bury Henry's parents
 "coords": [908.831787,3471.402588],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [511.142670,3469.593018],
 },
 {
-"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Rybářský plácek</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [2355.233643,2709.070557],
 },
 {
-"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Rybářský plácek</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [694.187927,3706.392822],
@@ -3435,13 +3432,13 @@ Spade to bury Henry's parents
 "coords": [853.866699,1874.308350],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [355.190308,1957.720093],
 },
 {
-"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Rybářský plácek</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [751.698425,2467.141846],
@@ -3471,7 +3468,7 @@ Spade to bury Henry's parents
 "coords": [348.612762,1944.514160],
 },
 {
-"name": "<span data-i18n='trader'>Trader</span>",
+"name": "<span data-i18n='trader'>Kupec</span>",
 "group": "trader",
 "icon": "trader",
 "coords": [914.022034,1419.147827],
@@ -3483,19 +3480,19 @@ Spade to bury Henry's parents
 "coords": [2792.712158,1257.559326],
 },
 {
-"name": "<span data-i18n='alchemy_bench'>Alchemy Bench</span>",
+"name": "<span data-i18n='alchemy_bench'>Alchymistický stůl</span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [984.154785,1644.878418],
 },
 {
-"name": "<span data-i18n='horse_trader'>Horse Trader</span>",
+"name": "<span data-i18n='horse_trader'>Koňský handléř</span>",
 "group": "horse_trader",
 "icon": "horse_trader",
 "coords": [3191.401611,3005.828369],
 },
 {
-"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Rybářský plácek</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [1179.208618,1126.973877],
@@ -3513,7 +3510,7 @@ Spade to bury Henry's parents
 "coords": [1129.271851,1667.223999],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [1179.047852,2008.496582],
@@ -3537,7 +3534,7 @@ Spade to bury Henry's parents
 "coords": [1216.665527,1935.329224],
 },
 {
-"name": "<span data-i18n='cobbler'>Cobbler</span>",
+"name": "<span data-i18n='cobbler'>Švec</span>",
 "group": "cobbler",
 "icon": "cobbler",
 "coords": [2681.631592,610.337402],
@@ -3585,13 +3582,13 @@ Spade to bury Henry's parents
 "coords": [1578.983643,1860.100952],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1448.298706,1654.439331],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [1442.318726,1521.153931],
@@ -3603,13 +3600,13 @@ Spade to bury Henry's parents
 "coords": [2762.405762,2504.506348],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [1078.129517,1674.936523],
 },
 {
-"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Rybářský plácek</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [1583.692871,1896.262085],
@@ -3663,13 +3660,13 @@ Spade to bury Henry's parents
 "coords": [756.796509,1178.119629],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [209.524506,1982.508179],
 },
 {
-"name": "<span data-i18n='cave'>Cave</span>",
+"name": "<span data-i18n='cave'>Jeskyně</span>",
 "group": "cave",
 "icon": "cave",
 "coords": [644.151245,1920.241699],
@@ -3693,7 +3690,7 @@ Spade to bury Henry's parents
 "coords": [856.468628,2594.718750],
 },
 {
-"name": "<span data-i18n='blacksmith'>blacksmith</span>",
+"name": "<span data-i18n='blacksmith'>Kovář</span>",
 "group": "blacksmith",
 "icon": "blacksmith",
 "coords": [2134.934814,1188.944946],
@@ -3711,7 +3708,7 @@ Spade to bury Henry's parents
 "coords": [537.050842,1037.446289],
 },
 {
-"name": "<span data-i18n='cave'>Cave</span>",
+"name": "<span data-i18n='cave'>Jeskyně</span>",
 "group": "cave",
 "icon": "cave",
 "coords": [273.260040,1228.820068],
@@ -3723,7 +3720,7 @@ Spade to bury Henry's parents
 "coords": [2770.327393,3854.257813],
 },
 {
-"name": "<span data-i18n='butcher'>Butcher</span>",
+"name": "<span data-i18n='butcher'>Řezník</span>",
 "group": "butcher",
 "icon": "butcher",
 "coords": [2519.085449,586.373779],
@@ -3735,7 +3732,7 @@ Spade to bury Henry's parents
 "coords": [1836.562500,1408.155273],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [482.869781,1239.376221],
@@ -3753,13 +3750,13 @@ Spade to bury Henry's parents
 "coords": [649.526001,1173.925903],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [2545.146484,2912.907471],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [814.462769,1300.120239],
@@ -3795,7 +3792,7 @@ Spade to bury Henry's parents
 "coords": [3460.616455,499.774841],
 },
 {
-"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Rybářský plácek</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [2417.741699,2427.091797],
@@ -3807,7 +3804,7 @@ Spade to bury Henry's parents
 "coords": [571.211609,1171.820068],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [631.010803,1122.230347],
@@ -3819,7 +3816,7 @@ Spade to bury Henry's parents
 "coords": [2819.578613,2786.989502],
 },
 {
-"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Rybářský plácek</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [758.761353,1390.114868],
@@ -3837,13 +3834,13 @@ Spade to bury Henry's parents
 "coords": [2177.136230,1109.642090],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [957.933655,1378.678467],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [856.424194,1337.888062],
@@ -3867,7 +3864,7 @@ Spade to bury Henry's parents
 "coords": [922.934082,1739.812256],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1020.312317,1479.804199],
@@ -3891,13 +3888,13 @@ Spade to bury Henry's parents
 "coords": [947.315552,1818.303345],
 },
 {
-"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Rybářský plácek</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [1061.191162,1486.582031],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [731.147949,1483.072388],
@@ -3915,7 +3912,7 @@ Spade to bury Henry's parents
 "coords": [684.818909,1686.363403],
 },
 {
-"name": "<span data-i18n='baths'>Baths</span>",
+"name": "<span data-i18n='baths'>Lázně</span>",
 "group": "baths",
 "icon": "baths",
 "skillbook": [
@@ -3944,7 +3941,7 @@ Spade to bury Henry's parents
 "coords": [3526.082764,2884.937988],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [382.434723,1814.287231],
@@ -3968,7 +3965,7 @@ Spade to bury Henry's parents
 "coords": [228.573563,1704.016846],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [306.540497,1411.838501],
@@ -3992,7 +3989,7 @@ Spade to bury Henry's parents
 "coords": [2076.575928,582.193970],
 },
 {
-"name": "<span data-i18n='blacksmith'>blacksmith</span>",
+"name": "<span data-i18n='blacksmith'>Kovář</span>",
 "group": "blacksmith",
 "icon": "blacksmith",
 "coords": [2673.670166,656.943420],
@@ -4016,13 +4013,13 @@ Spade to bury Henry's parents
 "coords": [593.276123,1809.616333],
 },
 {
-"name": "<span data-i18n='cave'>Cave</span>",
+"name": "<span data-i18n='cave'>Jeskyně</span>",
 "group": "cave",
 "icon": "cave",
 "coords": [182.948746,1431.496582],
 },
 {
-"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Rybářský plácek</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [330.448242,1554.151367],
@@ -4040,7 +4037,7 @@ Spade to bury Henry's parents
 "coords": [2088.225098,2052.519287],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [2452.028564,2120.221191],
@@ -4082,7 +4079,7 @@ Spade to bury Henry's parents
 "coords": [2674.629883,1745.638916],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1610.066650,1948.363037],
@@ -4118,7 +4115,7 @@ Spade to bury Henry's parents
 "coords": [1842.765869,1287.193237],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [341.009583,761.457153],
@@ -4148,7 +4145,7 @@ Spade to bury Henry's parents
 "coords": [1820.663940,1127.453979],
 },
 {
-"name": "<span data-i18n='tanner'>Tanner</span>",
+"name": "<span data-i18n='tanner'>Koželouh</span>",
 "group": "tanner",
 "icon": "tanner",
 "coords": [712.604797,1122.958130],
@@ -4196,19 +4193,19 @@ Spade to bury Henry's parents
 "coords": [1706.896240,1224.442261],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1685.630127,938.911682],
 },
 {
-"name": "<span data-i18n='cave'>Cave</span>",
+"name": "<span data-i18n='cave'>Jeskyně</span>",
 "group": "cave",
 "icon": "cave",
 "coords": [1410.355713,1203.896240],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [3305.870117,2591.560303],
@@ -4232,7 +4229,7 @@ Spade to bury Henry's parents
 "coords": [2074.861084,1420.755859],
 },
 {
-"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Rybářský plácek</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [1945.183228,1223.881104],
@@ -4262,7 +4259,7 @@ Spade to bury Henry's parents
 "coords": [2463.264160,1461.837646],
 },
 {
-"name": "<span data-i18n='cave'>Cave</span>",
+"name": "<span data-i18n='cave'>Jeskyně</span>",
 "group": "cave",
 "icon": "cave",
 "coords": [1639.980591,2040.110474],
@@ -4292,7 +4289,7 @@ Spade to bury Henry's parents
 "coords": [2352.951660,1507.841187],
 },
 {
-"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Rybářský plácek</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [971.729675,741.435608],
@@ -4346,7 +4343,7 @@ Spade to bury Henry's parents
 "coords": [2460.660645,1390.337646],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [2330.096436,1337.472778],
@@ -4358,7 +4355,7 @@ Spade to bury Henry's parents
 "coords": [1120.906616,736.895569],
 },
 {
-"name": "<span data-i18n='archery_range'>Archery Range</span>",
+"name": "<span data-i18n='archery_range'>Lukostřelnice</span>",
 "group": "archery_range",
 "icon": "archery_range",
 "coords": [1465.079346,2741.844238],
@@ -4406,7 +4403,7 @@ Spade to bury Henry's parents
 "coords": [2271.357422,815.785706],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [2680.993652,864.313782],
@@ -4436,7 +4433,7 @@ Spade to bury Henry's parents
 "coords": [462.802246,666.661560],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [1873.596802,623.772339],
@@ -4448,7 +4445,7 @@ Spade to bury Henry's parents
 "coords": [329.715332,1009.723572],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [2232.561768,778.343079],
@@ -4460,7 +4457,7 @@ Spade to bury Henry's parents
 "coords": [3603.499023,715.825745],
 },
 {
-"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Rybářský plácek</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [264.314148,894.982727],
@@ -4478,7 +4475,7 @@ Spade to bury Henry's parents
 "coords": [330.396393,591.788574],
 },
 {
-"name": "<span data-i18n='grindstone'>Grindstone</span>",
+"name": "<span data-i18n='grindstone'>Brusné kolo</span>",
 "group": "grindstone",
 "icon": "grindstone",
 "coords": [997.567627,1326.170166],
@@ -4496,13 +4493,13 @@ Spade to bury Henry's parents
 "coords": [237.280518,557.770386],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1163.440674,412.835052],
 },
 {
-"name": "<span data-i18n='cave'>Cave</span>",
+"name": "<span data-i18n='cave'>Jeskyně</span>",
 "group": "cave",
 "icon": "cave",
 "coords": [873.548645,271.076141],
@@ -4544,7 +4541,7 @@ Spade to bury Henry's parents
 "coords": [925.536377,410.343842],
 },
 {
-"name": "<span data-i18n='weaponsmith'>Weaponsmith</span>",
+"name": "<span data-i18n='weaponsmith'>Zbrojíř</span>",
 "group": "weaponsmith",
 "icon": "weaponsmith",
 "coords": [1032.124390,1328.757935],
@@ -4604,7 +4601,7 @@ Spade to bury Henry's parents
 "coords": [1376.516724,970.463928],
 },
 {
-"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Rybářský plácek</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [1847.307129,733.316040],
@@ -4616,13 +4613,13 @@ Spade to bury Henry's parents
 "coords": [1721.831055,778.482666],
 },
 {
-"name": "<span data-i18n='grindstone'>Grindstone</span>",
+"name": "<span data-i18n='grindstone'>Brusné kolo</span>",
 "group": "grindstone",
 "icon": "grindstone",
 "coords": [2133.024170,1181.785889],
 },
 {
-"name": "<span data-i18n='grindstone'>Grindstone</span>",
+"name": "<span data-i18n='grindstone'>Brusné kolo</span>",
 "group": "grindstone",
 "icon": "grindstone",
 "coords": [964.236755,1578.001709],
@@ -4646,7 +4643,7 @@ Spade to bury Henry's parents
 "coords": [1406.570923,816.691101],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [2974.416748,1023.781616],
@@ -4658,7 +4655,7 @@ Spade to bury Henry's parents
 "coords": [3668.231934,640.603760],
 },
 {
-"name": "<span data-i18n='grindstone'>Grindstone</span>",
+"name": "<span data-i18n='grindstone'>Brusné kolo</span>",
 "group": "grindstone",
 "icon": "grindstone",
 "coords": [1098.466431,2233.938477],
@@ -4688,13 +4685,13 @@ Spade to bury Henry's parents
 "coords": [3095.046387,2531.830078],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [3672.832764,3296.646729],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [2798.339844,337.530579],
@@ -4730,7 +4727,7 @@ Spade to bury Henry's parents
 "coords": [3734.422852,904.408875],
 },
 {
-"name": "<span data-i18n='apothecary'>Apothecary</span>",
+"name": "<span data-i18n='apothecary'>Aptikář</span>",
 "group": "apothecary",
 "icon": "apothecary",
 "coords": [2505.503418,560.822388],
@@ -4754,7 +4751,7 @@ Spade to bury Henry's parents
 "coords": [2522.886230,977.691223],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [987.108826,2560.821045],
@@ -4790,7 +4787,7 @@ Spade to bury Henry's parents
 "coords": [2541.541260,946.466370],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [2975.058594,3767.267578],
@@ -4814,19 +4811,19 @@ Spade to bury Henry's parents
 "coords": [2615.756836,969.276550],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [2475.346436,422.853851],
 },
 {
-"name": "<span data-i18n='herbalist'>herbalist</span>",
+"name": "<span data-i18n='herbalist'>Bylinář</span>",
 "group": "herbalist",
 "icon": "herbalist",
 "coords": [906.989624,1210.120605],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [3070.240723,211.871201],
@@ -4851,7 +4848,7 @@ Spade to bury Henry's parents
 "coords": [2202.301270,662.067810],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [2313.651611,721.008240],
@@ -4887,13 +4884,13 @@ Spade to bury Henry's parents
 "coords": [2104.563232,674.901062],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1987.394165,532.718933],
 },
 {
-"name": "<span data-i18n='archery_range'>Archery Range</span>",
+"name": "<span data-i18n='archery_range'>Lukostřelnice</span>",
 "group": "archery_range",
 "icon": "archery_range",
 "coords": [3688.192383,1659.334229],
@@ -4905,13 +4902,13 @@ Spade to bury Henry's parents
 "coords": [1978.499390,729.512268],
 },
 {
-"name": "<span data-i18n='vegetable_shop'>Vegetable Shop</span>",
+"name": "<span data-i18n='vegetable_shop'>Zelinář</span>",
 "group": "vegetable_shop",
 "icon": "vegetable_shop",
 "coords": [2533.028076,548.499756],
 },
 {
-"name": "<span data-i18n='cave'>Cave</span>",
+"name": "<span data-i18n='cave'>Jeskyně</span>",
 "group": "cave",
 "icon": "cave",
 "coords": [3425.677979,633.197632],
@@ -4923,7 +4920,7 @@ Spade to bury Henry's parents
 "coords": [3683.583984,649.584839],
 },
 {
-"name": "<span data-i18n='vegetable_shop'>Vegetable Shop</span>",
+"name": "<span data-i18n='vegetable_shop'>Zelinář</span>",
 "group": "vegetable_shop",
 "icon": "vegetable_shop",
 "coords": [3031.509033,3330.500977],
@@ -4935,13 +4932,13 @@ Spade to bury Henry's parents
 "coords": [1486.916992,2095.763184],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [3909.730469,573.187012],
 },
 {
-"name": "<span data-i18n='herbalist'>herbalist</span>",
+"name": "<span data-i18n='herbalist'>Bylinář</span>",
 "group": "herbalist",
 "icon": "herbalist",
 "coords": [902.771484,1683.596191],
@@ -4959,13 +4956,13 @@ Spade to bury Henry's parents
 "coords": [3098.576904,1109.197144],
 },
 {
-"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Rybářský plácek</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [2458.522705,815.897034],
 },
 {
-"name": "<span data-i18n='trader'>Trader</span>",
+"name": "<span data-i18n='trader'>Kupec</span>",
 "group": "trader",
 "icon": "trader",
 "coords": [1131.566406,2222.857422],
@@ -5079,7 +5076,7 @@ Spade to bury Henry's parents
 "coords": [2651.786133,2711.425781],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [1099.497559,2289.449463],
@@ -5097,7 +5094,7 @@ Spade to bury Henry's parents
 "coords": [1130.241089,2159.599121],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [1247.147217,2307.260742],
@@ -5139,7 +5136,7 @@ Spade to bury Henry's parents
 "coords": [1631.479980,1897.826782],
 },
 {
-"name": "<span data-i18n='miller'>Miller</span>",
+"name": "<span data-i18n='miller'>Mlinář</span>",
 "group": "miller",
 "icon": "miller",
 "coords": [1612.670044,1845.335693],
@@ -5169,7 +5166,7 @@ Spade to bury Henry's parents
 "coords": [2954.276123,2767.373779],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [768.470581,2571.931641],
@@ -5181,7 +5178,7 @@ Spade to bury Henry's parents
 "coords": [772.394470,2405.230957],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [2026.700562,2516.793945],
@@ -5206,7 +5203,7 @@ Spade to bury Henry's parents
 },
 {
 //Unofficial
-"name": "<span data-i18n='tanner'>Tanner</span>",
+"name": "<span data-i18n='tanner'>Koželouh</span>",
 "group": "tanner",
 "icon": "tanner",
 "coords": [2268.750244,2726.073242],
@@ -5242,13 +5239,13 @@ Spade to bury Henry's parents
 "coords": [886.308960,2520.134521],
 },
 {
-"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Rybářský plácek</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [3284.710449,3260.779297],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1062.634888,2032.688354],
@@ -5260,13 +5257,13 @@ Spade to bury Henry's parents
 "coords": [1038.666382,2179.038086],
 },
 {
-"name": "<span data-i18n='blacksmith'>blacksmith</span>",
+"name": "<span data-i18n='blacksmith'>Kovář</span>",
 "group": "blacksmith",
 "icon": "blacksmith",
 "coords": [1005.561584,1336.691895],
 },
 {
-"name": "<span data-i18n='cave'>Cave</span>",
+"name": "<span data-i18n='cave'>Jeskyně</span>",
 "group": "cave",
 "icon": "cave",
 "coords": [1208.127197,2106.746094],
@@ -5296,7 +5293,7 @@ Spade to bury Henry's parents
 "coords": [936.672058,2331.786621],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [482.938782,2576.287598],
@@ -5314,7 +5311,7 @@ Spade to bury Henry's parents
 "coords": [1875.837524,2857.319580],
 },
 {
-"name": "<span data-i18n='tailor'>Tailor</span>",
+"name": "<span data-i18n='tailor'>Krejčí</span>",
 "group": "tailor",
 "icon": "tailor",
 "coords": [2518.993652,540.462830],
@@ -5380,7 +5377,7 @@ Spade to bury Henry's parents
 "coords": [2042.075317,2825.933594],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [2202.759277,2853.351807],
@@ -5422,7 +5419,7 @@ Spade to bury Henry's parents
 "coords": [2822.739014,2053.732178],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [2473.202637,2380.615234],
@@ -5446,19 +5443,19 @@ Spade to bury Henry's parents
 "coords": [2268.807861,2282.396973],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [2873.639893,2283.024902],
 },
 {
-"name": "<span data-i18n='vegetable_shop'>Vegetable Shop</span>",
+"name": "<span data-i18n='vegetable_shop'>Zelinář</span>",
 "group": "vegetable_shop",
 "icon": "vegetable_shop",
 "coords": [926.714233,1189.069702],
 },
 {
-"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Rybářský plácek</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [2628.812256,3004.440674],
@@ -5476,13 +5473,13 @@ Spade to bury Henry's parents
 "coords": [2711.622559,2383.053955],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [2817.545898,2630.244385],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [2657.025146,2530.027100],
@@ -5506,7 +5503,7 @@ Spade to bury Henry's parents
 "coords": [2943.862793,2476.863037],
 },
 {
-"name": "<span data-i18n='cave'>Cave</span>",
+"name": "<span data-i18n='cave'>Jeskyně</span>",
 "group": "cave",
 "icon": "cave",
 "coords": [2608.426758,2969.121826],
@@ -5518,13 +5515,13 @@ Spade to bury Henry's parents
 "coords": [2495.326904,2818.712891],
 },
 {
-"name": "<span data-i18n='blacksmith'>blacksmith</span>",
+"name": "<span data-i18n='blacksmith'>Kovář</span>",
 "group": "blacksmith",
 "icon": "blacksmith",
 "coords": [962.039734,1584.538330],
 },
 {
-"name": "<span data-i18n='trader'>Trader</span>",
+"name": "<span data-i18n='trader'>Kupec</span>",
 "group": "trader",
 "icon": "trader",
 "coords": [921.481567,1251.930054],
@@ -5560,7 +5557,7 @@ Spade to bury Henry's parents
 "coords": [2717.867920,2782.100342],
 },
 {
-"name": "<span data-i18n='baths'>Baths</span>",
+"name": "<span data-i18n='baths'>Lázně</span>",
 "group": "baths",
 "icon": "baths",
 "coords": [2040.145386,1279.084106],
@@ -5614,7 +5611,7 @@ Spade to bury Henry's parents
 "coords": [3837.621338,3383.555176],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [2254.907227,3534.609863],
@@ -5638,7 +5635,7 @@ Spade to bury Henry's parents
 "coords": [2069.183838,3144.821533],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [1927.953491,3927.078125],
@@ -5668,7 +5665,7 @@ Spade to bury Henry's parents
 "coords": [1958.033325,3920.645752],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [2402.601318,3651.181152],
@@ -5686,7 +5683,7 @@ Spade to bury Henry's parents
 "coords": [2460.353271,3856.896729],
 },
 {
-"name": "<span data-i18n='herbalist'>herbalist</span>",
+"name": "<span data-i18n='herbalist'>Bylinář</span>",
 "group": "herbalist",
 "icon": "herbalist",
 "coords": [942.755310,1636.723633],
@@ -5722,7 +5719,7 @@ Spade to bury Henry's parents
 "coords": [2773.617920,3612.769531],
 },
 {
-"name": "<span data-i18n='alchemy_bench'>Alchemy Bench</span>",
+"name": "<span data-i18n='alchemy_bench'>Alchymistický stůl</span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [899.154175,1682.904419],
@@ -5734,13 +5731,13 @@ Spade to bury Henry's parents
 "coords": [2669.946533,3427.561523],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [2875.781494,3498.310547],
 },
 {
-"name": "<span data-i18n='miller'>Miller</span>",
+"name": "<span data-i18n='miller'>Mlinář</span>",
 "group": "miller",
 "icon": "miller",
 "coords": [1044.704102,1578.023560],
@@ -5770,7 +5767,7 @@ Spade to bury Henry's parents
 "coords": [2983.227051,2844.747803],
 },
 {
-"name": "<span data-i18n='horse_trader'>Horse Trader</span>",
+"name": "<span data-i18n='horse_trader'>Koňský handléř</span>",
 "group": "horse_trader",
 "icon": "horse_trader",
 "coords": [3550.236572,1516.105225],
@@ -5818,8 +5815,8 @@ Spade to bury Henry's parents
 "coords": [3390.453857,2525.539063],
 },
 {
-"name": "<span data-i18n='herbalist'>herbalist</span>",
-"desc": "Book Grasses and Herbs",
+"name": "<span data-i18n='herbalist'>Bylinář</span>",
+"desc": "Kniha Trávy a Byliny",
 "group": "herbalist",
 "icon": "herbalist",
 "items": ["book_herbalism"],
@@ -5832,7 +5829,7 @@ Spade to bury Henry's parents
 "coords": [3799.310791,3953.607178],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [3159.344482,3837.271240],
@@ -5856,7 +5853,7 @@ Spade to bury Henry's parents
 "coords": [2896.864014,3943.441162],
 },
 {
-"name": "<span data-i18n='grave'>Grave</span>",
+"name": "<span data-i18n='grave'>Hrob</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [2750.055176,3838.657471],
@@ -5869,7 +5866,7 @@ Spade to bury Henry's parents
 },
 
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [3074.350342,3195.428711],
@@ -5893,7 +5890,7 @@ Spade to bury Henry's parents
 "coords": [3147.424072,3114.120117],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [3538.330322,3651.628906],
@@ -5923,7 +5920,7 @@ Spade to bury Henry's parents
 "coords": [3298.121826,3461.272461],
 },
 {
-"name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
+"name": "<span data-i18n='fish_trap'>Rybářská past</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [3426.825928,3374.313477],
@@ -5965,43 +5962,43 @@ Spade to bury Henry's parents
 "coords": [475.824554,886.099609],
 },
 {
-"name": "<span data-i18n='trader'>Trader</span>",
+"name": "<span data-i18n='trader'>Kupec</span>",
 "group": "trader",
 "icon": "trader",
 "coords": [776.836365,3505.333252],
 },
 {
-"name": "<span data-i18n='tailor'>Tailor</span>",
+"name": "<span data-i18n='tailor'>Krejčí</span>",
 "group": "tailor",
 "icon": "tailor",
 "coords": [900.151062,1159.664673],
 },
 {
-"name": "<span data-i18n='butcher'>Butcher</span>",
+"name": "<span data-i18n='butcher'>Řezník</span>",
 "group": "butcher",
 "icon": "butcher",
 "coords": [3161.158447,3103.759033],
 },
 {
-"name": "<span data-i18n='grindstone'>Grindstone</span>",
+"name": "<span data-i18n='grindstone'>Brusné kolo</span>",
 "group": "grindstone",
 "icon": "grindstone",
 "coords": [2675.500977,666.291626],
 },
 {
-"name": "<span data-i18n='grindstone'>Grindstone</span>",
+"name": "<span data-i18n='grindstone'>Brusné kolo</span>",
 "group": "grindstone",
 "icon": "grindstone",
 "coords": [2110.210205,2987.591309],
 },
 {
-"name": "<span data-i18n='grindstone'>Grindstone</span>",
+"name": "<span data-i18n='grindstone'>Brusné kolo</span>",
 "group": "grindstone",
 "icon": "grindstone",
 "coords": [2539.524170,542.169495],
 },
 {
-"name": "<span data-i18n='tanner'>Tanner</span>",
+"name": "<span data-i18n='tanner'>Koželouh</span>",
 "group": "tanner",
 "icon": "tanner",
 "coords": [2101.532959,1191.532959],
@@ -6019,7 +6016,7 @@ Spade to bury Henry's parents
 "coords": [2270.153564,2599.441406],
 },
 {
-"name": "<span data-i18n='blacksmith'>blacksmith</span>",
+"name": "<span data-i18n='blacksmith'>Kovář</span>",
 "group": "blacksmith",
 "icon": "blacksmith",
 "coords": [799.827637,3488.452148],
@@ -6031,7 +6028,7 @@ Spade to bury Henry's parents
 "coords": [2682.136475,2934.708984],
 },
 {
-"name": "<span data-i18n='alchemy_bench'>Alchemy Bench</span>",
+"name": "<span data-i18n='alchemy_bench'>Alchymistický stůl</span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [1965.719116,1611.107544],
@@ -6043,13 +6040,13 @@ Spade to bury Henry's parents
 "coords": [676.527283,1867.391113],
 },
 {
-"name": "<span data-i18n='vegetable_shop'>Vegetable Shop</span>",
+"name": "<span data-i18n='vegetable_shop'>Zelinář</span>",
 "group": "vegetable_shop",
 "icon": "vegetable_shop",
 "coords": [2561.465576,604.381287],
 },
 {
-"name": "<span data-i18n='baths'>Baths</span>",
+"name": "<span data-i18n='baths'>Lázně</span>",
 "group": "baths",
 "icon": "baths",
 "coords": [2400.321777,2821.425293],
@@ -6061,13 +6058,13 @@ Spade to bury Henry's parents
 "coords": [3266.503418,2137.097168],
 },
 {
-"name": "<span data-i18n='archery_range'>Archery Range</span>",
+"name": "<span data-i18n='archery_range'>Lukostřelnice</span>",
 "group": "archery_range",
 "icon": "archery_range",
 "coords": [2692.423340,659.281738],
 },
 {
-"name": "<span data-i18n='tanner'>Tanner</span>",
+"name": "<span data-i18n='tanner'>Koželouh</span>",
 "group": "tanner",
 "icon": "tanner",
 "coords": [2405.327393,673.650269],
@@ -6085,7 +6082,7 @@ Spade to bury Henry's parents
 "coords": [1253.726196,3365.400879],
 },
 {
-"name": "<span data-i18n='butcher'>Butcher</span>",
+"name": "<span data-i18n='butcher'>Řezník</span>",
 "group": "butcher",
 "icon": "butcher",
 "coords": [2056.512939,1359.583008],
@@ -6097,7 +6094,7 @@ Spade to bury Henry's parents
 "coords": [804.057190,2818.599121],
 },
 {
-"name": "<span data-i18n='armourer'>Armourer</span>",
+"name": "<span data-i18n='armourer'>Platnéř</span>",
 "group": "armourer",
 "icon": "armourer",
 "coords": [894.238037,1207.422729],
@@ -6115,7 +6112,7 @@ Spade to bury Henry's parents
 "coords": [1566.662476,3725.468262],
 },
 {
-"name": "<span data-i18n='trader'>Trader</span>",
+"name": "<span data-i18n='trader'>Kupec</span>",
 "group": "trader",
 "icon": "trader",
 "coords": [3017.002197,3332.419922],
@@ -6133,55 +6130,55 @@ Spade to bury Henry's parents
 "coords": [1906.590820,657.247070],
 },
 {
-"name": "<span data-i18n='scribe'>Scribe</span>",
+"name": "<span data-i18n='scribe'>Písař</span>",
 "group": "scribe",
 "icon": "scribe",
 "coords": [2511.755859,554.976807],
 },
 {
-"name": "<span data-i18n='grindstone'>Grindstone</span>",
+"name": "<span data-i18n='grindstone'>Brusné kolo</span>",
 "group": "grindstone",
 "icon": "grindstone",
 "coords": [2678.287109,655.981201],
 },
 {
-"name": "<span data-i18n='miller'>Miller</span>",
+"name": "<span data-i18n='miller'>Mlinář</span>",
 "group": "miller",
 "icon": "miller",
 "coords": [1030.632935,1617.124023],
 },
 {
-"name": "<span data-i18n='combat_arena'>Combat Arena</span>",
+"name": "<span data-i18n='combat_arena'>Kobyliště</span>",
 "group": "combat_arena",
 "icon": "combat_arena",
 "coords": [1432.990845,2710.339355],
 },
 {
-"name": "<span data-i18n='trader'>Trader</span>",
+"name": "<span data-i18n='trader'>Kupec</span>",
 "group": "trader",
 "icon": "trader",
 "coords": [2553.179688,560.262329],
 },
 {
-"name": "<span data-i18n='grindstone'>Grindstone</span>",
+"name": "<span data-i18n='grindstone'>Brusné kolo</span>",
 "group": "grindstone",
 "icon": "grindstone",
 "coords": [2542.266846,530.104980],
 },
 {
-"name": "<span data-i18n='armourer'>Armourer</span>",
+"name": "<span data-i18n='armourer'>Platnéř</span>",
 "group": "armourer",
 "icon": "armourer",
 "coords": [2526.798340,538.196106],
 },
 {
-"name": "<span data-i18n='miller'>Miller</span>",
+"name": "<span data-i18n='miller'>Mlinář</span>",
 "group": "miller",
 "icon": "miller",
 "coords": [3142.090332,603.166992],
 },
 {
-"name": "<span data-i18n='trader'>Trader</span>",
+"name": "<span data-i18n='trader'>Kupec</span>",
 "group": "trader",
 "icon": "trader",
 "coords": [803.001343,3489.748779],
@@ -6193,25 +6190,25 @@ Spade to bury Henry's parents
 "coords": [2599.241943,595.706909],
 },
 {
-"name": "<span data-i18n='trader'>Trader</span>",
+"name": "<span data-i18n='trader'>Kupec</span>",
 "group": "trader",
 "icon": "trader",
 "coords": [2337.676758,2828.733154],
 },
 {
-"name": "<span data-i18n='tailor'>Tailor</span>",
+"name": "<span data-i18n='tailor'>Krejčí</span>",
 "group": "tailor",
 "icon": "tailor",
 "coords": [2032.016724,1322.842041],
 },
 {
-"name": "<span data-i18n='scribe'>Scribe</span>",
+"name": "<span data-i18n='scribe'>Písař</span>",
 "group": "scribe",
 "icon": "scribe",
 "coords": [880.220337,1196.307007],
 },
 {
-"name": "<span data-i18n='weaponsmith'>Weaponsmith</span>",
+"name": "<span data-i18n='weaponsmith'>Zbrojíř</span>",
 "group": "weaponsmith",
 "icon": "weaponsmith",
 "coords": [2541.618408,541.375732],
@@ -6223,31 +6220,31 @@ Spade to bury Henry's parents
 "coords": [2830.649658,2410.163086],
 },
 {
-"name": "<span data-i18n='cobbler'>Cobbler</span>",
+"name": "<span data-i18n='cobbler'>Švec</span>",
 "group": "cobbler",
 "icon": "cobbler",
 "coords": [818.695129,1175.518066],
 },
 {
-"name": "<span data-i18n='grindstone'>Grindstone</span>",
+"name": "<span data-i18n='grindstone'>Brusné kolo</span>",
 "group": "grindstone",
 "icon": "grindstone",
 "coords": [716.852783,3441.747070],
 },
 {
-"name": "<span data-i18n='horse_trader'>Horse Trader</span>",
+"name": "<span data-i18n='horse_trader'>Koňský handléř</span>",
 "group": "horse_trader",
 "icon": "horse_trader",
 "coords": [1625.810913,2668.803955],
 },
 {
-"name": "<span data-i18n='alchemy_bench'>Alchemy Bench</span>",
+"name": "<span data-i18n='alchemy_bench'>Alchymistický stůl</span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [2503.195557,550.376160],
 },
 {
-"name": "<span data-i18n='vegetable_shop'>Vegetable Shop</span>",
+"name": "<span data-i18n='vegetable_shop'>Zelinář</span>",
 "group": "vegetable_shop",
 "icon": "vegetable_shop",
 "coords": [791.529541,3501.307129],
@@ -6260,19 +6257,19 @@ Spade to bury Henry's parents
 "coords": [1091.591553,2768.391113],
 },
 {
-"name": "<span data-i18n='miller'>Miller</span>",
+"name": "<span data-i18n='miller'>Mlinář</span>",
 "group": "miller",
 "icon": "miller",
 "coords": [1602.126343,1840.384766],
 },
 {
-"name": "<span data-i18n='butcher'>Butcher</span>",
+"name": "<span data-i18n='butcher'>Řezník</span>",
 "group": "butcher",
 "icon": "butcher",
 "coords": [926.221924,1301.887451],
 },
 {
-"name": "<span data-i18n='vegetable_shop'>Vegetable Shop</span>",
+"name": "<span data-i18n='vegetable_shop'>Zelinář</span>",
 "group": "vegetable_shop",
 "icon": "vegetable_shop",
 "coords": [913.527527,1216.802979],
@@ -6284,13 +6281,13 @@ Spade to bury Henry's parents
 "coords": [2116.413818,1358.368286],
 },
 {
-"name": "<span data-i18n='archery_range'>Archery Range</span>",
+"name": "<span data-i18n='archery_range'>Lukostřelnice</span>",
 "group": "archery_range",
 "icon": "archery_range",
 "coords": [2066.154053,1249.992676],
 },
 {
-"name": "<span data-i18n='herbalist'>herbalist</span>",
+"name": "<span data-i18n='herbalist'>Bylinář</span>",
 "group": "herbalist",
 "icon": "herbalist",
 "coords": [1968.889160,1612.511963],
@@ -6302,19 +6299,19 @@ Spade to bury Henry's parents
 "coords": [3031.501465,2117.641357],
 },
 {
-"name": "<span data-i18n='herbalist'>herbalist</span>",
+"name": "<span data-i18n='herbalist'>Bylinář</span>",
 "group": "herbalist",
 "icon": "herbalist",
 "coords": [3252.710449,1521.640503],
 },
 {
-"name": "<span data-i18n='baths'>Baths</span>",
+"name": "<span data-i18n='baths'>Lázně</span>",
 "group": "baths",
 "icon": "baths",
 "coords": [956.461670,1317.028076],
 },
 {
-"name": "<span data-i18n='vegetable_shop'>Vegetable Shop</span>",
+"name": "<span data-i18n='vegetable_shop'>Zelinář</span>",
 "group": "vegetable_shop",
 "icon": "vegetable_shop",
 "coords": [1593.583618,2617.298584],
@@ -6326,7 +6323,7 @@ Spade to bury Henry's parents
 "coords": [1317.975586,3330.055664],
 },
 {
-"name": "<span data-i18n='grindstone'>Grindstone</span>",
+"name": "<span data-i18n='grindstone'>Brusné kolo</span>",
 "group": "grindstone",
 "icon": "grindstone",
 "coords": [1437.479248,2754.953369],
@@ -6338,7 +6335,7 @@ Spade to bury Henry's parents
 "coords": [3035.357178,817.997681],
 },
 {
-"name": "<span data-i18n='combat_arena'>Combat Arena</span>",
+"name": "<span data-i18n='combat_arena'>Kobyliště</span>",
 "group": "combat_arena",
 "icon": "combat_arena",
 "coords": [2802.752930,668.953247],
