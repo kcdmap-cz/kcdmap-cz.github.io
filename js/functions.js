@@ -23,11 +23,7 @@ let  map = L.map('map', {
   maxNativeZoom: maxNativeZoom,
   minZoom: mapMinZoom,
   maxZoom: mapMaxZoom,
-  zoomControl: false,
-  fullscreenControl: true,
-  fullscreenControlOptions: {
-    position: 'topright'
-  },
+  zoomControl: false, // the sidebar's own control cluster handles zooming (see js/ui.js)
   crs: L.CRS.MySimple,
   scrollWheelZoom: false, // disable original zoom function
   smoothWheelZoom: true,  // enable smooth zoom 
@@ -57,40 +53,11 @@ window.pixelsToLatLng = function(x, y) {
 
 let  popup = L.popup();
 
-new L.Control.Zoom({position: 'topright'}).addTo(map);
-
-let  sidebar = L.control.sidebar('sidebar').addTo(map);
-
+// The sidebar is plain markup in index.html, driven by js/ui.js. It exposes a
+// sidebar object with open()/close() so the code below keeps working.
 sidebar.open('home');
 
 let  hash = new L.Hash(map);
-
-L.Control.Coordinates.include({
-	_update: function(evt) {
-		let  pos = evt.latlng,
-		opts = this.options;
-		if (pos) {
-			//pos = pos.wrap(); // Remove that instruction
-			this._currentPos = pos;
-			this._inputY.value = L.NumberFormatter.round(pos.lat, opts.decimals, opts.decimalSeperator);
-			this._inputX.value = L.NumberFormatter.round(pos.lng, opts.decimals, opts.decimalSeperator);
-			this._label.innerHTML = this._createCoordinateLabel(pos);
-		}
-	}
-});
-
-L.control.coordinates({
-	position: "bottomright",
-	decimals: 0, //optional default 4
-	decimalSeperator: ".", //optional default "."
-	labelTemplateLat: "Y: {y}", //optional default "Lat: {y}"
-	labelTemplateLng: "X: {x}", //optional default "Lng: {x}"
-	enableUserInput: true, //optional default true
-	useDMS: false, //optional default false
-	useLatLngOrder: false, //ordering of labels, default false -> lng-lat
-	markerType: L.marker, //optional default L.marker
-	markerProps: {} //optional default {}
-}).addTo(map);
 
 // Fix for the 1px white border
 
@@ -128,7 +95,7 @@ for (let  i = 0; i < textMarkers.length; i++) {
   }
   // Add the marker
   let  textMarker = new L.marker(textMarkers[i].coords, { opacity: 0.0, icon: transparentMarker }); //opacity may be set to zero
-  textMarker.bindTooltip(textMarkers[i].name, {permanent: true, direction: "top", className: "text-label", offset: [0, 0] });
+  textMarker.bindTooltip(trI18n(textMarkers[i].name), {permanent: true, direction: "top", className: "text-label", offset: [0, 0] });
   textMarker.addTo(layerGroups.textmarkers); // Adds the text markers to map.
   //layerGroups.textmarkers.addTo(map);
 }
@@ -178,6 +145,69 @@ function getIcon(index) {
   return markerIcon;
 }
 
+/* ══════════════════════════════════════════════
+   ██ LABELS
+   js/markers.js and js/usr_markers.js identify herbs, requirements and lock
+   difficulty by their in-game ids ("belladonna", "lockpicking", "very_hard").
+   Those ids double as the CSS classes behind the little in-game icons, so they
+   must stay English — only the text the visitor actually reads is translated,
+   and that text now lives in the single cs/en dictionary in js/i18n.js.
+   ══════════════════════════════════════════════ */
+
+/* Fallback for an id the dictionary has never heard of: turn the underscores
+   into spaces so a newly added marker shows its id instead of going blank. */
+function  fallbackLabel(id) {
+  return String(id == null ? '' : id).replace(/_/gi, " ");
+}
+
+/* Herbs, requirements and lock levels carry their own id, so they resolve
+   straight from the dictionary. */
+function  idLabel(id) {
+  var  key = String(id == null ? '' : id);
+  var  translated = I18N[currentLang][key];
+  if (typeof translated === "string") return translated;
+  var  fallback = I18N[I18N_DEFAULT][key];
+  if (typeof fallback === "string") return fallback;
+  return fallbackLabel(id);
+}
+
+/* An icon is usually also a category, so fall back through the icon caption and
+   the category caption before giving up. That keeps js/ui.js and the icon picker
+   from drifting apart. */
+function  iconLabel(id) {
+  var  key = String(id == null ? '' : id);
+  if (I18N[currentLang]["icon_" + key]) return t("icon_" + key);
+  if (I18N[currentLang]["cat_" + key]) return t("cat_" + key);
+  var  own = I18N[currentLang][key];
+  if (typeof own === "string") return own;
+  return fallbackLabel(id);
+}
+
+/* Every popup below is generated from the marker data, so its HTML is assembled
+   once with the Czech source strings embedded and translated on the way in. The
+   untranslated markup is kept on the popup object, which is what allows a
+   language switch to repaint a popup that is already open. */
+function  bindTrPopup(marker, html) {
+  var  popup = marker.bindPopup(trI18n(html)).getPopup();
+  popup.__kcdRawHtml = html;
+  marker.on("popupopen", function () {
+    var  p = marker.getPopup();
+    if (p && p.__kcdRawHtml) p.setContent(trI18n(p.__kcdRawHtml));
+  });
+  return marker;
+}
+
+/* Called from js/ui.js when the language changes: repaint the popup that happens
+   to be open right now. Skipped while an add/edit form is filled in, because
+   repainting would throw away what the visitor has typed. */
+function  refreshOpenPopup() {
+  if (typeof map === "undefined" || !map || !map._popup) return;
+  var  popup = map._popup;
+  if (!popup.__kcdRawHtml) return;
+  if (popup._container && popup._container.querySelector(".edit-dialog:not(.hide)")) return;
+  popup.setContent(trI18n(popup.__kcdRawHtml));
+}
+
 // GAME MARKERS
 
 for (let  i = 0; i < markers.length; i++) {
@@ -198,7 +228,7 @@ for (let  i = 0; i < markers.length; i++) {
   let  ilist = "";
   for (let  h in markers[i].kcditems) {
 		let  kcditems =  markers[i].kcditems[h];
-    ilist += '<li><i class="'+ markers[i].kcditems[h].item+'"></i><span class="iname" data-i18n="'+ markers[i].kcditems[h].item+'">'+ markers[i].kcditems[h].item.replace(/_/gi, " ")+'</span><span class="qnt">'+markers[i].kcditems[h].qnt+'</span></li>';
+    ilist += '<li><i class="'+ markers[i].kcditems[h].item+'"></i><span class="iname" data-i18n="'+ markers[i].kcditems[h].item+'">'+ idLabel(markers[i].kcditems[h].item)+'</span><span class="qnt">'+markers[i].kcditems[h].qnt+'</span></li>';
   }
   let  x = (markers[i].coords[1]).toFixed(0);
   let  y = (markers[i].coords[0]).toFixed(0);
@@ -210,7 +240,11 @@ for (let  i = 0; i < markers.length; i++) {
 	markerUrl = encodeURI(markerUrl);
 
   // Add the marker
-  let  marker = L.marker([x, y], {icon: getIcon(i),title: markers[i].group}).bindPopup("<p class='mtitle'>"+markers[i].name + "</p><span class='mdesc'>"+ markers[i].desc +"</span><ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+origin_y+","+origin_x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='copylink'>Copy link</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[markers[i].group]);
+  let  marker = bindTrPopup(L.marker([x, y], {icon: getIcon(i), title: idLabel(markers[i].group)}), "<p class='mtitle'>"+markers[i].name + "</p><span class='mdesc'>"+ markers[i].desc +"</span><ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+origin_y+","+origin_x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext' data-i18n='copylink'>Kopírovat odkaz</span><span class='copiedmsg hide'>Zkopírováno</span></button>").addTo(layerGroups[markers[i].group]);
+  /* The popup HTML is built once at load time, so translate the name, the herbs
+     and the buttons now; refreshOpenPopup() redoes it if the visitor switches
+     language while a popup is open. */
+  marker.getPopup().__kcdHtml = trI18n(marker.getPopup().getContent());
 	globalMarkers.push(marker);
 }
 
@@ -249,11 +283,11 @@ for (let  i = 0; i < usr_markers.length; i++) {
   if (imarkers.req != undefined) {
   imarkers.req = (imarkers.req == undefined) ? "" : imarkers.req;
   imarkers.level = (imarkers.level == undefined) ? "" : imarkers.level;
-    req = '<p class="req" data-i18n="req">Requirements:</p><ul class="ilist"><li><i class="'+imarkers.req+'"></i><span class="iname" data-i18n="'+imarkers.req+'">'+imarkers.req.replace(/_/gi, " ")+'</span><span class="ilevel '+imarkers.level+'" data-i18n="'+imarkers.level+'">'+imarkers.level.replace(/_/gi, " ")+'</span></li>';
+    req = '<p class="req" data-i18n="req">Požadavky:</p><ul class="ilist"><li><i class="'+imarkers.req+'"></i><span class="iname" data-i18n="'+imarkers.req+'">'+idLabel(imarkers.req)+'</span><span class="ilevel '+imarkers.level+'" data-i18n="'+imarkers.level+'">'+idLabel(imarkers.level)+'</span></li>';
   }
   let  ilist = "";
   for (let  c in imarkers.items) {
-    ilist += '<li><i class="'+ imarkers.items[c]+'"></i><span class="iname" data-i18n="'+ imarkers.items[c]+'">'+ imarkers.items[c].replace(/_/gi, " ")+'</span></li>';
+    ilist += '<li><i class="'+ imarkers.items[c]+'"></i><span class="iname" data-i18n="'+ imarkers.items[c]+'">'+ idLabel(imarkers.items[c])+'</span></li>';
   }
 	
   let  x = (imarkers.coords[1]);
@@ -263,7 +297,7 @@ for (let  i = 0; i < usr_markers.length; i++) {
 	markerUrl = encodeURI(markerUrl);
 
   // Add the marker
-  let  marker = L.marker([x, y], {icon: getIconUsr(i), title: imarkers.name}).bindPopup("<p class='mtitle'>"+imarkers.name + "</p><p class='mdesc'>"+ imarkers.desc +"</p><p class='mdesc'>"+ imarkers.desc2 +"</p>"+req+"<ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+y+","+x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='share'>Share</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[imarkers.group]);
+  let  marker = bindTrPopup(L.marker([x, y], {icon: getIconUsr(i), title: plainName(trI18n(imarkers.name))}), "<p class='mtitle'>"+imarkers.name + "</p><p class='mdesc'>"+ imarkers.desc +"</p><p class='mdesc'>"+ imarkers.desc2 +"</p>"+req+"<ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+y+","+x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext' data-i18n='share'>Sdílet</span><span class='copiedmsg hide'>Zkopírováno</span></button>").addTo(layerGroups[imarkers.group]);
 	globalMarkers.push(marker);
 }
 
@@ -290,6 +324,13 @@ function toggleAll(element) {
 				map.removeLayer(layerGroups[keys]);
 			}
 		}
+		// #textmarkers is a master switch, so it isn't part of .markers-list —
+		// but it does own a layer group, so keep it in step with "all markers".
+		let  textBox = document.getElementById('textmarkers');
+		if (textBox) {
+			textBox.checked = element.checked;
+			applyTextMarkers(element.checked);
+		}
 	}
 
 allmarkers.onchange = function() {toggleAll(this)};
@@ -312,17 +353,27 @@ $(allmarkers).click(function(){
 $('.markers-list input').each(function() {
   this.onchange = function() {
     toggle(this, this.id);
-    if (this.id == "textmarkers") {
-      if ($(this.id).is(':checked')) {
-        $('.text-label').css('visibility', 'hidden');
-        $('.text-label.secondary').css('visibility', 'hidden');
-      } else {
-        $('.text-label').css('visibility', 'visible');
-        $('.text-label').css('font-size', '24px');
-        $('.text-label.secondary').css('visibility', 'hidden');
-      }
-    }
   };
+});
+
+// VILLAGE NAMES
+// #textmarkers is a master switch (it sits above the category groups), so it
+// needs its own wiring instead of the .markers-list loop above.
+function applyTextMarkers(isChecked) {
+  if (isChecked) {
+    $('.text-label').css('visibility', 'visible');
+    $('.text-label').css('font-size', '24px');
+    $('.text-label.secondary').css('visibility', 'hidden');
+  } else {
+    $('.text-label').css('visibility', 'hidden');
+    $('.text-label.secondary').css('visibility', 'hidden');
+  }
+}
+
+$('#textmarkers').on('change', function() {
+  let  isChecked = $(this).prop('checked');
+  toggle(this, 'textmarkers');
+  applyTextMarkers(isChecked);
 });
 
 // URL Function
@@ -397,7 +448,7 @@ markers.forEach(function (items) {
   let  marker = L.marker(items.latLng, {
     title: items.name,
     riseOnHover: true
-  }).bindPopup(items.name);
+  });
   // Add each marker to the group
   locatedGroup.addLayer(marker);
   // Save the ID of the marker with it's data
@@ -419,7 +470,7 @@ markers.forEach(function (items) {
       $('#'+items.group).prop('checked', true);
       map.addLayer(layerGroups[items.group]);
 
-      let  locatedMarker = L.marker(items.coords, {icon: locatedMarkerIcon}).bindPopup(items.name + "<br>"+ items.desc).addTo(map);
+      let  locatedMarker = bindTrPopup(L.marker(items.coords, {icon: locatedMarkerIcon}), items.name + "<br>"+ items.desc).addTo(map);
       map.panTo(locatedMarker.getLatLng());
       locatedMarker.openPopup();
       locatedMarker.on('popupclose', function() {
@@ -784,28 +835,28 @@ function initUserLayerGroup() {
 			<p class="mdesc">'+desc+'</p>\
 			<span class="mcoords">X: '+y+' Y: '+x+'</span></div>\
       <span class="markerlink hide">'+markerlink+'</span>\
-      <button class="copymarkerurl"><span class="sharetext" data-i18n="copylink">Copy link</span>\
-      <span class="copiedmsg hide">Copied</span></button>\
-			<button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
+      <button class="copymarkerurl"><span class="sharetext" data-i18n="copylink">Kopírovat odkaz</span>\
+      <span class="copiedmsg hide">Zkopírováno</span></button>\
+			<button class="edit-marker" data-i18n="edit_marker">Upravit štítek</button>\
 			<div id="edit-dialog" class="hide">\
-			<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+			<div class="chooseIcon" data-i18n="choose_icon">Vyberte ikonu:</div>\
 			<div id="iconprev" style="background-image:url(\''+iconUrl+'\')"></div>\
 			<select id="select_icon" name="icon" onchange="iconpref(this.value);">';
       for (let  j in mapMarkers) {
-        popupcontent +='<option value="'+j+'">'+mapMarkers[j].icon.replace(/_/gi, " ")+'</option>';
+        popupcontent +='<option value="'+j+'">'+iconLabel(mapMarkers[j].icon)+'</option>';
       };
       popupcontent = popupcontent+'</select>\
 			<input type="text" id="editedtitle" name="title" value="'+title+'">\
 			<textarea id="editeddesc" name="desc">'+desc+'</textarea>\
-			<button class="cancel" data-i18n="cancel">Cancel</button>\
-			<button class="save-marker" data-i18n="Save">Save</button>\
+			<button class="cancel" data-i18n="cancel">Zrušit</button>\
+			<button class="save-marker" data-i18n="save">Uložit</button>\
 			</div>\
-			<button class="remove-marker" data-i18n="remove_marker">Remove marker</button>\
+			<button class="remove-marker" data-i18n="remove_marker">Smazat štítek</button>\
 			<div id="remove-dialog" class="hide">\
-			<span class="remove-text" data-i18n="remove_text">Are you sure?</span>\
-			<button class="yes" data-i18n="yes">Yes</button>\
-			<button class="no" data-i18n="no">No</button></div>';
-      let  marker = L.marker([x, y], {draggable: false,icon: customIcon}).bindPopup(popupcontent);
+			<span class="remove-text" data-i18n="remove_text">Opravdu chcete štítek smazat?</span>\
+			<button class="yes" data-i18n="yes">Ano</button>\
+			<button class="no" data-i18n="no">Ne</button></div>';
+      let  marker = bindTrPopup(L.marker([x, y], {draggable: false,icon: customIcon}), popupcontent);
 
       marker.on("popupopen", onPopupOpen);
       markersUser.push(marker);
@@ -844,7 +895,11 @@ function iconpref(value) {
 };
 // Change marker name image on select marker
 function titlepref(value) {
-  document.getElementById("titleprev").value = value.replace(/_/gi, " ");
+  /* The option label is the translated icon caption, so take it verbatim
+     instead of re-deriving a name from the icon id — iconLabel() would be
+     handed a caption, miss every lookup and land on fallbackLabel(), which
+     only works by accident until a caption collides with some other key. */
+  document.getElementById("titleprev").value = value;
 };
 
 function removeMarkerE(lat,lon) {
@@ -859,16 +914,16 @@ function removeMarkerE(lat,lon) {
 
 function addMarkerText(lat,long) {
   //console.log(markerIconTypes);
-  let  message = '<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+  let  message = '<div class="chooseIcon" data-i18n="choose_icon">Vyberte ikonu:</div>\
   <div id="iconprev" style="background-image:url(\''+markerIconTypes[0].options.iconUrl+'\')"></div>\
   <form id="addmark" method="post" action="#">\
   <select id="select_icon" name="icon" onchange="iconpref(this.value); titlepref(this.options[this.selectedIndex].innerHTML);">';
   for (let  i in mapMarkers) {
-    message +='<option value="'+i+'">'+mapMarkers[i].icon.replace(/_/gi, " ")+'</option>';
+    message +='<option value="'+i+'">'+iconLabel(mapMarkers[i].icon)+'</option>';
   };
-  message = message+'</select><div class="markertitle" data-i18n="marker_title">Marker Title:</div>\
-  <input type="text" id="titleprev" name="title" value="Arrow">\
-  <div class="markerdesc" data-i18n="marker_desc">Marker Description:</div>\
+  message = message+'</select><div class="markertitle" data-i18n="marker_title">Název štítku:</div>\
+  <input type="text" id="titleprev" name="title" value="'+t('default_icon')+'">\
+  <div class="markerdesc" data-i18n="marker_desc">Popis štítku:</div>\
   <textarea name="desc" onclick="this.value=\'\'; this.onclick = function(){}"></textarea>\
   <table class="coordsinputs">\
   <tr>\
@@ -877,13 +932,13 @@ function addMarkerText(lat,long) {
   </tr>\
   </table>\
   <input type="hidden" name="submit" value="true">\
-  <button type="submit" class="send" data-i18n="add">Add</button>\
+  <button type="submit" class="send" data-i18n="add">Přidat</button>\
   </form>';
   // 
   let  ltn = {};
   ltn.lat = lat;
   ltn.lng = long;
-  popup.setLatLng(ltn).setContent(message).openOn(map);
+  popup.setLatLng(ltn).setContent(trI18n(message)).openOn(map);
   
   // Add the mark
   $('#addmark').submit(function(e){
@@ -921,36 +976,37 @@ function addMarkerText(lat,long) {
     <p class="mdesc">'+getAObj(postData,'desc')+'</p>\
     <span class="mcoords">[ '+getAObj(postData,'mlon')+' , '+getAObj(postData,'mlat')+']</span></div>\
     <span class="markerlink hide">'+markerlink+'</span>\
-    <button class="copymarkerurl"><span class="sharetext" data-i18n="copylink">Copy link</span>\
-    <span class="copiedmsg hide">Copied</span></button>\
-    <button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
+    <button class="copymarkerurl"><span class="sharetext" data-i18n="copylink">Kopírovat odkaz</span>\
+    <span class="copiedmsg hide">Zkopírováno</span></button>\
+    <button class="edit-marker" data-i18n="edit_marker">Upravit štítek</button>\
     <div id="edit-dialog" class="hide">\
-    <div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+    <div class="chooseIcon" data-i18n="choose_icon">Vyberte ikonu:</div>\
     <div id="iconprev" style="background-image:url(\''+markerIconTypes[0].options.iconUrl+'\')"></div>\
     <select id="select_icon" name="icon" onchange="iconpref(this.value);">';
       for (let  i in mapMarkers) {
-      popupcontent +='<option value="'+i+'">'+mapMarkers[i].icon.replace(/_/gi, " ")+'</option>';
+      popupcontent +='<option value="'+i+'">'+iconLabel(mapMarkers[i].icon)+'</option>';
     };
     popupcontent = popupcontent+'</select>\
     <input type="text" id="editedtitle" name="title" value="'+getAObj(postData,'title')+'">\
     <textarea id="editeddesc" name="desc">'+getAObj(postData,'desc')+'</textarea>\
-    <button class="cancel" data-i18n="cancel">Cancel</button>\
-    <button class="save-marker" data-i18n="Save">Save</button>\
+    <button class="cancel" data-i18n="cancel">Zrušit</button>\
+    <button class="save-marker" data-i18n="save">Uložit</button>\
     </div>\
-    <button class="remove-marker" data-i18n="remove_marker">Remove marker</button>\
+    <button class="remove-marker" data-i18n="remove_marker">Smazat štítek</button>\
     <div id="remove-dialog" class="hide">\
-    <span class="remove-text" data-i18n="remove_text">Are you sure?</span>\
-    <button class="yes" data-i18n="yes">Yes</button>\
-    <button class="no" data-i18n="no">No</button></div>'
+    <span class="remove-text" data-i18n="remove_text">Opravdu chcete štítek smazat?</span>\
+    <button class="yes" data-i18n="yes">Ano</button>\
+    <button class="no" data-i18n="no">Ne</button></div>'
     //
     let  newMarker = L.marker({lat: lat, lng: lon},{icon: markerIconTypes[getAObj(postData,"icon")]});
-    newMarker.bindPopup(popupcontent);
+    bindTrPopup(newMarker, popupcontent);
     newMarker.addTo(map);
     newMarker.on("popupopen", onPopupOpen);
     markersUser.push(newMarker);
 		console.log(groupUser);
     groupUser.addLayer(newMarker);
     localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
+    if (typeof userMarkersChanged === 'function') userMarkersChanged();
     map.addLayer(groupUser);
     e.preventDefault();
   });
@@ -992,6 +1048,7 @@ function onPopupOpen(e) {
 				//console.log(storageMarkers[i]);
         storageMarkers.splice(i, 1);
         localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
+    if (typeof userMarkersChanged === 'function') userMarkersChanged();
       }
     }  
     //localStorage.removeItem('userMarkers');
@@ -1048,27 +1105,27 @@ function onPopupOpen(e) {
 <p class="mdesc">'+editeddesc+'</p>\
 <span class="mcoords">[ '+clickedMarkerCoords.lng+' , '+clickedMarkerCoords.lat+']</span></div>\
 <span class="markerlink hide">'+markerlink+'</span>\
-<button class="copymarkerurl"><span class="sharetext" data-i18n="copylink">Copy link</span>\
-<span class="copiedmsg hide">Copied</span></button>\
-<button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
+<button class="copymarkerurl"><span class="sharetext" data-i18n="copylink">Kopírovat odkaz</span>\
+<span class="copiedmsg hide">Zkopírováno</span></button>\
+<button class="edit-marker" data-i18n="edit_marker">Upravit štítek</button>\
 <div id="edit-dialog" class="hide">\
-<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+<div class="chooseIcon" data-i18n="choose_icon">Vyberte ikonu:</div>\
   <div id="iconprev" style="background-image:url(\''+markerIconTypes[0].options.iconUrl+'\')"></div>\
   <select id="select_icon" name="icon" onchange="iconpref(this.value);">';
     for (let  j in mapMarkers) {
-    editedpopup +='<option value="'+j+'">'+mapMarkers[j].icon.replace(/_/gi, " ")+'</option>';
+    editedpopup +='<option value="'+j+'">'+iconLabel(mapMarkers[j].icon)+'</option>';
   };
   editedpopup = editedpopup+'</select>\
 <input type="text" id="editedtitle" name="title" value="'+editedtitle+'">\
 <textarea id="editeddesc" name="desc">'+editeddesc+'</textarea>\
-<button class="cancel" data-i18n="cancel">Cancel</button>\
-<button class="save-marker" data-i18n="Save">Save</button>\
+<button class="cancel" data-i18n="cancel">Zrušit</button>\
+<button class="save-marker" data-i18n="save">Uložit</button>\
 </div>\
-<button class="remove-marker" data-i18n="remove_marker">Remove marker</button>\
+<button class="remove-marker" data-i18n="remove_marker">Smazat štítek</button>\
 <div id="remove-dialog" class="hide">\
-<span class="remove-text" data-i18n="remove_text">Are you sure?</span>\
-<button class="yes" data-i18n="yes">Yes</button><button class="no" data-i18n="no">No</button></div>';
-        popup.setContent(editedpopup);
+<span class="remove-text" data-i18n="remove_text">Opravdu chcete štítek smazat?</span>\
+<button class="yes" data-i18n="yes">Ano</button><button class="no" data-i18n="no">Ne</button></div>';
+        popup.setContent(trI18n(editedpopup));
 
         _this.setIcon(markerIconTypes[editedicon]);
         storageMarkers[i].name = editedtitle;
@@ -1077,6 +1134,7 @@ function onPopupOpen(e) {
         storageMarkers[i].icon = (markerIconTypes[editedicon]);
         storageMarkers[i].iconvalue = editedicon;
         localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
+    if (typeof userMarkersChanged === 'function') userMarkersChanged();
       }
     } 
     popup._close();
@@ -1093,14 +1151,17 @@ $('#usermarkers').click(function(){
 });
 // End toggle user markers */
 
-map.on('click', function (e) {
+// Adding your own marker is a right-click action — a plain left click has to stay
+// free for the markers themselves. Leaflet suppresses the browser menu for us
+// because the map listens for 'contextmenu'.
+map.on('contextmenu', function (e) {
   let  lat = Math.round(e.latlng.lat);
   let  long = Math.round(e.latlng.lng);
   if (long < 0 || long > 4095 || lat < 0 || lat > 4095) {
    console.log("lat: "+lat+ "long: "+long);
   } else {
-    message = '<span class="coordsinfo">X: ' +long+ ' ' + 'Y: ' +lat+ '</span><br><button class="add-marker" data-i18n="add_marker" onclick="addMarkerText('+lat+','+long+')">Add marker</button>';
-    popup.setLatLng(e.latlng).setContent(message).openOn(map);
+    message = '<span class="coordsinfo">X: ' +long+ ' ' + 'Y: ' +lat+ '</span><br><button class="add-marker" data-i18n="add_marker" onclick="addMarkerText('+lat+','+long+')">Přidat štítek</button>';
+    popup.setLatLng(e.latlng).setContent(trI18n(message)).openOn(map);
   }
 });
 
@@ -1122,28 +1183,28 @@ if (sharedMarker != undefined) {
 <p class="mtitle">'+smTitle+'</p>\
 <p class="mdesc">'+smDesc+'</p>\
 <span class="mcoords">X: '+smX+' Y: '+smY+'</span></div>\
-<button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
+<button class="edit-marker" data-i18n="edit_marker">Upravit štítek</button>\
 <div id="edit-dialog" class="hide">\
-<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+<div class="chooseIcon" data-i18n="choose_icon">Vyberte ikonu:</div>\
 <div id="iconprev" style="background-image:url(\''+icoUrl+'\')"></div>\
 <select id="select_icon" name="icon" onchange="iconpref(this.value);">';
   for (let  k in mapMarkers) {
-    popupcontent +='<option value="'+k+'">'+mapMarkers[k].icon.replace(/_/gi, " ")+'</option>';
+    popupcontent +='<option value="'+k+'">'+iconLabel(mapMarkers[k].icon)+'</option>';
   };
   popupcontent = popupcontent+'</select>\
 <input type="text" id="editedtitle" name="title" value="'+smTitle+'">\
 <textarea id="editeddesc" name="desc">'+smDesc+'</textarea>\
-<button class="cancel" data-i18n="cancel">Cancel</button>\
-<button class="save-marker" data-i18n="Save">Save</button>\
+<button class="cancel" data-i18n="cancel">Zrušit</button>\
+<button class="save-marker" data-i18n="save">Uložit</button>\
 </div>\
-<button class="remove-marker" data-i18n="remove_marker">Remove marker</button>\
+<button class="remove-marker" data-i18n="remove_marker">Smazat štítek</button>\
 <div id="remove-dialog" class="hide">\
-<span class="remove-text" data-i18n="remove_text">Are you sure?</span>\
-<button class="yes" data-i18n="yes">Yes</button>\
-<button class="no" data-i18n="no">No</button></div>';
+<span class="remove-text" data-i18n="remove_text">Opravdu chcete štítek smazat?</span>\
+<button class="yes" data-i18n="yes">Ano</button>\
+<button class="no" data-i18n="no">Ne</button></div>';
 
   if ((smY <= mapBounds && smY>0) && (smX<=mapBounds && smX>0)) {
-    let  sm_marker = L.marker([smY,smX], {icon: markerIconTypes[smIcon]}).bindPopup(popupcontent).addTo(map);       
+    let  sm_marker = bindTrPopup(L.marker([smY,smX], {icon: markerIconTypes[smIcon]}), popupcontent).addTo(map);
     map.flyTo(sm_marker.getLatLng(), 4);
     sm_marker.on("popupopen", onPopupOpenShared);
     sm_marker.openPopup();
@@ -1213,25 +1274,25 @@ function onPopupOpenShared() {
         let  editedpopup ='<div class="popcontent"><p class="mtitle">'+editedtitle+'</p>\
 <p class="mdesc">'+editeddesc+'</p>\
 <span class="mcoords">[ '+clickedMarkerCoords.lng+' , '+clickedMarkerCoords.lat+']</span></div>\
-<button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
+<button class="edit-marker" data-i18n="edit_marker">Upravit štítek</button>\
 <div id="edit-dialog" class="hide">\
-<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+<div class="chooseIcon" data-i18n="choose_icon">Vyberte ikonu:</div>\
   <div id="iconprev" style="background-image:url(\''+markerIconTypes[0].options.iconUrl+'\')"></div>\
   <select id="select_icon" name="icon" onchange="iconpref(this.value);">';
     for (let  j in mapMarkers) {
-    editedpopup +='<option value="'+j+'">'+mapMarkers[j].icon.replace(/_/gi, " ")+'</option>';
+    editedpopup +='<option value="'+j+'">'+iconLabel(mapMarkers[j].icon)+'</option>';
   };
   editedpopup = editedpopup+'</select>\
 <input type="text" id="editedtitle" name="title" value="'+editedtitle+'">\
 <textarea id="editeddesc" name="desc">'+editeddesc+'</textarea>\
-<button class="cancel" data-i18n="cancel">Cancel</button>\
-<button class="save-marker" data-i18n="Save">Save</button>\
+<button class="cancel" data-i18n="cancel">Zrušit</button>\
+<button class="save-marker" data-i18n="save">Uložit</button>\
 </div>\
-<button class="remove-marker" data-i18n="remove_marker">Remove marker</button>\
+<button class="remove-marker" data-i18n="remove_marker">Smazat štítek</button>\
 <div id="remove-dialog" class="hide">\
-<span class="remove-text" data-i18n="remove_text">Are you sure?</span>\
-<button class="yes" data-i18n="yes">Yes</button><button class="no" data-i18n="no">No</button></div>';
-        popup.setContent(editedpopup);
+<span class="remove-text" data-i18n="remove_text">Opravdu chcete štítek smazat?</span>\
+<button class="yes" data-i18n="yes">Ano</button><button class="no" data-i18n="no">Ne</button></div>';
+        popup.setContent(trI18n(editedpopup));
     
         storageMarkers.push({
           "coords": {
@@ -1247,6 +1308,7 @@ function onPopupOpenShared() {
 
         _this.setIcon(markerIconTypes[editedicon]);
         localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
+    if (typeof userMarkersChanged === 'function') userMarkersChanged();
 				map.removeLayer(_this);
 				initUserLayerGroup();
     popup._close();
@@ -1265,116 +1327,18 @@ function getFormattedTime() {
 }
 
 
-// Backup Restore 
-$(document).on('click', '.clearls', function() {
-  $(this).addClass('hide');
-  $(this).next('.prompt').removeClass('hide');
-});
-$(document).on('click', '.clearyes', function() {
-  $(this).parent('.prompt').addClass('hide');
-  localStorage.setItem('mapUserMarkers', '[]');
-  map.removeLayer(groupUser);
-  initUserLayerGroup();
-});
-$(document).on('click', '.clearno', function() {
-  $(this).parent('.prompt').addClass('hide');
-});
-
-$('.backupls').on('click', function(e) {
-  let  backup = {};
-  let  mapUserMarkers = localStorage.mapUserMarkers;
-  let  langactive = localStorage.langactive;
-  backup.markers = mapUserMarkers;
-  backup.langactive = langactive;
-
-  let  json = JSON.stringify(backup);
-  let  base = btoa(json);
-  let  href = 'data:text/javascript;charset=utf-8;base64,' + base;
-  let  link = document.createElement('a');
-    link.setAttribute('download', 'kcdmap_'+getFormattedTime()+'.json');
-  link.setAttribute('href', href);
-  document.querySelector('body').appendChild(link);
-  link.click();
-  link.remove();
-});
-
-$('.restorels').on('click', function(e) {
-	let  w = document.createElement('div');
-  w.className = "restoreWindowOverlay";
-  let  t = document.createElement('div');
-  t.className = "restoreWindow";
-  let a = document.createElement('a');
-  a.className = "restoreWindowX";
-  a.appendChild(document.createTextNode('×'));
-  a.setAttribute('href', '#');
-  t.appendChild(a);
-  a.onclick = function() {
-      w.remove();
-  };
-
-  let  l = document.createElement('input');
-  l.setAttribute('type', 'file');
-  l.setAttribute('id', 'fileinput');
-  l.onchange = function(e) {
-			w.remove();
-      let  f = e.target.files[0];
-      if (f) {
-          let  reader = new FileReader();
-          reader.onload = function(e) {
-              let  text = e.target.result;
-            text = JSON.parse(text);
-            localStorage.setItem('mapUserMarkers', text.markers);
-            localStorage.setItem('langactive', text.langactive);
-            initUserLayerGroup();
-              alert('Imported markers from backup.')
-          };
-          reader.readAsText(f);
-      } else {
-        alert('Failed to load file');
-      }
-  };
-  let h3 = document.createElement('h3');
-  h3.className = "restoreTitle";
-  h3.appendChild(document.createTextNode('Select file with backup'));
-  t.appendChild(h3);
-  t.appendChild(l);
-	w.appendChild(t);
-  document.querySelector('body').appendChild(w);
-});
-// End Backup Restore 
+// Backup (export / import / clear) lives in js/ui.js, which is wired to the
+// new backup panel and its dialogs.
 
 
-$('.toggle-title').click(function(){
-		$(this).toggleClass('active');
-		$(this).next('.hidden-content').slideToggle(500);
-	});
-	
-	$('.toggle-content').click(function(){
-		$(this).toggleClass('active');
-		$(this).next('.hidden-content').slideToggle(500);
-	});
-	
-	// Language visual toggle
-	let  langactive = localStorage.getItem('langactive');
-  if (langactive === null) {
-    localStorage.setItem('langactive', "en");
-    $(".langswitch").find(".lang[data-lang='en']").addClass("active");
-    $(".langswitch").find(".lang[data-lang='en']").find(".checkmark").addClass("active");
-  }
-  else {
-    $(".langswitch").find(".lang[data-lang="+langactive+"]").addClass("active");
-    $(".langswitch").find(".lang[data-lang="+langactive+"]").find(".checkmark").addClass("active");
-  }
-  $(".lang").click(function(){
-    localStorage.setItem('langactive', $(this).data("lang"));
-    $(this).parent().find(".lang-text").removeClass("active");
-    $(this).find(".lang-text").addClass("active");
-    $(this).parent().find(".lang").removeClass("active");
-    $(this).addClass("active");
-    $(this).parent().find(".checkmark").removeClass("active");
-    $(this).find(".checkmark").addClass("active");
-  });
-	
+// The old English map wrote its language choice to "langactive", and backups
+// exported before this fork still carry it. Seed it from js/i18n.js (which reads
+// the same key on startup) so an imported backup restores the right language.
+if (localStorage.getItem('langactive') === null) {
+  localStorage.setItem('langactive', getLang());
+}
+
+
 	// Save toggle state
 $('.markers-list input').on('change', function() {
   let  toggled, activemarkers = [];

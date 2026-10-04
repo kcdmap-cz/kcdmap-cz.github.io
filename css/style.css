@@ -1,1290 +1,1668 @@
-body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:13px;}
-body a {text-decoration: none;}
-#map {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background: #fbeece;
-  cursor: crosshair;
-}
-.version {
-  color: #171717;
-  position: absolute;
-  margin: 0;
-  left: 5px;
-  bottom: 10px;
-  font-family: 'MedievalSharpBook';
-  font-weight: bold;
-  font-size: 12px;
-}
-.sidebar.collapsed {
-  width: 41px;
-}
-@media (min-width: 768px) {
-  .sidebar {
-    top: 0px;
-    bottom: 0px;
-    transition: width 500ms;
-    border-radius: 0px; }
-  .sidebar-left {
-    left: 0px; }
-  .sidebar.leaflet-touch {
-    border: none; }
-}
-.sidebar-left .sidebar-tabs {
-  background: #d8c8af;
-  background-image: url(../assets/images/bg.png);
-  border-right: 1px solid #76643e;
-  z-index: 1000;
-}
-.sidebar-pane {
-  padding: 10px 20px 10px 15px;
-}
-.left-arrow {
-  background-image: url(../assets/images/left-arrow.png);
-  background-size: 28px;
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.sidebar-header {
-  margin: -10px -20px 0;
-  height: 40px;
-  padding: 0 20px;
-  line-height: 40px;
-  font-size: 14.4pt;
-  color: #fff;
-  background-color: #11110d;
-}
-.sidebar-content {
-  background: #d8c8af;
-  background-image: url(../assets/images/bg.png);
-  font-family: '1529 Champ Fleury W01 Regular';
-  font-size: 13px;
-  color: #1f201b;
-	border-right: 1px solid #76643e;
-}
-.toggle-title {
-  display: block;
-  margin: 15px 0 0 -20px;
-  font-size: 18px;
-  font-family: 'Roboto';
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #101010;
-  padding: 0px 10px 8px 20px;
-  background-color: #c4c4c4;
-  background-image: url(https://rogerhn.github.io/projects/wildlands/assets/img/dotbg.png);
-  width: 180px;
-  line-height: 25px;
-  position: relative;
-  cursor: pointer;
-}
-.toggle-title:before {
-  content: '';
-  width: 180px;
-  height: 8px;
-  position: absolute;
-  top: -8px;
-  background-image: url(https://rogerhn.github.io/projects/wildlands/assets/img/topborderdot.png);
-  left: 1px;
-}
-.toggle-title:after {
-  content: '';
-  width: 26px;
-  height: 26px;
-  position: absolute;
-  margin-left: 10px;
-  background-image: url(https://rogerhn.github.io/projects/wildlands/assets/img/toggle.png);
-  background-size: 22px;
-  background-repeat: no-repeat;
-  background-position: center 0px;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-  -webkit-transform: rotate(0deg);
-  transform: rotate(0deg);
-}
-.toggle-title.active:after {
-  content: '';
-  width: 26px;
-  height: 26px;
-  position: absolute;
-  background-image: url(https://rogerhn.github.io/projects/wildlands/assets/img/toggle.png);
-  background-size: 22px;
-  background-repeat: no-repeat;
-  background-position: center 0px;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-.list-title {
-	display: block;
-	margin: 0px 10px 0 0px;
-	font-size: 22px;
-	font-family: '1529 Champ Fleury W01 Regular';
-	color: #422500;
-	padding: 0;
-	line-height: 26px;
-	font-weight: bold;
-}
-.user-list,
-.allmarkers-list,
-.markers-list {
-  float: none;
-  border: none;
-  padding: 6px;
-  margin: 0px;
-  display: inline-block;
-  width: 100%;
-}
-.user-list li,
-.allmarkers-list li,
-.markers-list li {
-  display: flex;
-  white-space: normal;
-  width: 100%;
-  overflow: hidden;
-  list-style: none;
-}
-.user-list i,
-.allmarkers-list i,
-.markers-list i {
-  display: flex;
-  flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  float: left;
-  margin-right: 2px;
-  margin-bottom: 5px;
-  margin-top: 4px;
-  line-height: 30px;
-}
-.user-list label,
-.allmarkers-list label,
-.markers-list label {
-  display: flex;
-  align-items: center;
-  font-family: '1529 Champ Fleury W01 Regular';
-  font-size: 16px;
-  color: #1f201b;
-  width: 100%;
-  padding-left: 5px;
-}
-.mtop15px {margin-top: 15px;}
-a.btn {
-  display: flex;
-  align-items: center;
-  margin: 5px 0;
-}
-a.btn:hover .btn-text {
-  background-color: #d0ba69;
-  color: #171717;
-  border: 1px solid #715a32;
-  border-left: none;
-}
-.btn i {
-  display: flex;
-  flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-.btn-text {
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-  color: #171717;
-  background: #eed67d;
-  padding: 5px;
-  width: 100%;
-  border: 1px solid #c09e64;
-  border-left: none;
-  margin-left: -4px;
-}
-.dialog{
-  position: relative;
-}
-.prompt {
-  position: absolute;
-  top: 0;
-  background: #dac5ad;
-  text-align: center;
-  border: 1px solid #76643e;
-  padding: 10px;
-  box-shadow: 0px 3px 1px #76643e;
-}
-.prompt .text {
-  display: block;
-  margin: 0px;
-}
-.prompt .clearyes,
-.prompt .patchyes{
-  display: inline-block;
-  margin: 10px 10px 0 0;
-  background: #456513;
-  width: 50px;
-  border: none;
-  color: #fff;
-}
-.prompt .clearno,
-.prompt .patchno{
-  display: inline-block;
-  margin: 10px 0px 0 0px;
-  background: #F44336;
-  width: 50px;
-  border: none;
-  color: #fff;
-}
-.inventory {background-image: url(../assets/images/inventory.png);}
-.import {background-image: url(../assets/images/import.png);}
-.export {background-image: url(../assets/images/export.png);}
-.erase {background-image: url(../assets/images/erase.png);}
-.player {background-image: url(../assets/images/player64px.png);}
-.allmarkers {background-image: url(../assets/images/allmarkers.png);}
-.cities {background-image: url(../assets/images/cities.png);}
-.fast_travel {background-image: url(../assets/images/fast_travel.png);}
-.fishing_spot {background-image: url(../assets/images/fishing_spot.png);}
-.combat_arena {background-image: url(../assets/images/combat_arena.png);}
-.archery_range {background-image: url(../assets/images/archery_range.png);}
-.baths {background-image: url(../assets/images/baths.png);}
-.camp {background-image: url(../assets/images/camp.png);}
-.bandit_camp {background-image: url(../assets/images/bandit_camp.png);}
-.deer_hunting_spot {background-image: url(../assets/images/deer_hunting_spot.png);}
-.boar_hunting_spot {background-image: url(../assets/images/boar_hunting_spot.png);}
-.fish_trap {background-image: url(../assets/images/fish_trap.png);}
-.beehive {background-image: url(../assets/images/beehive.png);}
-.vegetable_shop {background-image: url(../assets/images/vegetable_shop.png);}
-.woodland_garden {background-image: url(../assets/images/woodland_garden.png);}
-.accident {background-image: url(../assets/images/accident.png);}
-.cave {background-image: url(../assets/images/cave.png);}
-.mine {background-image: url(../assets/images/mine.png);}
-.grave {background-image: url(../assets/images/grave.png);}
-.woodland_garden {background-image: url(../assets/images/woodland_garden.png);}
-.nest {background-image: url(../assets/images/nest.png);}
-.conciliation_cross {background-image: url(../assets/images/conciliation_cross.png);}
-.shrine {background-image: url(../assets/images/shrine.png);}
-.scribe {background-image: url(../assets/images/scribe.png);}
-.baker {background-image: url(../assets/images/baker.png);}
-.tailor {background-image: url(../assets/images/tailor.png);}
-.butcher {background-image: url(../assets/images/butcher.png);}
-.alchemy_bench {background-image: url(../assets/images/alchemy_bench.png);}
-.grindstone {background-image: url(../assets/images/grindstone.png);}
-.trader {background-image: url(../assets/images/trader.png);}
-.blacksmith {background-image: url(../assets/images/blacksmith.png);}
-.armourer {background-image: url(../assets/images/armourer.png);}
-.weaponsmith {background-image: url(../assets/images/weaponsmith.png);}
-.cobbler {background-image: url(../assets/images/cobbler.png);}
-.tavern {background-image: url(../assets/images/tavern.png);}
-.your_bed {background-image: url(../assets/images/your_bed.png);}
-.lodgings {background-image: url(../assets/images/lodgings.png);}
-.apothecary {background-image: url(../assets/images/apothecary.png);}
-.herbalist {background-image: url(../assets/images/herbalist.png);}
-.miller {background-image: url(../assets/images/miller.png);}
-.horse_trader {background-image: url(../assets/images/horse_trader.png);}
-.tanner {background-image: url(../assets/images/tanner.png);}
-.huntsman {background-image: url(../assets/images/huntsman.png);}
-.unknown {background-image: url(../assets/images/unknown.png);}
-.interesting_site {background-image: url(../assets/images/interesting_site.png);}
-.treasure_chest {background-image: url(../assets/images/treasure_chest.png);}
-.treasure_map {background-image: url(../assets/images/treasure_map.png);}
-.spade {background-image: url(../assets/images/spade.png);}
-.lockpicking {background-image: url(../assets/images/lockpicking.png);}
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap');
 
-.belladonna {background-image: url(../assets/images/belladonna.png);}
-.chamomile {background-image: url(../assets/images/chamomile.png);}
-.comfrey {background-image: url(../assets/images/comfrey.png);}
-.dandelion {background-image: url(../assets/images/dandelion.png);}
-.eyebright {background-image: url(../assets/images/eyebright.png);}
-.herb_paris {background-image: url(../assets/images/herb_paris.png);}
-.marigold {background-image: url(../assets/images/marigold.png);}
-.mint {background-image: url(../assets/images/mint.png);}
-.nettle {background-image: url(../assets/images/nettle.png);}
-.poppy {background-image: url(../assets/images/poppy.png);}
-.sage {background-image: url(../assets/images/sage.png);}
-.st_johns_wort {background-image: url(../assets/images/st_johns_wort.png);}
-.thistle {background-image: url(../assets/images/thistle.png);}
-.valerian {background-image: url(../assets/images/valerian.png);}
-.wormwood {background-image: url(../assets/images/wormwood.png);}
-.book_vitality {background-image: url(../assets/images/book_herbalism.png);}
-.book_herbalism {background-image: url(../assets/images/book_herbalism.png);}
-.book_lockpicking {background-image: url(../assets/images/book_lockpicking.png);}
+  :root {
+    --bg-dark: #1a1714;
+    --bg-panel: #23201b;
+    --bg-hover: #2e2a24;
+    --bg-active: #3a342c;
+    --border: #3d3630;
+    --border-light: #554d43;
+    --text-primary: #e8dcc8;
+    --text-secondary: #a89b88;
+    --text-muted: #968b78;          /* lightened from #746a5c → ~4.8:1 on panel (WCAG AA) */
+    --accent: #c9a84c;
+    --label-gold: #e8d5a3;          /* settlement-name gold (was a hard-coded one-off) */
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", "Segoe UI Mono", Menlo, Consolas, monospace;
+    --accent-hover: #ddb94f;
+    --accent-dim: #a08535;
+    --ember: #e07b39;               /* distinct warm accent — collapse carets */
+    --ember-hover: #f2954f;
+    --halo: #6db3ff;                /* marker highlight glow (audit-tuned lighter blue) */
+    --halo-bright: #8fc4ff;         /* halo on hover */
+    --danger: #c95a54;              /* brightened from #b34444 → clears the 3:1 UI bar */
+    --danger-rgb: 201, 90, 84;      /* == --danger (#c95a54), for translucent danger fills */
+    --success: #5a9e4b;
+    --scrollbar-thumb: #4a4238;
+    --scrollbar-track: #1a1714;
+  }
 
-.amanita {background-image: url(../assets/images/fly_agaric.png);}
-.dandelion {background-image: url(../assets/images/dandelion.png);}
-.herb_paris {background-image: url(../assets/images/herb_paris.png);}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-.cc {
-  opacity: 0;
-  position: absolute;
-  width: 46px;
-  height: 45px;
-  margin: 0 15px 0 0;
-  right: 0px; 
-}
-.cc, .cl {
-  display: inline-block;
-  cursor: pointer;
-}
-.cl {
-  position: relative;
-}
-.cl::-moz-selection { background: transparent; }
-.cl::selection { background: transparent; }
-.cc + .cl:after {
-  content: '';
-  background-image: url('../assets/images/hide.png');
-  background-position: center;
-  background-size: auto 100%;
-  width: 22px;
-  height: 22px;
-  background-repeat: no-repeat;
-  display: inline-block;
-  padding: 2px;
-  right: 10px;
-  text-align: center;
-  vertical-align: top;
-  position: absolute;
-}
-.cc:checked + .cl:after {
-  background-image: url('../assets/images/eye.png');
-}
-.cc:focus + .cl {
-  outline: none; /* focus style */
-}
-.item-title {
-  background: #d39e35;
-  margin: 10px 0px 5px -15px;
-  padding: 2px 15px;
-  font-size: 15px;
-  color: #101010;
-  font-weight: bold;
-  font-family: 'Roboto';
-}
-.items-list {
-  float: none;
-  border: none;
-  padding: 0px;
-  margin: 0px;
-  display: inline-block;
-}
-.items-list li {
-  line-height: 18px;
-  white-space: normal;
-  width: 100%;
-  overflow: hidden;
-  float: left;
-  list-style: none;
-}
-.toggle-content.title {
-  display: block;
-  background: #d39e35;
-  margin: 10px 0px 5px 0px;
-  padding: 2px 15px;
-  font-size: 15px;
-  color: #101010;
-  font-weight: bold;
-  font-family: 'Roboto';
-  left: -15px;
-  position: relative;
-  cursor: pointer;
-}
-.toggle-content.title:after {
-  content: '';
-  width: 18px;
-  height: 18px;
-  position: absolute;
-  margin-left: 10px;
-  background-image: url(https://rogerhn.github.io/projects/wildlands/assets/img/toggle.png);
-  background-size: 18px;
-  background-repeat: no-repeat;
-  background-position: center 0px;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-  -webkit-transform: rotate(0deg);
-  transform: rotate(0deg);
-}
-.toggle-content.title.active:after {
-  content: '';
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-a.locate {
-  display: inline-block;
-  font-family: 'Roboto';
-  font-size: 13px;
-  color: #e19f28;
-  text-decoration: none;
-}
-a.locate.sidebar-close {
-  position: relative;
-  width: auto;
-  height: auto;
-}
-.text {
-  font-family: '1529 Champ Fleury W01 Regular';
-  color: #1f201b;
-  font-size: 14px;
-  margin:5px 10px 10px;
-}
-.update h3 {
-	margin: 10px 15px 10px;
-	display: inline-block;
-	font-size: 17px;
-	color: #6d0809;
-}
-.updateday {
-	font-family: Consolas;
-	font-weight: bold;
-	color: #1f201b;
-	font-size: 11px;
-}
-.update .text {
-  font-family: Consolas;
-  color: #1f201b;
-  font-size: 13px;
-  margin:5px 0;
-}
-.update i {
-    width: 36px;
-    height: 36px;
-    display: inline-block;
-    background-size: contain;
-}
-.update-list {
-	margin: 5px 0;
-	padding: 0;
-	list-style: none;
-}
-.update-list li {
-	padding-left: 20px;
-	position: relative;
-}
-.update-list li:before {
-	content: "";
-	width: 16px;
-	height: 16px;
-	background-image: url(../assets/images/lvlupstar.png);
-	background-size: contain;
-	background-repeat: no-repeat;
-	position: absolute;
-	left: 0;
-}
+  body {
+    font-family: 'Source Sans 3', -apple-system, sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+  }
 
-.legalinfo {
-    margin: 10px 0;
-    text-align: center;
-}
-.legalinfo .text.creator {
-font-size: 15px;
-}
-.legalinfo .text {
-	font-family: '1529 Champ Fleury W01 Regular';
-	color: #1f201b;
-}
-.sidebar-pane .text a.link {
-	font-family: '1529 Champ Fleury W01 Regular';
-	color: #1f201b;
-	text-decoration: underline;
-}
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+  ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
 
-.hidden-content {display: none;}
+  /* Respect users who prefer reduced motion: drop transitions/animations. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--border-light); }
 
-ul.ilist {
-  list-style: none;
-	margin: 0;
-	padding: 0;
-	display: block;
-}
-ul.ilist li {
-	display: flex;
-}
-.ilist i {
-	display: flex;
-	width: 32px;
-	height: 32px;
-	background-size: contain;
-}
-.ilist .iname,
-.ilist .ilevel {
-	display: flex;
-	align-items: center;
-	text-transform: capitalize;
-	text-align: left;
-	font-size: 14px;
-	margin-left: 10px;
-}
-.ilevel.easy {
-	color: #008000;
-}
-.ilevel.hard {
-	color: #ff6600;
-}
-.ilevel.very_hard {
-	color: #ce0000;
-}
-.ilist .qnt {
-	display: flex;
-	align-items: center;
-	text-align: left;
-	font-size: 13px;
-	margin-left: 10px;
-	font-family: 'MedievalSharpBook';
-	color: #4c2900;
-	font-weight: bold;
-	margin-top: 3px;
-}
-p.req {
-	color: #4c2900;
-	margin: 5px 0;
-	padding: 0;
-	text-align: left;
-}
+  /* ── Sidebar ── */
+  #sidebar {
+    width: 300px;
+    min-width: 300px;
+    height: 100vh;
+    background: var(--bg-panel);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: row;
+    z-index: 1000;
+    transition: width 0.3s ease;
+  }
+  /* Collapsing hides only the panels (logo + content) — the icon rail stays put. */
+  #sidebar.collapsed { width: 38px; min-width: 38px; }
+  #sidebar.collapsed .side-panel { display: none; }
 
+  /* ── Vertical icon rail (toggle Markers / Informace) ── */
+  #side-rail {
+    width: 38px;
+    min-width: 38px;
+    flex-shrink: 0;
+    height: 100%;
+    background: var(--bg-dark);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 6px 0;
+    gap: 4px;
+  }
+  .rail-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    border-left: 3px solid transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  /* Brand crest pinned at the top of the icon rail */
+  .rail-brand {
+    width: 30px; height: 30px; object-fit: contain;
+    margin: 4px auto 6px;
+    align-self: center;
+    border-radius: 4px;
+  }
+  /* Markers tab holds the brand crest — keep it more compact so the rail isn't too tall */
+  #rail-markers { padding: 2px 0; }
+  /* Brand crest that links out (e.g. the KCD1 map) — wraps the image as a button */
+  .rail-brand-link {
+    display: flex; align-items: center; justify-content: center;
+    background: transparent; border: none; padding: 0;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+    transition: transform 0.15s ease;
+  }
+  .rail-brand-link:hover { transform: scale(1.08); }
+  .rail-brand-link img { width: 30px; height: 30px; object-fit: contain; display: block; }
+  .rail-btn:hover { color: var(--text-secondary); background: var(--bg-hover); }
+  .rail-btn.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: var(--bg-active);
+  }
+  /* Collapse control pinned to the bottom of the rail. Its chevron rotates: left
+     (open, click to collapse) → right (collapsed, click to expand). */
+  .rail-btn.rail-collapse { margin-top: auto; border-left-color: transparent; }
+  .rail-btn.rail-collapse .collapse-chevron { transition: transform 0.3s ease; transform: rotate(0deg); }
+  #sidebar.collapsed .rail-btn.rail-collapse .collapse-chevron { transform: rotate(180deg); }
 
-button,
-input,
-select,
-textarea {
-  background-color: #f7f7f7;
-  border-radius: 0;
-  font-size: 1.000em;
-  line-height: 1.5;
-  margin: 0;
-  max-width: 100%;
-  vertical-align: baseline; }
-
-button,
-input {
-  line-height: normal; }
-
-input,
-textarea {
-  background-color: #ffead3;
-  border: 1px solid #aa9a88;
-  color: #171717;
-  font-family: '1529 Champ Fleury W01 Regular';
-}
-
-input:focus,
-textarea:focus {
-  background-color: #ffead3;
-  border: 1px solid #aa9a88;
-  color: #171717;} 
-
-input:focus,
-select:focus {
-  outline: 2px solid #c1c1c1;
-  outline: 2px solid rgba(51, 51, 51, 0.3); }
-
-button[disabled],
-input[disabled],
-select[disabled],
-textarea[disabled] {
-  cursor: default;
-  opacity: 1; }
-
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  -webkit-appearance: button;
-  background-color: #eed67d;
-  border: 1px solid #c09e64;
-  color: #171717;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 4px 10px 2px;
-  text-transform: capitalize;
-  font-family: 'MedievalSharpBook';
-  box-sizing: border-box;
-  width: 100%;
-}
-
-button:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover,
-button:focus,
-input[type="button"]:focus,
-input[type="reset"]:focus,
-input[type="submit"]:focus {
-  background-color: #d0ba69;
-  outline: 0;
-  color: #171717;
-  border: 1px solid #715a32;
-}
-
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
-input[type="text"],
-textarea {
-  padding: 0px 2px 0px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-textarea {
-  overflow: auto;
-  vertical-align: top;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="password"]:focus,
-input[type="search"]:focus,
-textarea:focus {
-  outline: 0;
-}
-.coordsinputs {
-  text-align: center;
-}
-#mlon, #mlat {
-  border: none;
-  width: 50px;
-  font-family: 'MedievalSharpBook';
-  font-size: 12px;
-  padding: 2px 5px 0;
-  font-weight: bold;
-  margin: 0 2px;
-  background: transparent;
-}
-.chooseIcon {
-  display: block;
-  text-align: center;
-  font-family: 'MedievalSharpBook';
-  font-size: 17px;
-  font-weight: bold;
-  color: #171717;
-}
-#iconprev {
-  width: 32px;
-  height: 32px;
-  background-size: auto 32px;
-  background-repeat: no-repeat;
-  margin: 3px auto;
-  background-position: center;
-}
-#addmark {
-  text-align: center;
-  min-width: 150px;
-  font-family: 'MedievalSharpBook';
-  font-weight: bold;
-  font-size: 14px;
-  color: #171717;
-}
-#addmark select {
-  text-transform: capitalize;
-  margin: 0px;
-  display: block;
-  font-family: '1529 Champ Fleury W01 Regular';
-  font-size: 14px;
-  background-color: #ffead3;
-  border: 2px solid #aa9a88;
-  width: 100%;
-}
-#edit-dialog select {
-  text-transform: capitalize;
-  margin: 0px 0 5px;
-  display: block;
-  font-family: '1529 Champ Fleury W01 Regular';
-  font-size: 14px;
-  background-color: #ffead3;
-  border: 2px solid #aa9a88;
-  width: 100%;
-}
-#editedtitle {
-    margin: 2px 0 5px;
-}
-#editeddesc {
-    margin: 2px 0 5px;
-}
-button.cancel {
-    margin: 5px 0;
-}
-#titleprev {
-  text-transform: capitalize;
-}
-.markertitle, .markerdesc {
-  text-align: center;
-  margin: 5px 2px 2px;
-}
-button.add-marker {
-  display: block;
-  margin: 5px auto;
-}
-button.remove-marker {
-	display: block;
-	margin: 0 auto;
-	width: auto;
-}
-.remove-text {
-  display: block;
-  text-align: center;
-  font-size: 15px;
-  margin: 20px 0 5px;
-  font-family: 'MedievalSharpBook';
-  font-weight: bold;
-  color: #000;
-}
-button.yes {
-  display: inline-block;
-  margin: 10px 10px 0 0;
-  background: #456513;
-  width: 50px;
-  border: none;
-  color: #fff;
-}
-button.no {
-  display: inline-block;
-  margin: 10px 0px 0 0px;
-  background: #F44336;
-  width: 50px;
-  border: none;
-  color: #fff;
-}
-.mtitle {
-  font-weight: bold;
-  text-transform: capitalize;
-  font-family: '1529 Champ Fleury W01 Regular';
-  font-size: 19px;
-	letter-spacing: 1px;
-}
-p.mdesc {margin: 0;}
-.mcoords {
-  font-size: 11px;
-  text-transform: capitalize;
-  font-family: 'MedievalSharpBook';
-  font-weight: bold;
-  letter-spacing: 1px;
-  color: #000;
-}
-#remove-dialog {
-  position: relative;
-  left: 0px;
-  top: 0px;
-  background: #ddc7ad;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  text-align: center;
-  z-index: 1;
-  border-radius: 15px;
-}
-.remove-marker.hide {
+  /* ── Side panels (Markers / Informace) ── */
+  .side-panel {
     display: none;
-}
-#edit-dialog {
-  background: #ddc7ad;
-  text-align: center;
-  z-index: 1;
-  border-radius: 15px;
-  height: 100%;
-}
-.edit-marker {
-	margin: 5px auto;
-	width: auto;
-	display: block;
-}
-.copymarkerurl {
-	width: auto;
-	display: block;
-	margin: 0 auto;
-	position: relative;
-}
-.copiedmsg {
-  position: absolute;
-  bottom: 0px;
-  background: #4e9006;
-  padding: 4px 7px;
-  font-size: 12px;
-  font-family: consolas;
-  font-weight: bold;
-  color: #fff;
-  display: block;
-  left: 0;
-  right: 0;
-  border: 1px solid #2f5405;
-}
-.hide {display: none;}
-.leaflet-popup-content .original_coords {
-font-family: Consolas;
-margin: 5px 0 0;
-font-weight: bold;
-font-size: 11px;
-color: #4c2900;
-display: block;
-position: relative;
-}
+    flex: 1;
+    min-width: 0;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .side-panel.active { display: flex; }
+  .side-scroll { flex: 1; overflow-y: auto; }
 
+  /* Branded header shown at the top of every sidebar panel */
+  .sidebar-header {
+    padding: 10px 18px 8px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+    display: flex; flex-direction: column; align-items: center; gap: 5px; text-align: center;
+  }
+  /* Branded title: the wordmark is the hero; the crest tucks beside the tagline
+     as a small brand mark rather than stacking on top. */
+  .sidebar-header .sb-logo {
+    width: auto; height: 72px; max-width: 100%; display: block; margin: 0 auto;
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5));   /* lift the wordmark off the dark panel */
+  }
+  /* Tagline dressed up: warm gold, wider tracking, a touch of depth, and thin
+     gold hairline flourishes flanking it (heraldic banner feel). */
+  .sidebar-header .sb-tagline {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    font-family: 'Cinzel', serif; font-size: 10.5px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.2em;
+    color: var(--label-gold);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.55);
+  }
+  .sidebar-header .sb-tagline::before,
+  .sidebar-header .sb-tagline::after {
+    content: ''; flex: 0 0 30px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-dim));
+  }
+  .sidebar-header .sb-tagline::after {
+    background: linear-gradient(90deg, var(--accent-dim), transparent);
+  }
 
-.text-label {
-  /*visibility: hidden;*/
-  border: none;
-  box-shadow: none;
-  text-transform: capitalize;
-  opacity: 1;
-  font-family: '1529 Champ Fleury W01 Regular';
-}
-.text-label:before {
-  margin: 0;
-  border-top-color: #76643e;
-}
+  /* ── Region Switcher ── */
+  /* ── Region Switcher — sliding segmented control ──
+     One recessed track holds both regions; a single gold pill slides between
+     them (same recessed-track / raised-thumb / 0.26s motion language as .switch).
+     The thumb is a ::before positioned by which .region-btn is .active via :has(),
+     so switchRegion() needs no layout knowledge — it just toggles .active. */
+  .region-section {
+    padding: 12px 18px 12px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .region-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+  }
+  .region-switcher {
+    position: relative;
+    display: flex;
+    padding: 3px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.42);   /* recessed track */
+  }
+  /* The sliding gold pill — covers one half of the track (inside the 3px pad). */
+  .region-switcher::before {
+    content: '';
+    position: absolute;
+    top: 3px; left: 3px;
+    width: calc(50% - 3px);
+    height: calc(100% - 6px);
+    background: var(--accent);
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);          /* raised thumb */
+    transition: transform 0.26s cubic-bezier(0.4,0,0.2,1);
+  }
+  .region-switcher:has(.region-btn[data-region="kuttenberg"].active)::before {
+    transform: translateX(100%);
+  }
+  .region-switcher:has(.region-btn[data-lang="en"].active)::before {
+    transform: translateX(100%);
+  }
+  .region-btn {
+    position: relative; z-index: 1;   /* sit above the sliding pill */
+    flex: 1;
+    padding: 7px 12px;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: color 0.26s;
+  }
+  .region-btn:hover { color: var(--text-primary); }
+  .region-btn.active { color: var(--bg-dark); }   /* dark text on the gold pill (also wins on hover) */
 
-.text-label:after {
-  border: none;
-}
+  /* ── Overall Game Completion bar ── */
+  /* ── Editorial eyebrow: one quiet, uppercase, letter-spaced section label that
+     recedes into the type system, with a hairline to group the list it heads.
+     Gold stays reserved for the figures + active states. ── */
+  .section-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
 
-.text-label span {
-  padding: 6px 10px 4px;
-  margin-bottom: 6px;
-  display: block;
-  color: #000;
-  font-size: 20px;
-  line-height: 1;
-  text-transform: capitalize;
-  opacity: 1;
-  font-family: '1529 Champ Fleury W01 Regular';
-  background-image: url(../assets/images/bg.png);
-  border: 2px solid #76643e;
-}
-.leaflet-tooltip {background-color: rgba(255, 255, 255, 0);}
-.leaflet-popup-content-wrapper {
-  background-image: url(../assets/images/bg.png);
-}
-.leaflet-popup-tip {
-  background-color: #ddc7b3;
-}
-.leaflet-container a.leaflet-popup-close-button,
-.leaflet-container a.leaflet-popup-close-button:hover{
-  color: #472a0b;
-}
-.leaflet-popup-content {
-  text-align: center;
-  font-family: '1529 Champ Fleury W01 Regular';
-  font-size: 14px;
-  color: #171717;
-}
-.leaflet-popup-content .mtitle {
-	margin: 0px;
-}
-leaflet-control-attribution {
-  display: none;
-}
-.coordsinfo {
-  font-family: 'MedievalSharpBook';
-  font-weight: bold;
-  font-size: 12px;
-  letter-spacing: 1px;
-  color: #000;
-}
-.restoreWindowOverlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.6);
-	text-align: center;
-	z-index: 10000;
-}
-.restoreWindow {
-  width: 50%;
-  position: absolute;
-  top: 25%;
-  left: 25%;
-  background-color: rgb(162, 121, 91);
-  text-align: center;
-  padding: 50px;
-  color: rgb(255, 255, 255);
-  border: 2px solid rgb(118, 100, 62);
-  z-index: 10000;
-}
-.restoreTitle {
-  font-family: '1529 Champ Fleury W01 Regular';
-  font-weight: normal;
-  color: #ffffff;
-  font-size: 17px;
-  margin: 10px 0;
-  letter-spacing: 1px;
-}
-.restoreWindowX {
-	position: absolute;
-	top: 0px;
-	right: 5px;
-	text-decoration: none;
-	color: rgb(255, 255, 255);
-	font-size: 25px;
-	font-family: verdana;
-	font-weight: bold;
-	width: 36px;
-	height: 36px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-.restoreWindowX:hover,
-.restoreWindowX:active {
-  color: #000;
-}
-#fileinput {
-  padding: 5px;
-}
+  .game-progress {
+    padding: 12px 18px 12px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .game-progress .gp-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    width: 100%; margin-bottom: 6px; padding: 0;
+    background: none; border: none; cursor: pointer; font-family: inherit;
+  }
+  .game-progress .gp-header-end { display: flex; align-items: center; gap: 8px; }
+  .game-progress.collapsed .gp-header { margin-bottom: 0; }
+  .game-progress.collapsed .mo-caret { transform: rotate(-45deg); }
+  /* The whole card body collapses; the % figure stays visible in the header. */
+  .game-progress .gp-body {
+    overflow: hidden; max-height: 220px; opacity: 1;
+    transition: max-height 0.28s ease, opacity 0.2s ease, visibility 0s;
+  }
+  .game-progress.collapsed .gp-body {
+    max-height: 0; opacity: 0; visibility: hidden;
+    transition: max-height 0.28s ease, opacity 0.2s ease, visibility 0s 0.28s;
+  }
+  .game-progress .gp-header span:first-child {
+    font-family: 'Cinzel', serif; font-size: 13px; font-weight: 600;
+    color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  /* The hero stat figure: a large mono %, gold (gold is reserved for figures). */
+  .game-progress #gp-pct {
+    font-family: var(--font-mono); font-size: 18px; font-weight: 600;
+    color: var(--accent); line-height: 1; letter-spacing: -0.03em;
+  }
+  .game-progress .gp-bar {
+    height: 6px; background: var(--bg-dark); border: 1px solid var(--border);
+    border-radius: 4px; overflow: hidden; margin-top: 2px;
+  }
+  .game-progress .gp-fill {
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, var(--accent-dim), var(--accent-hover));
+    border-radius: 4px; transition: width 0.4s ease;
+  }
+  .game-progress .gp-detail {
+    font-family: var(--font-mono); font-size: 10.5px; color: var(--text-muted);
+    margin-top: 5px; text-align: right; letter-spacing: -0.01em;
+  }
+  /* Per-region breakdown: region name + main/side quest counters with their icons
+     (lives inside the collapsible card body) */
+  .game-progress .gp-regions { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+  .game-progress .gp-region { display: flex; align-items: center; gap: 10px; }
+  .game-progress .gpr-name { font-size: 12.5px; color: var(--text-secondary); width: 76px; flex-shrink: 0; }
+  .game-progress .gp-region.active .gpr-name { color: var(--accent); font-weight: 600; }
+  .game-progress .gpr-quest { display: inline-flex; align-items: center; gap: 5px; }
+  .game-progress .gpr-icon { width: 18px; height: 18px; object-fit: contain; flex-shrink: 0; }
+  .game-progress .gpr-count { font-family: var(--font-mono); font-size: 11.5px; color: var(--text-secondary); letter-spacing: -0.02em; white-space: nowrap; }
+  .game-progress .gp-region.active .gpr-count { color: var(--accent); }
 
-.original_coords {
-  font-family: Arial;
-}
+  /* Keyboard focus rings (only show for keyboard users, not mouse clicks) */
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  a:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+    border-radius: 3px;
+  }
 
-/* Sidebar V2 */
-	@media (max-width: 360px) {
-    .sidebar {
-      width: 100%; } }
-  @media (min-width: 361px) and (max-width: 991px) {
-    .sidebar {
-      width: 340px; } }
-  @media (min-width: 992px) and (max-width: 1199px) {
-    .sidebar {
-      width: 340px; } }
-  @media (min-width: 1200px) {
-    .sidebar {
-      width: 340px;
-      } }
-			
-@media (max-width: 320px) {
-    .sidebar-pane {
-      min-width: 268px; } }
-@media (max-width: 360px) {
-    .sidebar-pane {
-      width: 100%; } }
-@media (min-width: 361px) and (max-width: 991px) {
-  .sidebar-pane {
-		min-width: 300px; } }
-@media (min-width: 992px) and (max-width: 1199px) {
-  .sidebar-pane {
-    min-width: 300px; } }
-@media (min-width: 1200px) {
-  .sidebar-pane {
-		min-width: 300px;
-    } }
-/*
-.sidebar-pane p.clear {clear: both;}
-@media (min-width: 768px) {
-.sidebar {
-top: 0px;
-bottom: 0px;
-left: 0px;
-border-radius: 0px;
-} }
-.sidebar.collapsed {
-width: 40px; }
-@media (min-width: 768px) {
-.sidebar {
-transition: width 500ms; } }
-@media (min-width: 320px) and (max-width: 767px) {
-.sidebar {
-width: 320px; } }
-@media (min-width: 768px) and (max-width: 991px) {
-.sidebar {
-width: 350px; } }
-@media (min-width: 992px) and (max-width: 1199px) {
-.sidebar {
-width: 390px; } }
-@media (min-width: 1200px) {
-.sidebar {
-width: 400px; } }
+  /* ── Category List ── */
+  .category-controls {
+    padding: 12px 18px 8px;
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .cat-ctrl-btn {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 5px 12px;
+    background: var(--bg-hover);
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .cat-ctrl-btn:hover { color: var(--accent); border-color: var(--accent); background: var(--bg-active); }
 
-/*
-.sidebar-pane {
-display: none;
-left: 0;
-right: 0;
-box-sizing: border-box;
-padding: 10px 20px; }
-.sidebar-pane.active {
-display: block; }
-@media (min-width: 320px) and (max-width: 767px) {
-.sidebar-pane {
-min-width: 100%; } }
-@media (min-width: 768px) and (max-width: 991px) {
-.sidebar-pane {
-min-width: 100%; } }
-@media (min-width: 992px) and (max-width: 1199px) {
-.sidebar-pane {
-min-width: 100%; } }
-@media (min-width: 1200px) {
-.sidebar-pane {
-min-width: 100%; } }
-*/
+  .category-list { padding: 6px 12px; flex: 1; overflow-y: auto; }
 
+  /* ── Category Groups ── */
+  .cat-group { margin-bottom: 2px; }
+  .cat-group-header {
+    display: flex;
+    align-items: center;
+    padding: 7px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s;
+    gap: 6px;
+    user-select: none;
+  }
+  .cat-group-header:hover { background: var(--bg-hover); }
+  .cat-group-header:hover .group-name { color: var(--text-primary); }
+  .cat-group-header .group-arrow {
+    font-size: 10px;
+    color: var(--text-muted);
+    width: 14px;
+    text-align: center;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .cat-group-header.expanded .group-arrow { transform: rotate(90deg); }
+  .cat-group-header .group-name {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    flex: 1;
+    transition: color 0.15s;
+  }
+  .cat-group-header .group-count {
+    font-size: 12px;
+    color: var(--text-secondary);
+    min-width: 24px;
+    text-align: right;
+  }
+  /* ── Shared toggle-switch component (group / category) ──
+     Track + knob, sized via --sw-w / --sw-h. The three call sites trigger the
+     shared "on" appearance via their own class / checkbox. */
+  .switch {
+    position: relative; flex-shrink: 0; cursor: pointer; padding: 0;
+    width: var(--sw-w, 30px); height: var(--sw-h, 16px);
+    border-radius: 999px; border: 1px solid var(--border); background: var(--bg-dark);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.38);   /* recessed track */
+    transition: border-color 0.24s;
+  }
+  .switch::after {
+    content: ''; position: absolute; top: 2px; left: 2px;
+    width: calc(var(--sw-h, 16px) - 6px); height: calc(var(--sw-h, 16px) - 6px);
+    border-radius: 50%; background: var(--text-muted);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5);          /* raised thumb */
+    /* Slide with transform (compositor) rather than left (main thread) so the thumb
+       still glides while toggling a big category floods the main thread with markers. */
+    transition: transform 0.24s cubic-bezier(0.4,0,0.2,1), background 0.24s;
+  }
+  /* ON: the track fills gold and the (dark) thumb slides right — the strong
+     at-a-glance signal that keeps the dense category list scannable. The recessed
+     track + raised thumb + smooth slide above is the editorial tactile polish. */
+  .group-toggle-all.on,
+  .category-item.active .cat-toggle {
+    background: var(--accent-dim); border-color: var(--accent);
+  }
+  .group-toggle-all.on::after,
+  .category-item.active .cat-toggle::after {
+    transform: translateX(calc(var(--sw-w, 30px) - var(--sw-h, 16px))); background: var(--bg-dark);
+  }
+  .cat-group-children { display: none; padding-left: 8px; }
+  .cat-group-children.expanded { display: block; }
 
-.sidebar-tabs > li:hover, .sidebar-tabs > ul > li:hover {
-  background-color: #c2ab81;
-}
-.sidebar-tabs > ul > li.active i {
-  -webkit-filter: grayscale(0);
-  background-color: #c2ab81;
-}
-.sidebar-tabs i {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 40px;
-  -webkit-filter: grayscale(1);
-}
-.sidebar-tabs i:hover {
-  -webkit-filter: grayscale(0);
-}
-.home {background-image: url('../assets/images/kcd-dark.png');}
-.share {background-image: url('../assets/images/codex.png');}
-.about {background-image: url('../assets/images/quest.png');}
-.settings {background-image: url('../assets/images/codex.png');}
-/*markers tab*/
-.logo-container {
-  margin: 5px 30px 5px 10px;
-  position: relative;
-}
-img.logo-menu {
-  width: 100%;
-  margin: 0px;
-}
-.discord-img {
-  width: 100%;
-  max-width: 200px;
-  margin: 0px;
-}
+  .category-item {
+    display: flex;
+    align-items: center;
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s;
+    gap: 8px;
+    user-select: none;
+  }
+  .category-item:hover { background: var(--bg-hover); }
+  .category-item .cat-icon {
+    width: 22px;
+    text-align: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .category-item .cat-name {
+    font-size: 13px;
+    color: var(--text-primary);
+    flex: 1;
+  }
+  .category-item .cat-count {
+    font-size: 12px;
+    color: var(--text-secondary);
+    min-width: 20px;
+    text-align: right;
+  }
+  /* .cat-toggle uses the shared .switch component (track/knob/on-state above). */
 
+  /* ── Search ── */
+  .search-box {
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .search-field { position: relative; }
+  .search-icon {
+    position: absolute; left: 11px; top: 50%; transform: translateY(-50%);
+    color: var(--text-muted); pointer-events: none;
+  }
+  .search-field:focus-within .search-icon { color: var(--accent-dim); }
+  .search-input {
+    width: 100%;
+    padding: 8px 32px 8px 34px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .search-input::placeholder { color: var(--text-muted); }
+  .search-input:focus { border-color: var(--accent-dim); }
+  .search-clear {
+    position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+    display: flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; padding: 0;
+    background: none; border: none; border-radius: 3px;
+    color: var(--text-muted); cursor: pointer;
+    transition: color 0.15s, background 0.15s;
+  }
+  .search-clear:hover { color: var(--text-primary); background: var(--bg-hover); }
+  .search-clear[hidden] { display: none; }
+  .search-results {
+    display: none; max-height: 260px; overflow-y: auto;
+    background: var(--bg-dark); border: 1px solid var(--border); border-top: none;
+    margin: -1px 18px 0; border-radius: 0 0 4px 4px;
+  }
+  .search-results.active { display: block; }
+  .search-result-item {
+    display: flex; align-items: center; gap: 8px; padding: 6px 10px;
+    cursor: pointer; font-size: 12px; color: var(--text-primary); border-bottom: 1px solid var(--border);
+  }
+  .search-result-item:last-child { border-bottom: none; }
+  .search-result-item:hover { background: var(--bg-hover); }
+  .search-result-item img { width: 18px; height: 18px; image-rendering: pixelated; flex-shrink: 0; }
+  .search-result-item .sr-name { font-weight: 500; }
+  .search-result-item .sr-cat { color: var(--text-muted); font-size: 11px; }
+  .cat-progress { font-size: 11px; color: var(--text-secondary); margin-left: auto; margin-right: 4px; white-space: nowrap; }
+  .cat-progress .done { color: var(--success); }
 
-/*Settings tab*/
-.sidebar-pane .text p{
-  font-family: arial;
-  font-size: 12px;
-}
-.sidebar-pane .text a{
-  font-family: arial;
-  font-size: 12px;
-}
-.langswitch {
-  display: inline-block;
-  width: 100%;
-}
-.lang {
-  display: flex;
-  margin: 0 auto;
-  color: #1f201b;
-  cursor: pointer;
-  position: relative;
-}
-.lang.active {
-  background-image: url(../assets/images/selector_mid.png);
-  background-position: left center;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-.lang i {
-  display: flex;
-  width: 48px;
-  height: 48px;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  flex-shrink: 0;
-  vertical-align: middle;
-  margin: 0px;
-}
-.lang-text {
-  display: flex;
-  width: 100%;
-  position: relative;
-  font-family: '1529 Champ Fleury W01 Regular';
-  font-size: 16px;
-  padding: 0 5px 0 5px;
-  -o-transition: .1s ease-out;
-  -ms-transition: .1s ease-out;
-  -moz-transition: .1s ease-out;
-  -webkit-transition: .1s ease-out;
-  transition: .1s ease-out;
-  align-items: center;
-}
-.lang.active {
-  color:#1b1b1b;
-}
-.checkmark {
-  display: inline-block;
-  height: 48px;
-  width: 48px;
-  left: 18px;
-  top: 0px;
-  position: absolute;
-  z-index: 2;
-  flex-shrink: 0;
-  background-size: 18px;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.checkmark.active {
-  background: url('../assets/images/check_green.png');
-  background-size: 18px;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.leaflet-control-coordinates.leaflet-control {
-	background-color: transparent;
-  text-align: center;
-}
-.leaflet-control-coordinates .uiElement input {
-	font-family: 'MedievalSharpBook';
-	border-radius: 0px;
-	border: none;
-	background: #ffead3;
-	color: #171717;
-	font-size: 12px;
-	font-weight: bold;
-}
-.leaflet-control-coordinates .uiElement {
-	margin: 0px;
-	width: 120px;
-	height: 26px;
-	display: flex;
-	align-items: center;
-}
-.uiElement {
-	width: auto;
-	background: url(../assets/images/bg.png);
-	margin: 0px;
-	padding: 2px 5px;
-	box-shadow: inset 0 0px 4px 0px rgb(0, 0, 0);
-	font-family: 'MedievalSharpBook';
-	font-weight: bold;
-	font-size: 12px;
-	letter-spacing: 1px;
-}
-.labelFirst {
-	width: 125px;
-}
-.uiElement.input {
-	width: 120px;
-	text-align: left;
-	height: 26px;
-	display: flex;
-	align-items: center;
-}
-.uiElement span {
-	display: inline-block;
-	margin: 0;
-}
-.leaflet-control-coordinates .uiElement input.inputX {
-	width: 45px;
-	padding: 2px 5px 2px 5px;
-	margin-right: 5px;
-}
-.leaflet-control-coordinates .uiElement input.inputY {
-width: 45px;
-padding: 2px 5px 2px 5px;
-}
-.uiElement.input.uiHidden,
-.leaflet-control-coordinates .uiElement.uiHidden {display: none;}
+  /* ── My Markers Tab ── */
+  .my-markers-list { padding: 8px 12px; }
+  .my-marker-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .my-marker-item:last-child { border-bottom: none; }
+  .my-marker-item:hover { background: var(--bg-hover); }
+  .my-marker-item .mm-icon { font-size: 14px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 24px; }
+  .my-marker-item .mm-info { flex: 1; min-width: 0; }
+  /* name and coords are spans, so they need to be told to stack */
+  .my-marker-item .mm-name { display: block; font-size: 14px; font-weight: 500; }
+  .my-marker-item .mm-coords { display: block; font-size: 12px; color: var(--text-muted); margin-top: 1px; }
+  .my-marker-item .mm-delete {
+    padding: 2px 6px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 3px;
+    transition: all 0.15s;
+  }
+  .my-marker-item .mm-delete:hover { color: var(--danger); background: rgba(var(--danger-rgb),0.15); }
+  .my-marker-item .mm-edit {
+    padding: 2px 6px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 3px;
+    transition: all 0.15s;
+  }
+  .my-marker-item .mm-edit:hover { color: var(--accent); background: var(--bg-hover); }
 
-.en {background: url('../assets/flags/en.png');}
-.br {background: url('../assets/flags/br.png');}
-.fr {background: url('../assets/flags/fr.png');}
-.ru {background: url('../assets/flags/ru.png');}
-.de {background: url('../assets/flags/de.png');}
-.cn {background: url('../assets/flags/cn.png');}
-.nl {background: url('../assets/flags/nl.png');}
-.pl {background: url('../assets/flags/pl.png');}
-.ro {background: url('../assets/flags/ro.png');}
-.tr {background: url('../assets/flags/tr.png');}
-.it {background: url('../assets/flags/it.png');}
-.es {background: url('../assets/flags/es.png');}
-.ko {background: url('../assets/flags/ko.png');}
-.ja {background: url('../assets/flags/ja.png');}
-.en,.br,.fr,.ru,.de,.cn,.pl,.ro,.tr,.it,.es,.nl,.ko,.ja {
-  width: 24px;
-  height: 24px;
-  display: block;
-  float: left;
-  margin: 5px 5px 0px;
-  cursor: pointer;
-  background-repeat: no-repeat;
-  border:none;
-  background-size: 24px 24px;
-}
+  .mm-controls { display: flex; gap: 6px; margin-bottom: 8px; }
+  .mm-controls .mm-search {
+    flex: 1;
+    min-width: 0;
+    padding: 5px 8px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-size: 12px;
+  }
+  .mm-controls .mm-search:focus { outline: none; border-color: var(--accent); }
+  .mm-controls .mm-sort {
+    padding: 5px 6px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .mm-controls .mm-sort option { background: var(--bg-dark); color: var(--text-primary); }
+  .mm-other-region {
+    padding: 10px 4px 4px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 11px;
+    border-top: 1px solid var(--border);
+    margin-top: 6px;
+  }
 
-.leaflet-control-attribution.leaflet-control {display: none;}
-@font-face {
-    font-family: 'MedievalSharpBook';
-        src: url('../assets/fonts/MedievalSharpBook.ttf') format('truetype');
+  .no-markers {
+    padding: 24px 18px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.6;
+    --empty-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3C/svg%3E");
+  }
+  /* Faint glyph above empty-state messages — themeable (currentColor fill + SVG
+     mask), so the JS-rendered empty strings need no icon markup of their own. */
+  .no-markers::before, .search-no-results::before {
+    content: ''; display: block; width: 30px; height: 30px; margin: 2px auto 12px;
+    background: currentColor; opacity: 0.75;
+    -webkit-mask: var(--empty-icon) center / contain no-repeat;
+    mask: var(--empty-icon) center / contain no-repeat;
+  }
+  .search-no-results {
+    --empty-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='M21 21l-4.35-4.35'/%3E%3C/svg%3E");
+  }
+  /* Shared inline-icon baseline: never shrink in a flex row. */
+  .ui-icon { flex-shrink: 0; }
+
+  /* ── Tools Tab ── */
+  .tools-section { padding: 16px 18px; }
+  .tools-section h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tool-btn {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.15s;
+  }
+  .tool-btn:hover { border-color: var(--border-light); background: var(--bg-hover); }
+  .tool-btn.danger { border-color: rgba(var(--danger-rgb),0.3); }
+  .tool-btn.danger:hover { border-color: var(--danger); background: rgba(var(--danger-rgb),0.1); }
+  .tool-icon { flex-shrink: 0; margin-top: 1px; color: var(--text-secondary); transition: color 0.15s; }
+  .tool-btn:hover .tool-icon { color: var(--accent); }
+  .tool-btn.danger .tool-icon { color: var(--danger); }
+  .tool-txt { display: flex; flex-direction: column; min-width: 0; }
+  .tool-desc { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+  /* ── Map ── */
+  #map-container { flex: 1; position: relative; }
+  #map { width: 100%; height: 100%; background: var(--bg-dark); }
+
+  .leaflet-container { background: var(--bg-dark) !important; }
+
+  /* Fix tile seams (sub-pixel gaps between tiles during transforms) */
+  .leaflet-tile-container {
+    will-change: transform;
+  }
+  .leaflet-tile {
+    outline: 1px solid transparent;
+    backface-visibility: hidden;
+    image-rendering: auto;
+  }
+
+  .leaflet-control-zoom a {
+    background: var(--bg-panel) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border) !important;
+  }
+  .leaflet-control-zoom a:hover { background: var(--bg-hover) !important; }
+
+  /* ── POI marker glow (per-group colour) + hover affordance ── */
+  .leaflet-marker-icon.poi-marker img {
+    filter: none;  /* no glow by default — only on hover */
+    transition: filter 0.15s ease;
+  }
+  .leaflet-marker-icon.poi-marker:hover img {
+    filter: drop-shadow(0 0 6px var(--glow)) drop-shadow(0 0 3px var(--glow));
+  }
+  /* "Highlight markers" View toggle — a blue halo around every marker.
+     Driven by a body class so it survives region switches (which recreate the
+     map) and auto-applies to markers created later. */
+  body.highlight-markers .leaflet-marker-icon.poi-marker img,
+  body.highlight-markers .custom-marker-icon {
+    filter: drop-shadow(0 0 1.5px var(--halo)) drop-shadow(0 0 3px var(--halo));
+  }
+  body.highlight-markers .leaflet-marker-icon.poi-marker:hover img {
+    filter: drop-shadow(0 0 2.5px var(--halo-bright)) drop-shadow(0 0 4px var(--halo));
+  }
+
+  /* ── Marker tooltips (name on hover) ── */
+  .leaflet-tooltip.poi-tooltip {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px; font-weight: 500;
+    padding: 3px 8px; border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+  .leaflet-tooltip.poi-tooltip::before { display: none; }
+
+  /* ── Map typography ──
+     The sidebar runs on Source Sans 3, so the map surface uses the same face.
+     leaflet.css ships its own vendor defaults — Helvetica Neue on .leaflet-container,
+     Tahoma on the attribution, Lucida Console on the zoom glyphs — and this file is
+     loaded after it, so these win. The zoom buttons stay monospace on purpose:
+     they render bare + / − glyphs and need the fixed advance to stay centred. */
+  .leaflet-container {
+    font-family: 'Source Sans 3', -apple-system, sans-serif;
+  }
+  .leaflet-control-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    background: rgba(26,23,20,0.85) !important;
+    color: var(--text-muted) !important;
+  }
+  .leaflet-control-attribution a { color: var(--text-secondary) !important; }
+  .leaflet-bar a {
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
+  }
+  .leaflet-bar a:hover { background: var(--bg-hover); color: var(--text-primary); }
+
+  /* ── Coordinates Display ── */
+  #coords-display,
+  #zoom-display {
+    position: absolute;
+    right: 8px;
+    z-index: 1001;
+    padding: 4px 10px;
+    background: rgba(26,23,20,0.85);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
+    pointer-events: none;
+  }
+  #coords-display { bottom: 8px; }
+  #zoom-display { bottom: 38px; }    /* sits just above the coords pill */
+
+  /* ── Custom Popup Styles ── */
+  .leaflet-popup-content-wrapper {
+    /* base panel + a subtle top-lit sheen (merged up from the old Illuminated-Edition override) */
+    background: linear-gradient(180deg, rgba(58,48,34,0.28), rgba(58,48,34,0) 42%), var(--bg-panel) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 6px !important;
+    color: var(--text-primary) !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5) !important;
+  }
+  .leaflet-popup-tip { background: var(--bg-panel) !important; border: 1px solid var(--border) !important; }
+  .leaflet-popup-close-button { color: var(--text-muted) !important; }
+  .leaflet-popup-close-button:hover { color: var(--text-primary) !important; }
+
+  .popup-title {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .popup-category { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .popup-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+  .popup-coords { font-size: 11px; color: var(--text-muted); margin-top: 6px; font-family: monospace; }
+
+  /* ── Progress Tracking Button ── */
+  .popup-progress-btn {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: center;
+    white-space: nowrap;
+    background: transparent;
+    color: var(--text-secondary);
+  }
+  .popup-progress-btn:hover { border-color: var(--border-light); background: var(--bg-hover); }
+  .popup-progress-btn.completed {
+    background: rgba(90,158,75,0.15);
+    border-color: var(--success);
+    color: var(--success);
+  }
+  .popup-progress-btn.completed:hover {
+    background: rgba(90,158,75,0.25);
+  }
+  .popup-link-btn {
+    display: block; width: 100%; margin-top: 6px; padding: 5px 12px;
+    border: 1px solid var(--border); border-radius: 4px;
+    background: transparent; color: var(--text-secondary);
+    font-size: 12px; font-family: inherit; font-weight: 500;
+    cursor: pointer; text-align: center; transition: all 0.15s;
+  }
+  .popup-link-btn:hover { border-color: var(--border-light); background: var(--bg-hover); color: var(--text-primary); }
+
+  /* ── Popup Action Buttons ── */
+  .popup-actions { display: flex; gap: 6px; margin-top: 8px; }
+  .popup-action-btn {
+    flex: 1; padding: 4px 8px; border: 1px solid var(--border); border-radius: 4px;
+    background: transparent; color: var(--text-secondary); font-size: 12px;
+    cursor: pointer; text-align: center; transition: all 0.15s;
+  }
+  .popup-action-btn:hover { background: var(--bg-hover); color: var(--text-primary); border-color: var(--border-light); }
+  .popup-action-btn.danger:hover { color: var(--danger); border-color: var(--danger); background: rgba(var(--danger-rgb),0.1); }
+
+  /* ── Local Map Calibration Panel ── */
+  /* ── Tool panels (Calibrate / Position Names / Edit Markers) — shared chrome ── */
+  .tool-panel {
+    display: none; position: absolute; bottom: 40px; z-index: 2000;
+    background: var(--bg-panel); border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); font-size: 12px;
+  }
+  .tool-panel.active { display: block; }
+  .tool-panel h3 { margin: 0 0 8px; font-size: 14px; color: var(--accent-dim); }
+  .tool-panel .cal-actions { display: flex; gap: 6px; margin-top: 8px; }
+  .tool-panel .cal-actions button { flex: 1; }
+  /* Per-panel position/size deltas */
+  #calibration-panel { left: 50%; transform: translateX(-50%); min-width: 320px; }
+  #label-edit-panel, #marker-edit-panel { right: 20px; min-width: 280px; max-width: 320px; }
+  #marker-edit-panel .me-status {
+    font-size: 11px; color: var(--text-muted); margin: 0 0 8px;
+    padding: 5px 8px; background: var(--bg-dark); border-radius: 4px; text-align: center;
+  }
+  #marker-edit-panel .me-status.active { color: var(--accent); font-weight: 600; }
+  /* Flash a tool panel to draw attention when the user tries to open another */
+  @keyframes toolFlash {
+    0%, 100% { box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+    20%, 60% { box-shadow: 0 0 0 2px var(--accent), 0 4px 24px rgba(0,0,0,0.6); }
+  }
+  .tool-panel.tool-flash { animation: toolFlash 0.5s ease 2; }
+  #calibration-panel .cal-row { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+  #calibration-panel .cal-row label { width: 60px; color: var(--text-secondary); }
+  #calibration-panel input[type=range] { flex: 1; accent-color: var(--accent); }
+  #calibration-panel .cal-bounds { font-family: monospace; font-size: 11px; color: var(--text-muted); padding: 6px; background: var(--bg-dark); border-radius: 4px; margin: 8px 0; word-break: break-all; }
+
+  /* ── Marker Add Form (popup) ── */
+  .marker-form { min-width: 220px; }
+  .marker-form h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .marker-form label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 3px; margin-top: 8px; }
+  .marker-form input, .marker-form textarea, .marker-form select {
+    width: 100%;
+    padding: 6px 10px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+  }
+  .marker-form textarea { resize: vertical; min-height: 50px; }
+  .marker-form select option { background: var(--bg-dark); color: var(--text-primary); }
+
+  /* ── Custom Icon Dropdown ── */
+  .icon-dropdown { position: relative; }
+  .icon-dropdown-btn {
+    width: 100%; padding: 7px 10px; background: var(--bg-dark); border: 1px solid var(--border);
+    border-radius: 4px; color: var(--text-primary); font-size: 13px; cursor: pointer;
+    display: flex; align-items: center; gap: 8px; text-align: left;
+  }
+  .icon-dropdown-btn:hover { border-color: var(--border-light); }
+  .icon-dropdown-btn img { width: 20px; height: 20px; image-rendering: pixelated; }
+  .icon-dropdown-list {
+    display: none; position: absolute; left: 0; right: 0; top: 100%;
+    max-height: 320px; overflow-y: auto; background: var(--bg-dark);
+    border: 1px solid var(--border); border-radius: 0 0 4px 4px;
+    z-index: 2000;
+  }
+  .icon-dropdown-list.open { display: block; }
+  .icon-dropdown-search {
+    position: sticky; top: 0; z-index: 1;
+    width: 100%; padding: 6px 10px; border: none; border-bottom: 1px solid var(--border);
+    background: var(--bg-panel); color: var(--text-primary); font-size: 13px; outline: none;
+  }
+  /* Sectioned icon grid — many classes at a glance, minimal scrolling. */
+  .icon-group-header {
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+    padding: 7px 8px 2px; opacity: 0.9;
+  }
+  .icon-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
+    gap: 2px; padding: 2px 6px 6px;
+  }
+  .icon-tile {
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+    padding: 6px 3px; border-radius: 4px; cursor: pointer; text-align: center;
+    transition: background 0.12s;
+  }
+  .icon-tile:hover { background: var(--bg-hover); }
+  .icon-tile img { width: 26px; height: 26px; image-rendering: pixelated; flex-shrink: 0; }
+  .icon-tile .it-emoji { font-size: 20px; line-height: 26px; height: 26px; }
+  .icon-tile .it-label {
+    font-size: 10px; line-height: 1.15; color: var(--text-secondary);
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    overflow: hidden; word-break: break-word;
+  }
+
+  .marker-form .form-actions { display: flex; gap: 8px; margin-top: 12px; }
+  .marker-form .btn {
+    flex: 1;
+    padding: 7px 12px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: inherit;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+  .marker-form .btn-save { background: var(--accent-dim); border-color: var(--accent); color: var(--bg-dark); }
+  .marker-form .btn-save:hover { background: var(--accent); }
+  .marker-form .btn-del { background: rgba(var(--danger-rgb),0.15); border-color: var(--danger); color: var(--danger); }
+  .marker-form .btn-del:hover { background: rgba(var(--danger-rgb),0.28); }
+  .marker-form .btn-cancel { background: transparent; color: var(--text-secondary); }
+  .marker-form .btn-cancel:hover { background: var(--bg-hover); }
+
+  /* ── Custom Marker Icons ── */
+  .custom-marker-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 14px;
+    border: 2px solid rgba(255,255,255,0.8);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    cursor: pointer;
+    transition: transform 0.15s;
+  }
+  .custom-marker-icon:hover { transform: scale(1.15); }
+
+  /* ── Toast ── */
+  #toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    padding: 10px 20px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 13px;
+    z-index: 9999;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  }
+  #toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* ── Modal ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-overlay.show { display: flex; }
+  .modal {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  .modal h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .modal textarea {
+    width: 100%;
+    min-height: 200px;
+    padding: 10px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-size: 12px;
+    font-family: monospace;
+    resize: vertical;
+    outline: none;
+  }
+  .modal .form-actions { display: flex; gap: 8px; margin-top: 14px; justify-content: flex-end; }
+  .modal .btn {
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+  .modal .btn-primary { background: var(--accent-dim); border-color: var(--accent); color: var(--bg-dark); }
+  .modal .btn-primary:hover { background: var(--accent); }
+  .modal .btn-secondary { background: transparent; color: var(--text-secondary); }
+  .modal .btn-secondary:hover { background: var(--bg-hover); }
+
+  /* ── Settlement Labels ── */
+  .settlement-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--label-gold);
+    text-shadow:
+      -1px -1px 2px rgba(0,0,0,0.9),
+       1px -1px 2px rgba(0,0,0,0.9),
+      -1px  1px 2px rgba(0,0,0,0.9),
+       1px  1px 2px rgba(0,0,0,0.9),
+       0    0   6px rgba(0,0,0,0.7);
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: 0.5px;
+  }
+  /* Positioning mode: make each name grabbable for drag-to-place */
+  .settlement-label.label-draggable {
+    pointer-events: auto;
+    cursor: move;
+    outline: 2px dashed var(--accent);
+    outline-offset: 2px;
+    background: rgba(0,0,0,0.35);
+    border-radius: 3px;
+  }
+  /* The crest+name stack grows with zoom (--label-scale from updateLabelScale).
+     The transform lives here, NOT on the marker root, so it doesn't clobber
+     Leaflet's positioning transform. Anchored at the name's left edge so the
+     user's calibrated name positions stay put; the crest floats above. */
+  .settlement-label .sl-stack {
+    position: relative;
+    display: inline-block;
+    transform-origin: left center;
+    transform: scale(var(--label-scale, 1));
+  }
+  .settlement-label .sl-name { display: inline-block; }
+  /* Town crest, centered just above the name */
+  .settlement-label .sl-crest {
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translateX(-50%);
+    height: 28px;
+    width: auto;
+    margin-bottom: 2px;
+    pointer-events: none;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.7));
+  }
+
+  /* ── Legend overlay ── */
+  #legend-btn {
+    position: absolute; bottom: 8px; left: 8px; z-index: 1001;
+    padding: 6px 12px; background: var(--bg-panel); border: 1px solid var(--border);
+    border-radius: 4px; color: var(--text-secondary); font-size: 12px; cursor: pointer;
+    font-family: inherit; transition: all 0.2s;
+  }
+  #legend-btn:hover { background: var(--bg-hover); color: var(--text-primary); }
+  #legend-panel {
+    display: none; position: absolute; bottom: 42px; left: 8px; z-index: 1001;
+    width: 260px; max-height: 60vh; overflow-y: auto;
+    background: var(--bg-panel); border: 1px solid var(--border); border-radius: 8px;
+    padding: 8px 12px 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  }
+  #legend-panel.active { display: block; }
+
+  /* ── Map control cluster (reset view / fullscreen / copy link) ── */
+  #map-controls {
+    position: absolute; top: 12px; right: 12px; z-index: 1001;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  #map-controls button {
+    width: 34px; height: 34px;
+    background: var(--bg-panel); border: 1px solid var(--border); border-radius: 4px;
+    color: var(--text-secondary); font-size: 15px; line-height: 1; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+  }
+  #map-controls button:hover { background: var(--bg-hover); color: var(--text-primary); }
+
+  /* ── One-time "right-click to add" hint ── */
+  #map-hint {
+    display: none; position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+    z-index: 1001; max-width: min(440px, 68vw);
+    align-items: center; gap: 10px;
+    padding: 8px 10px 8px 14px;
+    background: var(--bg-panel); border: 1px solid var(--accent); border-radius: 6px;
+    color: var(--text-secondary); font-size: 13px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  }
+  #map-hint.show { display: flex; }
+  #map-hint b { color: var(--accent); }
+  #map-hint button {
+    flex-shrink: 0; padding: 4px 10px; border: 1px solid var(--border); border-radius: 4px;
+    background: transparent; color: var(--text-secondary); font-size: 12px; cursor: pointer;
+    font-family: inherit; transition: all 0.15s;
+  }
+  #map-hint button:hover { background: var(--bg-hover); color: var(--text-primary); }
+  .legend-group-title {
+    font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.5px; margin: 9px 0 4px;
+    padding-bottom: 3px; border-bottom: 1px solid var(--border);
+  }
+  .legend-row { display: flex; align-items: center; gap: 8px; padding: 2px 0; font-size: 12px; color: var(--text-secondary); }
+  .legend-row img { width: 18px; height: 18px; image-rendering: pixelated; flex-shrink: 0; }
+
+  /* ── Map Options (toggle switches) ── */
+  /* ── Map view options — collapsible "View" disclosure ──
+     Collapsed by default to reclaim ~100px of permanent panel height; the
+     three toggles reveal on click. Their on/off state persists regardless of
+     whether the disclosure is open. */
+  .map-options {
+    padding: 8px 18px 8px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .mo-header {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; padding: 5px 0; background: none; border: none;
+    cursor: pointer; color: var(--text-secondary);
+    font-family: 'Cinzel', serif; font-size: 10.5px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    transition: color 0.15s;
+  }
+  .mo-header:hover { color: var(--text-primary); }
+  .mo-caret {
+    width: 6px; height: 6px; margin-right: 3px;
+    border-right: 2px solid var(--ember); border-bottom: 2px solid var(--ember);
+    transform: rotate(45deg);            /* points down = expanded */
+    transition: transform 0.22s ease, border-color 0.15s ease;
+  }
+  .mo-header:hover .mo-caret, .gp-header:hover .mo-caret { border-color: var(--ember-hover); }
+  .map-options.collapsed .mo-caret { transform: rotate(-45deg); }   /* points right = collapsed */
+  .mo-body {
+    display: flex; flex-wrap: wrap; gap: 6px; padding-top: 3px;
+    overflow: hidden; max-height: 160px; opacity: 1;
+    transition: max-height 0.26s ease, opacity 0.2s ease, visibility 0s;
+  }
+  .map-options.collapsed .mo-body {
+    max-height: 0; opacity: 0; visibility: hidden; padding-top: 0;
+    /* hide from tab order only after the collapse finishes */
+    transition: max-height 0.26s ease, opacity 0.2s ease, visibility 0s 0.26s;
+  }
+  /* Text-in-button toggle chips: the whole chip is the control, its checkbox is
+     the hidden state of record, and :has(input:checked) lights it gold with a
+     filled status dot. Keeping the checkbox means the existing toggle handlers
+     (and the label-edit tool that flips toggle-labels) work unchanged. */
+  .mo-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 11px; border-radius: 6px;
+    border: 1px solid var(--border); background: transparent;
+    color: var(--text-secondary); font-size: 12px;
+    cursor: pointer; user-select: none;
+    transition: color 0.18s, border-color 0.18s, background 0.18s;
+  }
+  .mo-chip:hover { border-color: var(--border-light); color: var(--text-primary); }
+  .mo-chip input { position: absolute; opacity: 0; width: 0; height: 0; }
+
+  /* "Zobrazit vše / Skrýt vše" now lives inside .mo-body, which is already a
+     wrapping flex row with its own 6px gap and an 18px gutter from .map-options.
+     So it drops its block padding and claims a full row instead of sitting
+     beside the chips as a squeezed flex item. */
+  .mo-body .category-controls {
+    flex: 0 0 100%;
+    padding: 1px 0 0;
+    gap: 6px;
+  }
+  /* Leading glyph inherits currentColor — gold when on, muted when off. */
+  .mo-chip .ui-icon { flex-shrink: 0; }
+  .mo-chip:has(input:checked) {
+    background: rgba(201,168,76,0.14); border-color: var(--accent); color: var(--accent);
+  }
+  .mo-chip:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* Search empty state */
+  .search-no-results { padding: 14px 12px; text-align: center; color: var(--text-muted); font-size: 12px; }
+
+  /* Danger button (themed confirm dialog) */
+  .modal .btn-danger { background: rgba(var(--danger-rgb),0.15); border-color: var(--danger); color: var(--danger); }
+  .modal .btn-danger:hover { background: rgba(var(--danger-rgb),0.28); }
+
+  /* ── Responsive ── */
+  #sidebar-scrim { display: none; }
+
+  /* ═══════════════════════════════════════════════
+     ██ ILLUMINATED EDITION — creative design layer
+     ═══════════════════════════════════════════════ */
+
+  /* Tactile press feedback on buttons */
+  button:active, .tool-btn:active, .region-btn:active, .cat-ctrl-btn:active { transform: translateY(1px); }
+
+  /* ── Cinematic intro / themed loading overlay ── */
+  #intro-overlay {
+    position: fixed; inset: 0; z-index: 5000; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    background: radial-gradient(circle at 50% 38%, #241d14 0%, #140f0a 68%, #0b0805 100%);
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+  }
+  #intro-overlay.done { opacity: 0; visibility: hidden; }
+  .intro-inner { text-align: center; padding: 20px; animation: introRise 1.1s ease both; }
+  @keyframes introRise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  .intro-crest { width: 84px; height: 84px; filter: drop-shadow(0 0 20px rgba(201,168,76,0.5)); animation: crestGlow 3s ease-in-out infinite; }
+  @keyframes crestGlow { 0%, 100% { filter: drop-shadow(0 0 14px rgba(201,168,76,0.4)); } 50% { filter: drop-shadow(0 0 30px rgba(221,185,79,0.7)); } }
+  .intro-title { font-family: 'Cinzel', serif; font-size: clamp(20px, 4vw, 28px); font-weight: 700; color: var(--label-gold); letter-spacing: 1px; margin-top: 16px; }
+  .intro-title span { color: var(--accent); }
+  .intro-quill { height: 2px; width: 0; max-width: 80vw; margin: 14px auto 0; background: linear-gradient(90deg, transparent, var(--accent), transparent); animation: quillDraw 1s ease 0.45s forwards; }
+  @keyframes quillDraw { to { width: 300px; } }
+  .intro-sub { font-family: 'Cinzel', serif; font-size: 13px; color: var(--text-secondary); letter-spacing: 3px; margin-top: 12px; text-transform: uppercase; }
+  .intro-loading { font-size: 12px; color: var(--text-muted); margin-top: 22px; letter-spacing: 1px; animation: pulseFade 1.6s ease-in-out infinite; }
+  @keyframes pulseFade { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.85; } }
+
+  /* ── Scroll & wax-seal popups ── */
+  .popup-progress-btn.completed { box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), inset 0 -2px 6px rgba(0,0,0,0.30); }
+  .popup-progress-btn.stamp { animation: inkStamp 0.45s cubic-bezier(.3, 1.4, .5, 1); }
+  @keyframes inkStamp {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(var(--danger-rgb),0.45); }
+    30% { transform: scale(0.9); }
+    55% { transform: scale(1.05); }
+    100% { transform: scale(1); box-shadow: 0 0 0 16px rgba(var(--danger-rgb),0); }
+  }
+
+  @media (max-width: 768px) {
+    #sidebar { width: 280px; min-width: 280px; position: absolute; height: 100%; z-index: 1002; }
+    #sidebar.collapsed { width: 38px; min-width: 38px; }
+    #sidebar:not(.collapsed) + #sidebar-scrim {          /* tap-to-close dim behind the open drawer */
+      display: block; position: fixed; inset: 0; z-index: 1001; background: rgba(0,0,0,0.5);
+    }
+    #calibration-panel, #label-edit-panel, #marker-edit-panel {
+      max-width: calc(100vw - 24px);                     /* keep dev panels on-screen */
+    }
+  }
+
+/* ═══════════════════════════════════════════════
+   ██ KCD1 COMPATIBILITY LAYER
+   Everything below belongs to the original Kingdom Come: Deliverance map:
+   popups, the village-name labels and the in-game item icons. The sidebar,
+   rail, panels and search above are the KCD2 chrome and stay untouched.
+   ═══════════════════════════════════════════════ */
+
+  /* ── Category checkboxes ──
+     js/functions.js drives the map layers off the real checkboxes, so they stay
+     in the DOM inside .markers-list; the visible switch is the .category-item row. */
+  .markers-list { list-style: none; margin: 0; padding: 0; }
+  .markers-list input[type=checkbox] { display: none !important; }
+  .markers-list .cat-row.hidden { display: none; }
+
+  /* KCD2 constrains the row icon with an inline style in its sidebar.js; doing it
+     here keeps the markup clean and stops 48px source PNGs from blowing up the row. */
+  .category-item .cat-icon img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    display: block;
+  }
+  /* 13px reads as cramped next to the 22px icon — nudge the row label up. */
+  .category-item .cat-name { font-size: 14px; }
+
+  /* ── Village-name face ──
+     The one deliberate exception to the Source Sans 3 rule: the in-game
+     Champ Fleury is what makes the village labels read as carved map lettering
+     instead of sidebar chrome, and it sits on its own parchment plate anyway. */
+  @font-face {
+    font-family: '1529 Champ Fleury W01 Regular';
+    src: local('1529 Champ Fleury W01 Regular'),
+         local('1529-Champ-Fleury-W01-Regular'),
+         url('../assets/fonts/1529Champ.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-      }
-@font-face{
-  font-family:'1529 Champ Fleury W01 Regular';
-  src:local('1529 Champ Fleury W01 Regular'),
-  local('1529-Champ-Fleury-W01-Regular'),url("../assets/fonts/1529Champ.ttf") format('truetype')}
+  }
 
-/*Sidebar Scroll*/
-::-webkit-scrollbar {
-  width: 12px;
-  background: #ccb190;
-}
+  /* ═══════════════════════════════════════════════
+     ██ NÁZVY MĚST — beze změny (vzhled je záměrný)
+     ═══════════════════════════════════════════════ */
+  .text-label {
+    border: none;
+    box-shadow: none;
+    text-transform: capitalize;
+    opacity: 1;
+    font-family: '1529 Champ Fleury W01 Regular';
+  }
+  .text-label:before {
+    margin: 0;
+    border-top-color: #76643e;
+  }
+  .text-label:after { border: none; }
+  .text-label span {
+    padding: 6px 10px 4px;
+    margin-bottom: 6px;
+    display: block;
+    color: #000;
+    font-size: 20px;
+    line-height: 1;
+    text-transform: capitalize;
+    opacity: 1;
+    font-family: '1529 Champ Fleury W01 Regular';
+    background-image: url(../assets/images/bg.png);
+    border: 2px solid #76643e;
+  }
+  .leaflet-tooltip { background-color: rgba(255, 255, 255, 0); }
 
-/* Track */
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-  -webkit-border-radius: 0px;
-  border-radius: 0px;
-}
+  /* ── Leaflet popups (KCD1 markup) ── */
+  .leaflet-popup-content {
+    text-align: center;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 14px;
+    color: var(--text-primary);
+    margin: 12px 14px;
+  }
+  .leaflet-popup-content .mtitle { margin: 0; }
+  .mtitle {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.3px;
+    color: var(--accent);
+    margin: 0 0 4px;
+  }
+  p.mdesc { margin: 0 0 6px; font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+  .leaflet-popup-content .original_coords {
+    font-family: var(--font-mono);
+    margin: 6px 0 0;
+    font-size: 11px;
+    color: var(--text-muted);
+    display: block;
+  }
+  .mcoords {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+  }
+  p.req { color: var(--accent-dim); margin: 5px 0; padding: 0; text-align: left; font-size: 12px; }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  -webkit-border-radius: 0px;
-  border-radius: 0px;
-  background: #76643e; 
-}
-::-webkit-scrollbar-thumb:window-inactive {
-  background: #76643e; 
-}
-/* Fullscreen control */
-.fullscreen-icon { background-image: url(../assets/images/icon-fullscreen.png); }
-.leaflet-retina .fullscreen-icon { background-image: url(../assets/images/icon-fullscreen-2x.png); background-size: 26px 26px; }
-.leaflet-container:-webkit-full-screen { width: 100% !important; height: 100% !important; z-index: 99999; }
-.leaflet-container:-ms-fullscreen { width: 100% !important; height: 100% !important; z-index: 99999; }
-.leaflet-container:full-screen { width: 100% !important; height: 100% !important; z-index: 99999; }
-.leaflet-container:fullscreen { width: 100% !important; height: 100% !important; z-index: 99999; }
-.leaflet-pseudo-fullscreen { position: fixed !important; width: 100% !important; height: 100% !important; top: 0px !important; left: 0px !important; z-index: 99999; }
+  /* Popup action buttons */
+  .leaflet-popup-content button {
+    width: auto;
+    display: block;
+    margin: 5px auto;
+    padding: 5px 12px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .leaflet-popup-content button:hover { background: var(--bg-hover); color: var(--text-primary); border-color: var(--border-light); }
+  button.yes, button.no { width: auto; display: inline-block; margin: 8px 4px 0; border: none; color: #fff; font-size: 12px; padding: 4px 14px; }
+  button.yes { background: #456513; }
+  button.no { background: #c0392b; }
+  .copymarkerurl { display: block; margin: 6px auto 0; position: relative; width: auto; }
+  .copiedmsg {
+    position: absolute;
+    bottom: 0;
+    background: #4e9006;
+    padding: 3px 7px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    display: block;
+    left: 0;
+    right: 0;
+    border: 1px solid #2f5405;
+  }
+  .hide { display: none; }
+  /* js/functions.js toggles .hide on popup buttons and blocks; those rules are more
+     specific than the popup button styles above, so .hide has to win outright. */
+  .leaflet-popup-content .hide,
+  .leaflet-popup .hide { display: none !important; }
 
-/* KCD2 icon in sidebar */
-.kcd2-sidebar-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 0;
-}
-.kcd2-sidebar-icon {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-.kcd2-sidebar-icon:hover {
-  opacity: 0.7;
-}
+  /* Add / edit marker form (inside popups) */
+  #addmark { text-align: center; min-width: 150px; }
+  #titleprev { text-transform: capitalize; }
+  #editedtitle, #editeddesc { margin: 2px 0 5px; }
 
+  /* Popup item lists (herbs, requirements, …) */
+  ul.ilist { list-style: none; margin: 4px 0 0; padding: 0; text-align: left; }
+  ul.ilist li { display: flex; align-items: center; }
+  .ilist i {
+    display: flex;
+    width: 22px;
+    height: 22px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+  }
+  .ilist .iname,
+  .ilist .ilevel {
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    text-align: left;
+    font-size: 13px;
+    margin-left: 8px;
+    color: var(--text-secondary);
+  }
+  .ilevel.easy { color: #7fc97f; }
+  .ilevel.hard { color: #e39b4a; }
+  .ilevel.very_hard { color: #e07b79; }
+  .ilist .qnt {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    font-size: 12px;
+    margin-left: 8px;
+    margin-right: auto;
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--accent);
+    font-weight: bold;
+  }
+
+  .chooseIcon {
+    display: block;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  #iconprev {
+    width: 34px;
+    height: 34px;
+    background-size: auto 32px;
+    background-repeat: no-repeat;
+    margin: 6px auto;
+    background-position: center;
+  }
+  .leaflet-popup-content select {
+    text-transform: capitalize;
+    display: block;
+    width: 100%;
+    padding: 4px 6px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+  }
+  .leaflet-popup-content select option { background: var(--bg-dark); color: var(--text-primary); }
+  .markertitle, .markerdesc {
+    text-align: center;
+    margin: 8px 0 3px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .leaflet-popup-content input[type=text],
+  .leaflet-popup-content textarea {
+    width: 100%;
+    padding: 5px 8px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+  }
+  .leaflet-popup-content textarea { resize: vertical; min-height: 44px; }
+  .leaflet-popup-content input[type=text]:focus,
+  .leaflet-popup-content textarea:focus,
+  .leaflet-popup-content select:focus { border-color: var(--accent-dim); }
+  .coordsinputs { text-align: center; }
+  #mlon, #mlat {
+    width: 56px;
+    padding: 3px 5px;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    margin: 0 2px;
+  }
+  button.send, button.save-marker { border-color: var(--accent) !important; color: var(--accent) !important; }
+  #edit-dialog, #remove-dialog {
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-top: 8px;
+    text-align: center;
+  }
+  .remove-text {
+    display: block;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+  .coordsinfo {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  /* ── Own-marker popup actions (js/functions.js) ── */
+  .edit-marker,
+  .remove-marker {
+    display: block;
+    width: auto;
+    margin: 5px auto;
+  }
+  .remove-marker { border-color: var(--danger) !important; color: var(--danger) !important; }
+  .remove-marker.hide { display: none; }
+  button.cancel { margin: 5px 0; }
+
+  /* ── Legacy left-arrow icon (kept for old shared links) ── */
+  .left-arrow {
+    background-image: url(../assets/images/left-arrow.png);
+    background-size: 28px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  /* ── Leaflet chrome ── */
+  .leaflet-control-attribution { display: none; }
+  .leaflet-control-zoom { display: none; }
+  .leaflet-pane { z-index: 1; }
+
+  /* ── Fullscreen ── */
+  .leaflet-container:fullscreen, .leaflet-container:-webkit-full-screen,
+  .leaflet-container:-moz-full-screen, .leaflet-container:-ms-full-screen {
+    width: 100% !important; height: 100% !important;
+  }
+  body:-webkit-full-screen #sidebar, body:fullscreen #sidebar { display: none; }
+
+  /* ── Info panel extras (KCD1 share links + changelog) ── */
+  .tools-section .panel-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  .tools-section .link, .modal .link { color: var(--accent); text-decoration: none; }
+  .tools-section .link:hover, .modal .link:hover { text-decoration: underline; }
+  .social-link { display: block; margin: 6px 0 10px; }
+  .social-img { height: 34px; width: auto; opacity: 0.9; transition: opacity 0.15s; }
+  .social-link:hover .social-img { opacity: 1; }
+  .changelog { margin-bottom: 14px; }
+  /* No box around a version: the title sits on a hairline that separates the
+     updates, which is what the panel reads best. */
+  .changelog h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .changelog h4::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .updateday {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .update-list { list-style: none; margin-top: 6px; }
+  .update-list li {
+    position: relative;
+    padding-left: 14px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin-bottom: 4px;
+  }
+  .update-list li::before {
+    content: '\25C6';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 8px;
+    color: var(--accent-dim);
+  }
+
+  /* ── Info footer: map name, version and the Warhorse credit ──
+     Flat on purpose — just a hairline under the updates and the text below it. */
+  .about-footer {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+  }
+  .about-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;              /* the version may drop below on a very narrow panel */
+    margin-bottom: 5px;
+  }
+  .about-title {
+    flex-shrink: 0;             /* never squeeze the name — let the version wrap instead */
+    font-family: 'Cinzel', serif;
+    font-size: 11px;              /* small enough to keep the map name on one line */
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+  .about-version {
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .tools-section .about-footer .panel-text {
+    font-size: 11.5px;
+    line-height: 1.55;
+    margin-bottom: 0;
+    color: var(--text-secondary);
+  }
+  .tools-section .about-footer .link { white-space: nowrap; }
+
+  /* ── Tiny screens ── */
+  @media (max-width: 360px) {
+    #sidebar:not(.collapsed) { width: 100%; min-width: 100%; }
+  }
+
+  /* ── In-game item icons (popup item lists) ── */
+  .inventory {background-image: url(../assets/images/inventory.png);}
+  .import {background-image: url(../assets/images/import.png);}
+  .export {background-image: url(../assets/images/export.png);}
+  .erase {background-image: url(../assets/images/erase.png);}
+  .player {background-image: url(../assets/images/player64px.png);}
+  .allmarkers {background-image: url(../assets/images/allmarkers.png);}
+  .cities {background-image: url(../assets/images/cities.png);}
+  .spade {background-image: url(../assets/images/spade.png);}
+  .lockpicking {background-image: url(../assets/images/lockpicking.png);}
+  .unknown {background-image: url(../assets/images/unknown.png);}
+
+  .belladonna {background-image: url(../assets/images/belladonna.png);}
+  .chamomile {background-image: url(../assets/images/chamomile.png);}
+  .comfrey {background-image: url(../assets/images/comfrey.png);}
+  .dandelion {background-image: url(../assets/images/dandelion.png);}
+  .eyebright {background-image: url(../assets/images/eyebright.png);}
+  .herb_paris {background-image: url(../assets/images/herb_paris.png);}
+  .marigold {background-image: url(../assets/images/marigold.png);}
+  .mint {background-image: url(../assets/images/mint.png);}
+  .nettle {background-image: url(../assets/images/nettle.png);}
+  .poppy {background-image: url(../assets/images/poppy.png);}
+  .sage {background-image: url(../assets/images/sage.png);}
+  .st_johns_wort {background-image: url(../assets/images/st_johns_wort.png);}
+  .thistle {background-image: url(../assets/images/thistle.png);}
+  .valerian {background-image: url(../assets/images/valerian.png);}
+  .wormwood {background-image: url(../assets/images/wormwood.png);}
+
+  .book_vitality {background-image: url(../assets/images/book_herbalism.png);}
+  .book_herbalism {background-image: url(../assets/images/book_herbalism.png);}
+  .book_lockpicking {background-image: url(../assets/images/book_lockpicking.png);}
+
+  .amanita {background-image: url(../assets/images/fly_agaric.png);}

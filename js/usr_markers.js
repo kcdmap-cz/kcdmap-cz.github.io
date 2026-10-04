@@ -1,6 +1,6 @@
 var usr_markers =
 [{
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Poklad I",
 	"desc2": "Vstupte do domu a zahněte doleva, poté použijte žebřík.",
 	"req": "lockpicking",
@@ -11,7 +11,7 @@ var usr_markers =
 	"verified": "yes"
 },
 {
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Poklad II",
 	"desc2": "Hrob, vykopej rýčem.",
 	"req": "spade",
@@ -22,7 +22,7 @@ var usr_markers =
 	"verified": "yes"
 },
 {
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Poklad III",
 	"desc2": "Za starým domem.",
 	"req": "lockpicking",
@@ -33,7 +33,7 @@ var usr_markers =
 	"verified": "yes"
 },
 {
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Poklad IV",
 	"desc2": "Ve vchodu do jeskyně.",
 	"req": "lockpicking",
@@ -44,7 +44,7 @@ var usr_markers =
 	"verified": "yes"
 },
 {
-  "name": "Poklad",
+  "name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Poklad V",
 	"desc2": "Pytel uvnitř vyschlé studny.",
 	"req": "Nic",
@@ -55,7 +55,7 @@ var usr_markers =
 	"verified": "yes"
 },
 {
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Poklad VI",
 	"desc2": "",
 	"req": "lockpicking",
@@ -66,7 +66,7 @@ var usr_markers =
 	"verified": "yes"
 },
 {
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Poklad VII",
 	"desc2": "V lesní zahradě.",
 	"req": "lockpicking",
@@ -76,7 +76,7 @@ var usr_markers =
 	"coords": [1861,1520],
 },
 {
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Poklad VIII",
 	"desc2": "Pytel za holým stromem.",
 	"req": "Nic",
@@ -86,7 +86,7 @@ var usr_markers =
 	"coords": [2333,1122],
 },
 {
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Poklad IX",
 	"desc2": "Hned vedle kamenného mostu.",
 	"req": "Nic",
@@ -96,7 +96,7 @@ var usr_markers =
 	"coords": [869,3279],
 },
 {
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Poklad X",
 	"req": "spade",
 	"level": "",
@@ -105,7 +105,7 @@ var usr_markers =
 	"coords": [1685,938],
 },
 {
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Starověký poklad V",
 	"desc2": "Vedle rozbité chatrče poblíž loviště Vysoké.",
 	"req": "lockpicking",
@@ -117,7 +117,7 @@ var usr_markers =
 },
 /* Needs verification */
 {
-    "name": "Poklad",
+    "name": "<span data-i18n='treasure_chest'>Poklad</span>",
     "desc": "Poklad XI",
 		"req": "Nic",
 		"level": "",
@@ -126,7 +126,7 @@ var usr_markers =
     "coords": [1444,1141],
 },
 {
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Poklad XII",
 	"req": "lockpicking",
 	"level": "hard",
@@ -135,7 +135,7 @@ var usr_markers =
 	"coords": [3179,333],
 },
 {
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Poklad XIII",
 	"req": "lockpicking",
 	"level": "easy",
@@ -144,7 +144,7 @@ var usr_markers =
 	"coords": [3613,719],
 },
 {
-    "name": "Poklad",
+    "name": "<span data-i18n='treasure_chest'>Poklad</span>",
     "desc": "Poklad XIV",
 		"req": "spade",
 		"level": "",
@@ -153,7 +153,7 @@ var usr_markers =
     "coords": [3687,1259],
 },
 {
-    "name": "Poklad",
+    "name": "<span data-i18n='treasure_chest'>Poklad</span>",
     "desc": "Poklad XV",
 		"req": "spade",
 		"level": "",
@@ -164,7 +164,7 @@ var usr_markers =
 
 
 {
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Poklad XVI",
 	"req": "spade",
 	"level": "",
@@ -173,7 +173,7 @@ var usr_markers =
 	"coords": [481,2575],
 },
 {
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Poklad XVII",
 	"req": "spade",
 	"level": "",
@@ -182,7 +182,7 @@ var usr_markers =
 	"coords": [770,2566],
 },
 {
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Poklad XVIII",
 	"req": "lockpicking",
 	"level": "easy",
@@ -191,7 +191,7 @@ var usr_markers =
 	"coords": [2496,2821],
 },
 {
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Poklad XIX",
 	"desc2": "Hrob na malém ostrůvku u řeky.",
 	"req": "spade",
@@ -201,7 +201,7 @@ var usr_markers =
 	"coords": [862,1339],
 },
 {
-    "name": "Poklad",
+    "name": "<span data-i18n='treasure_chest'>Poklad</span>",
     "desc": "Poklad XX",
     "desc2": "Pod stromem.",
     "req": "lockpicking",
@@ -211,7 +211,7 @@ var usr_markers =
 		"coords": [741, 3700],
 },
 {
-    "name": "Poklad",
+    "name": "<span data-i18n='treasure_chest'>Poklad</span>",
     "desc": "Poklad XXI",
 		"desc2": "Vstupte do dolu severovýchodně od této truhly, slezte po 3 žebřících dolů, pak se držte levé stěny a slezte po 3 žebřících dolů.",
     "req": "lockpicking",
@@ -221,7 +221,7 @@ var usr_markers =
     "coords": [659,3143],
 },
 {
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Poklad XXII",
 	"desc2": "Pytel vedle zničené šibenice.",
 	"req": "Nic",
@@ -231,7 +231,7 @@ var usr_markers =
 	"coords": [601,613],
 },
 {
-    "name": "Poklad",
+    "name": "<span data-i18n='treasure_chest'>Poklad</span>",
     "desc": "Poklad XXIII",
     "desc2": "V malé jeskyni",
     "group": "treasure_chest",
@@ -239,7 +239,7 @@ var usr_markers =
     "coords": [1011,3971],
 },
 {
-    "name": "Poklad",
+    "name": "<span data-i18n='treasure_chest'>Poklad</span>",
     "desc": "Poklad XXIV",
     "group": "treasure_chest",
     "icon": "treasure_chest",
@@ -247,7 +247,7 @@ var usr_markers =
     "coords": [901,3842],
 },
 {
-    "name": "Poklad",
+    "name": "<span data-i18n='treasure_chest'>Poklad</span>",
     "desc": "Poklad XXV",
     "req": "spade",
   	"level": "",
@@ -264,7 +264,7 @@ var usr_markers =
 
 */
 {
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Starověký poklad I",
 	"req": "spade",
 	"level": "",
@@ -273,7 +273,7 @@ var usr_markers =
 	"coords": [3872,880],
 },
 {
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Starověký poklad II",
 	"desc2": "Hledejte velký kámen vedle jeskyně.",
 	"req": "Nic",
@@ -283,7 +283,7 @@ var usr_markers =
 	"coords": [871,270],
 },
 {
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Starověký poklad III",
 	"req": "spade",
 	"level": "",
@@ -292,7 +292,7 @@ var usr_markers =
 	"coords": [3155,3838],
 },
 {
-	"name": "Poklad",
+	"name": "<span data-i18n='treasure_chest'>Poklad</span>",
 	"desc": "Starověký poklad IV",
 	"req": "lockpicking",
 	"level": "easy",

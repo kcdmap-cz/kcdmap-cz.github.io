@@ -1,16 +1,15 @@
-<html>
+<!DOCTYPE html>
+<html lang="cs">
 
 <head>
-  <title>Kingdom Come Deliverance Mapa - Interaktivní mapa pro Kingdom Come Deliverance</title>
+  <title data-i18n="doc_title">Kingdom Come Deliverance Mapa - Interaktivní mapa pro Kingdom Come Deliverance</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="description" content="Interaktivní mapa pro Kingdom Come Deliverance">
-  <meta name="keywords" content="Interaktivní mapa pro Kingdom Come Deliverance">
-  <meta name="author" content="SmiR">
+  <meta name="description" data-i18n-content="doc_description" content="Interaktivní mapa pro Kingdom Come Deliverance">
+  <meta name="keywords" data-i18n-content="doc_keywords" content="Interaktivní mapa pro Kingdom Come Deliverance">
+  <meta name="theme-color" content="#1a1714">
   <link rel="icon" type="image/x-icon" href="/assets/images/logo.ico" />
   <link type="text/css" rel="stylesheet" href="css/leaflet.css" />
-  <link type="text/css" rel="stylesheet" href="css/leaflet-sidebar.css" />
-  <link type="text/css" rel="stylesheet" href="css/Leaflet.Coordinates-0.1.3.css" />
   <link type="text/css" rel="stylesheet" href="css/style.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114930551-1"></script>
   <script>
@@ -24,455 +23,312 @@
 </head>
 
 <body>
-  <div id="sidebar" class="sidebar collapsed">
-    <!-- Nav tabs -->
-    <div class="sidebar-tabs">
-      <ul role="tablist">
-        <li><a href="#home" role="tab"><i class="home"></i></a></li>
-        <li><a href="https://kcd2map-cz.github.io" target="_blank" class="kcd2-sidebar-link"><img src="kcd2_icon.png" alt="KCD2 Map" class="kcd2-sidebar-icon" /></a></li>
-        <li><a href="#share" role="tab"><i class="share"></i></a></li>
-        <li><a href="#about" role="tab"><i class="about"></i></a></li>
-        <li><a href="#backup" role="tab"><i class="inventory"></i></a></li>
-      </ul>
-      <ul role="tablist"></ul>
+
+  <!-- ══ SIDEBAR ══ -->
+  <div id="sidebar">
+
+    <!-- Vertical icon rail — switches between the panels below -->
+    <div id="side-rail" role="tablist" data-i18n-aria="nav_panels" aria-label="Postranní panely" aria-orientation="vertical">
+      <button class="rail-btn active" id="rail-markers" role="tab" aria-selected="true" onclick="switchSide('markers')" data-i18n-title="rail_markers" data-i18n-aria="rail_markers" title="Štítky" aria-label="Štítky">
+        <img class="rail-brand" src="assets/images/kcd2-ui/kcd1_icon.png" alt="Kingdom Come: Deliverance">
+      </button>
+      <button class="rail-btn" id="rail-mymarkers" role="tab" aria-selected="false" onclick="switchSide('mymarkers')" data-i18n-title="rail_mymarkers" data-i18n-aria="rail_mymarkers" title="Moje štítky" aria-label="Moje štítky">
+        <svg class="ui-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </button>
+
+      <button class="rail-btn" id="rail-info" role="tab" aria-selected="false" onclick="switchSide('info')" data-i18n-title="rail_info" data-i18n-aria="rail_info" title="Info" aria-label="Info">
+        <svg class="ui-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      </button>
+      <button class="rail-btn" id="rail-tools" role="tab" aria-selected="false" onclick="switchSide('tools')" data-i18n-title="rail_tools" data-i18n-aria="rail_tools" title="Nástroje" aria-label="Nástroje">
+        <svg class="ui-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </button>
+      <a class="rail-brand rail-brand-link" href="https://kcd2map-cz.github.io" data-i18n-title="rail_kcd2" data-i18n-aria="rail_kcd2" title="Kingdom Came: Deliverance II mapa" aria-label="Kingdom Came: Deliverance II mapa">
+        <img src="kcd2_icon.png" alt="Kingdom Came: Deliverance II mapa">
+      </a>
+      <button class="rail-btn rail-collapse" id="rail-collapse" role="button" onclick="toggleSidebar()" data-i18n-title="menu_collapse" data-i18n-aria="menu_collapse" title="Sbalit menu" aria-label="Sbalit menu" aria-expanded="true">
+        <svg class="ui-icon collapse-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
     </div>
-    <!-- Tab panes -->
-    <div class="sidebar-content">
-      <!-- Tab home -->
-      <div class="sidebar-pane" id="home">
-        <span class="sidebar-close">
-          <i class="left-arrow"></i>
-        </span>
-        <div class="logo-container">
-          <img class="logo-menu" src="assets/images/kcdmap_logo.png"
-            alt="Kingdom Come Deliverance Interaktive map" />
-        </div>
-        <div class="content">
-          <ul class="user-list">
-            <li>
-              <i class="player"></i>
-              <input type="checkbox" id="usermarkers" class="cc" checked />
-              <label for="usermarkers" class="cl" data-i18n="Mymarkers">Moje štítky</label>
-            </li>
-          </ul>
-          <ul class="allmarkers-list">
-            <li>
-              <i class="allmarkers"></i>
-              <input type="checkbox" id="allmarkers" class="cc" />
-              <label for="allmarkers" class="cl" data-i18n="Allmarkers">Všechny štítky</label>
-            </li>
-          </ul>
-          <ul class="markers-list">
-            <li>
-              <i class="cities"></i>
-              <input type="checkbox" id="textmarkers" class="cc" />
-              <label for="textmarkers" class="cl" data-i18n="citiesNames">Názvy měst</label>
-            </li>
-            <li>
-              <i class="fast_travel"></i>
-              <input type="checkbox" id="fast_travel" class="cc" />
-              <label for="fast_travel" class="cl" data-i18n="fast_travel">Rychlé cestování</label>
-            </li>
-            <li>
-              <i class="accident"></i>
-              <input type="checkbox" id="accident" class="cc" />
-              <label for="accident" class="cl" data-i18n="accident">Nehoda</label>
-            </li>
-            <li>
-              <i class="alchemy_bench"></i>
-              <input type="checkbox" id="alchemy_bench" class="cc" />
-              <label for="alchemy_bench" class="cl" data-i18n="alchemy_bench">Alchymistický stůl</label>
-            </li>
-            <li>
-              <i class="apothecary"></i>
-              <input type="checkbox" id="apothecary" class="cc" />
-              <label for="apothecary" class="cl" data-i18n="apothecary">Aptikář</label>
-            </li>
-            <li>
-              <i class="archery_range"></i>
-              <input type="checkbox" id="archery_range" class="cc" />
-              <label for="archery_range" class="cl" data-i18n="archery_range">Lukostřelnice</label>
-            </li>
-            <li>
-              <i class="armourer"></i>
-              <input type="checkbox" id="armourer" class="cc" />
-              <label for="armourer" class="cl" data-i18n="armourer">Platnéř</label>
-            </li>
-            <li>
-              <i class="bandit_camp"></i>
-              <input type="checkbox" id="bandit_camp" class="cc" />
-              <label for="bandit_camp" class="cl" data-i18n="bandit_camp">Tábor banditů</label>
-            </li>
-            <li>
-              <i class="baker"></i>
-              <input type="checkbox" id="baker" class="cc" />
-              <label for="baker" class="cl" data-i18n="baker">Pekař</label>
-            </li>
-            <li>
-              <i class="baths"></i>
-              <input type="checkbox" id="baths" class="cc" />
-              <label for="baths" class="cl" data-i18n="baths">Lázně</label>
-            </li>
-            <li>
-              <i class="beehive"></i>
-              <input type="checkbox" id="beehive" class="cc" />
-              <label for="beehive" class="cl" data-i18n="beehive">Úl</label>
-            </li>
-            <li>
-              <i class="blacksmith"></i>
-              <input type="checkbox" id="blacksmith" class="cc" />
-              <label for="blacksmith" class="cl" data-i18n="blacksmith">Kovář</label>
-            </li>
-            <li>
-              <i class="boar_hunting_spot"></i>
-              <input type="checkbox" id="boar_hunting_spot" class="cc" />
-              <label for="boar_hunting_spot" class="cl" data-i18n="boar_hunting_spot">Loviště divočáků</label>
-            </li>
-            <li>
-              <i class="butcher"></i>
-              <input type="checkbox" id="butcher" class="cc" />
-              <label for="butcher" class="cl" data-i18n="butcher">Řezník</label>
-            </li>
-            <li>
-              <i class="camp"></i>
-              <input type="checkbox" id="camp" class="cc" />
-              <label for="camp" class="cl" data-i18n="camp">Tábor</label>
-            </li>
-            <li>
-              <i class="cave"></i>
-              <input type="checkbox" id="cave" class="cc" />
-              <label for="cave" class="cl" data-i18n="cave">Jeskyně</label>
-            </li>
-            <li>
-              <i class="cobbler"></i>
-              <input type="checkbox" id="cobbler" class="cc" />
-              <label for="cobbler" class="cl" data-i18n="cobbler">Švec</label>
-            </li>
-            <li>
-              <i class="combat_arena"></i>
-              <input type="checkbox" id="combat_arena" class="cc" />
-              <label for="combat_arena" class="cl" data-i18n="combat_arena Arena">Kobyliště</label>
-            </li>
-            <li>
-              <i class="conciliation_cross"></i>
-              <input type="checkbox" id="conciliation_cross" class="cc" />
-              <label for="conciliation_cross" class="cl" data-i18n="conciliation_cross">Smírčí kříž</label>
-            </li>
-            <li>
-              <i class="deer_hunting_spot"></i>
-              <input type="checkbox" id="deer_hunting_spot" class="cc" />
-              <label for="deer_hunting_spot" class="cl" data-i18n="deer_hunting_spot">Loviště vysoké</label>
-            </li>
-            <li>
-              <i class="fishing_spot"></i>
-              <input type="checkbox" id="fishing_spot" class="cc" />
-              <label for="fishing_spot" class="cl" data-i18n="fishing_spot">Rybářský plácek</label>
-            </li>
-            <li>
-              <i class="fish_trap"></i>
-              <input type="checkbox" id="fish_trap" class="cc" />
-              <label for="fish_trap" class="cl" data-i18n="fish_trap">Rybářská past</label>
-            </li>
-            <li>
-              <i class="grave"></i>
-              <input type="checkbox" id="grave" class="cc" />
-              <label for="grave" class="cl" data-i18n="grave">Hrob</label>
-            </li>
-            <li>
-              <i class="grindstone"></i>
-              <input type="checkbox" id="grindstone" class="cc" />
-              <label for="grindstone" class="cl" data-i18n="grindstone">Brusné kolo</label>
-            </li>
-            <li>
-              <i class="vegetable_shop"></i>
-              <input type="checkbox" id="vegetable_shop" class="cc" />
-              <label for="vegetable_shop" class="cl" data-i18n="vegetable_shop">Zelinář</label>
-            </li>
-            <li>
-              <i class="herbalist"></i>
-              <input type="checkbox" id="herbalist" class="cc" />
-              <label for="herbalist" class="cl" data-i18n="herbalist">Bylinář</label>
-            </li>
-            <li>
-              <i class="horse_trader"></i>
-              <input type="checkbox" id="horse_trader" class="cc" />
-              <label for="horse_trader" class="cl" data-i18n="horse_trader">Koňský handléř</label>
-            </li>
-            <li>
-              <i class="huntsman"></i>
-              <input type="checkbox" id="huntsman" class="cc" />
-              <label for="huntsman" class="cl" data-i18n="huntsman">Lovec</label>
-            </li>
-            <li>
-              <i class="interesting_site"></i>
-              <input type="checkbox" id="interesting_site" class="cc" />
-              <label for="interesting_site" class="cl" data-i18n="interesting_site">Zajímavost</label>
-            </li>
-            <li>
-              <i class="lodgings"></i>
-              <input type="checkbox" id="lodgings" class="cc" />
-              <label for="lodgings" class="cl" data-i18n="lodgings">Hostinec s ubytováním</label>
-            </li>
-            <li>
-              <i class="miller"></i>
-              <input type="checkbox" id="miller" class="cc" />
-              <label for="miller" class="cl" data-i18n="miller">Mlinář</label>
-            </li>
-            <li>
-              <i class="mine"></i>
-              <input type="checkbox" id="mine" class="cc" />
-              <label for="mine" class="cl" data-i18n="mine">Vchod do dolu</label>
-            </li>
-            <li>
-              <i class="nest"></i>
-              <input type="checkbox" id="nest" class="cc" />
-              <label for="nest" class="cl" data-i18n="nest">Hnízdo</label>
-            </li>
-            <li>
-              <i class="scribe"></i>
-              <input type="checkbox" id="scribe" class="cc" />
-              <label for="scribe" class="cl" data-i18n="scribe">Písař</label>
-            </li>
-            <li>
-              <i class="shrine"></i>
-              <input type="checkbox" id="shrine" class="cc" />
-              <label for="shrine" class="cl" data-i18n="shrine">Boží muka</label>
-            </li>
-            <li>
-              <i class="tailor"></i>
-              <input type="checkbox" id="tailor" class="cc" />
-              <label for="tailor" class="cl" data-i18n="tailor">Krejčí</label>
-            </li>
-            <li>
-              <i class="tanner"></i>
-              <input type="checkbox" id="tanner" class="cc" />
-              <label for="tanner" class="cl" data-i18n="tanner">Koželouh</label>
-            </li>
-            <li>
-              <i class="tavern"></i>
-              <input type="checkbox" id="tavern" class="cc" />
-              <label for="tavern" class="cl" data-i18n="tavern">Hospoda</label>
-            </li>
-            <li>
-              <i class="trader"></i>
-              <input type="checkbox" id="trader" class="cc" />
-              <label for="trader" class="cl" data-i18n="trader">Kupec</label>
-            </li>
-            <li>
-              <i class="treasure_chest"></i>
-              <input type="checkbox" id="treasure_chest" class="cc" />
-              <label for="treasure_chest" class="cl" data-i18n="treasure_chest">Truhla s pokladem</label>
-            </li>
-            <li>
-              <i class="treasure_map"></i>
-              <input type="checkbox" id="treasure_map" class="cc" />
-              <label for="treasure_map" class="cl" data-i18n="treasure_map">Mapa k pokladu</label>
-            </li>
-            <li>
-              <i class="weaponsmith"></i>
-              <input type="checkbox" id="weaponsmith" class="cc" />
-              <label for="weaponsmith" class="cl" data-i18n="weaponsmith">Zbrojíř</label>
-            </li>
-            <li>
-              <i class="woodland_garden"></i>
-              <input type="checkbox" id="woodland_garden" class="cc" />
-              <label for="woodland_garden" class="cl" data-i18n="woodland_garden">Lesní zahrada</label>
-            </li>
-            <li>
-              <i class="your_bed"></i>
-              <input type="checkbox" id="bed" class="cc" />
-              <label for="bed" class="cl" data-i18n="bed">Postel</label>
-            </li>
-          </ul>
+
+    <!-- ══ MARKERS PANEL (default) ══ -->
+    <div class="side-panel active" id="side-panel-markers">
+      <div class="sidebar-header">
+        <img class="sb-logo" src="assets/images/kcd2-ui/kcd1_logo.png" alt="Kingdom Come: Deliverance">
+        <div class="sb-tagline" data-i18n="tagline">Interaktivní mapa</div>
+      </div>
+
+      <!-- Search -->
+      <div class="search-box">
+        <div class="search-field">
+          <svg class="search-icon ui-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <input type="text" class="search-input" id="search-input" role="combobox" data-i18n-aria="search_aria" aria-label="Hledat štítky podle názvu" aria-controls="search-results" aria-autocomplete="list" aria-expanded="false" data-i18n-placeholder="search_placeholder" placeholder="Hledat štítky podle názvu..." oninput="onSearchInput(this.value)" onfocus="onSearchInput(this.value)" autocomplete="off">
+          <button type="button" class="search-clear" id="search-clear" data-i18n-aria="search_clear" aria-label="Vymazat hledání" hidden onclick="clearSearch()">
+            <svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+          </button>
         </div>
       </div>
-      <!-- Tab share -->
-      <div class="sidebar-pane" id="share">
-        <span class="sidebar-close"><i class="left-arrow"></i></span>
-        <p class="list-title" data-i18n="send_markers">Odeslání štítků</p>
-        <div class="content">
-          <p class="text">
-            Své štítky můžete odeslat na náš Discord server. Štítky budeme denně aktualizovat, aby tato mapa byla co
-            nejúplnější. Také se chystají nové funkce!
-          </p>
-          <a href="https://discord.gg/7rvUxAC">
-            <img class="discord-img" src="https://kingdomcomemap.github.io/assets/images/discord-dark.svg"
-              alt="Discord" />
-          </a>
-          <p class="text">
-            Nebo je můžete poslat na náš Reddit:
-          </p>
-          <a href="https://www.reddit.com/r/kingdomcome/comments/81aaov/interactive_map_live/">
-            <img class="discord-img" src="https://kingdomcomemap.github.io/assets/images/reddit.svg"
-              alt="Reddit Kingdom Come Map" />
-          </a>
-        </div>
-      </div>
-      <!-- Tab backup -->
-      <div class="sidebar-pane" id="backup">
-        <span class="sidebar-close"><i class="left-arrow"></i></span>
-        <p class="list-title" data-i18n="ImportExportmarkers">Import/Export štítků</p>
-        <div class="content mtop15px">
-          <a class="btn backupls" href="#">
-            <i class="export"></i>
-            <span class="btn-text">Exportovat štítky</span>
-          </a>
-          <a class="btn restorels" href="#">
-            <i class="import"></i>
-            <span class="btn-text">Importovat štítky</span>
-          </a>
-          <div class="dialog">
-            <a class="btn clearls" href="#">
-              <i class="erase"></i>
-              <span class="btn-text">Vymazat štítky</span>
-            </a>
-            <div class="prompt hide">
-              <p class="text">Toto smaže všechny štítky z mapy, opravdu je chcete smazat?</p>
-              <button class="clearyes" data-i18n="yes">Ano</button>
-              <button class="clearno" data-i18n="no">Ne</button>
+      <div class="search-results" id="search-results" role="listbox" data-i18n-aria="search_results_aria" aria-label="Výsledky hledání"></div>
+
+      <!-- Markers (categories) -->
+      <div class="side-scroll">
+        <!-- Map view options — text-in-button chips. #textmarkers is a legacy master
+             switch (it owns a layer group), so it lives here instead of the list. -->
+        <div class="map-options" id="map-options">
+          <button type="button" class="mo-header" aria-expanded="true" aria-controls="mo-body" onclick="toggleMapOptions(this)">
+            <span data-i18n="map_view">Zobrazení</span>
+          </button>
+          <div class="mo-body" id="mo-body">
+            <label class="mo-chip">
+              <input type="checkbox" id="textmarkers">
+              <svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2.2 3.5L16 11H5"/></svg>
+              <span data-i18n="city_names">Názvy měst</span>
+            </label>
+            <div class="category-controls">
+              <button class="cat-ctrl-btn" onclick="toggleAllCategories(true)">
+                <svg class="ui-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span data-i18n="show_all">Zobrazit vše</span>
+              </button>
+              <button class="cat-ctrl-btn" onclick="toggleAllCategories(false)">
+                <svg class="ui-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.6 10.6a2 2 0 002.8 2.8"/><path d="M9.4 5.4A9.7 9.7 0 0112 5c5 0 8.5 4 9.5 7-.4 1.2-1.2 2.6-2.4 3.8"/><path d="M6.5 6.6C4.3 8 2.9 10 2.5 12c1 3 4.5 7 9.5 7 1 0 2-.2 2.9-.5"/></svg>
+                <span data-i18n="hide_all">Skrýt vše</span>
+              </button>
             </div>
           </div>
         </div>
+
+        <!-- Filled by js/ui.js before js/functions.js runs: every category keeps its
+             legacy checkbox id inside a .markers-list, because functions.js drives
+             the map layers off those inputs. -->
+        <div class="category-list" id="category-list"></div>
       </div>
-      <!-- Tab about -->
-      <div class="sidebar-pane" id="about">
-        <span class="sidebar-close"><i class="left-arrow"></i></span>
-        <h3 class="list-title" data-i18n="info">Info</h3>
-        <div class="content update">
-        <!--
-          <h3>Verze 2.0</h3>
-          <span class="updateday">--/06/2025</span>
-          <ul class="update-list">
-            <li class="text">
-              Převzato od <a class="link" href="https://github.com/kingdomcomemap/kingdomcomemap.github.io" target="_blank">RogerHN</a>.
-             </li>
-            <li class="text">
-              Kompletně přeloženo do češtiny.
-            </li>
-            <li class="text">
-              Opraveno několik bugů v mapě.
-            </li>
-          </ul>
-        -->
-          <h3>Verze 1.3.1</h3>
-          <span class="updateday">15/03/2018</span>
-          <ul class="update-list">
-            <li class="text">
-              Přidány sdílitelné štítky.
-            </li>
-            <li class="text">
-              Všechny mapové štítky nyní mají odkaz, který na ně po návštěvě přesměruje.
-            </li>
-            <li class="text">
-              Nyní můžete sdílet přidané štítky, stačí přidat štítek na mapu a zkopírovat odkaz na značku.
-            </li>
-            <li class="text">
-              Štítky, které s námi sdílíte, můžeme přidat k vašim štítkům. Stačí kliknout na Upravit a Uložit.
-            </li>
-          </ul>
+    </div>
 
-          <h3>Verze 1.3</h3>
-          <span class="updateday">11/03/2018</span>
-          <ul class="update-list">
-            <li class="text">
-              Rozlišení mapy změněno na 8192px.
-            </li>
-            <li class="text">
-              Souřadnice na mapě nyní odpovídají souřadnicím ve hře.
-            </li>
-            <li class="text">
-              Pokud jste na mapě měli značky s předchozím souřadnicovým systémem, budou automaticky převedeny na nový.
-            </li>
-            <li class="text">
-              Nová možnost exportu/importu a vymazání přidaných štítků. (Třetí záložka v boční nabídce).
-            </li>
-            <li class="text">
-              Obsah štítků bude aktualizován o další podrobnosti!
-            </li>
-          </ul>
+    <!-- ══ MY MARKERS PANEL ══ -->
+    <div class="side-panel" id="side-panel-mymarkers">
+      <div class="sidebar-header">
+        <img class="sb-logo" src="assets/images/kcd2-ui/kcd1_logo.png" alt="Kingdom Come: Deliverance">
+        <div class="sb-tagline" data-i18n="tagline">Interaktivní mapa</div>
+      </div>
+      <div class="side-scroll">
+        <div class="my-markers-list" id="my-markers-list">
+          <div class="no-markers" data-i18n="my_markers_empty">Klikněte pravým tlačítkem na mapu pro přidání vlastního markeru.</div>
+        </div>
+      </div>
+    </div>
 
-          <h3>Verze 1.2</h3>
-          <span class="updateday">04/03/2018</span>
-          <ul class="update-list">
-            <li class="text">
-              Všechny štítky byly extrahované ze hry.
-            </li>
-            <li class="text">
-              Ke svým štítkům můžete přidat název a popis a také zvolit ikonu značky.
-            </li>
-            <li class="text">
-              Na mapě si všimnete souřadnic, tyto souřadnice jsou herní souřadnice.
-            </li>
-            <li class="text">
-              Pokud máte více informací o konkrétní značce, použijte tyto souřadnice, které mi pomohou ji najít.
-            </li>
-            <li class="text">
-              Některé lesní zahrady mají informace o tom, jaké bylinky tam můžete najít.
-            </li>
-            <li class="text">
-              Více funkcí přijde brzy!
-            </li>
-          </ul>
+    <!-- ══ INFO PANEL — map view options, share links & about ══ -->
+    <div class="side-panel" id="side-panel-info">
+      <div class="sidebar-header">
+        <img class="sb-logo" src="assets/images/kcd2-ui/kcd1_logo.png" alt="Kingdom Come: Deliverance">
+        <div class="sb-tagline" data-i18n="tagline">Interaktivní mapa</div>
+      </div>
+      <div class="side-scroll">
 
-          <h3>Verze 1.0</h3>
-          <span class="updateday">01/03/2018</span>
-          <ul class="update-list">
-            <li class="text">
-              V této verzi mapy můžete umístit štítky na mapu a ty se uloží do lokálního úložiště ve vašem prohlížeči. I když ji zavřete, zůstanou tam. Značky se ztratí pouze vymazáním mezipaměti prohlížeče!
-            </li>
-            <li class="text">
-              Ke svým značkám můžete přidat název a popis a také zvolit ikonu značky.
-            </li>
-            <li class="text">
-              Mapa bude denně aktualizována o nové značky a prvky.
-            </li>
-          </ul>
+        <div class="tools-section">
+          <h3 data-i18n="info">Info</h3>
 
-          <div class="legalinfo">
-            <p class="text creator">
-              Kingdom Come Deliverance Mapa
+          <div class="changelog">
+            <h4><span data-i18n="version_n">Verze</span> 3.0 <span class="updateday">03/10/2026</span></h4>
+            <ul class="update-list">
+              <li data-i18n="cl_v30_1">Kompletně předěláno UI mapy.</li>
+               <li data-i18n="cl_v30_2">Přidány některé nové funkce.</li>
+               <li data-i18n="cl_v30_3">Aktualizovány veškeré markery.</li>
+            </ul>
+          </div>
+
+          <div class="changelog">
+            <h4><span data-i18n="version_n">Verze</span> 2.0 <span class="updateday">26/08/2025</span></h4>
+            <ul class="update-list">
+              <li data-i18n="cl_v20_1">Kompletně přeloženo do češtiny.</li>
+            </ul>
+          </div>
+
+          <div class="changelog">
+            <h4><span data-i18n="version_n">Verze</span> 1.3.1 <span class="updateday">15/03/2018</span></h4>
+            <ul class="update-list">
+              <li data-i18n="cl_v131_1">Přidány sdílitelné štítky.</li>
+              <li data-i18n="cl_v131_2">Všechny mapové štítky nyní mají odkaz, který na ně po návštěvě přesměruje.</li>
+              <li data-i18n="cl_v131_3">Nyní můžete sdílet přidané štítky, stačí přidat štítek na mapu a zkopírovat odkaz na značku.</li>
+              <li data-i18n="cl_v131_4">Štítky, které s námi sdílíte, můžeme přidat k vašim štítkům. Stačí kliknout na Upravit a Uložit.</li>
+            </ul>
+          </div>
+
+          <div class="changelog">
+            <h4><span data-i18n="version_n">Verze</span> 1.3 <span class="updateday">11/03/2018</span></h4>
+            <ul class="update-list">
+              <li data-i18n="cl_v13_1">Rozlišení mapy změněno na 8192px.</li>
+              <li data-i18n="cl_v13_2">Souřadnice na mapě nyní odpovídají souřadnicím ve hře.</li>
+              <li data-i18n="cl_v13_3">Pokud jste na mapě měli značky s předchozím souřadnicovým systémem, budou automaticky převedeny na nový.</li>
+              <li data-i18n="cl_v13_4">Nová možnost exportu/importu a vymazání přidaných štítků.</li>
+              <li data-i18n="cl_v13_5">Obsah štítků bude aktualizován o další podrobnosti!</li>
+            </ul>
+          </div>
+
+          <div class="changelog">
+            <h4><span data-i18n="version_n">Verze</span> 1.2 <span class="updateday">04/03/2018</span></h4>
+            <ul class="update-list">
+              <li data-i18n="cl_v12_1">Všechny štítky byly extrahované ze hry.</li>
+              <li data-i18n="cl_v12_2">Ke svým štítkům můžete přidat název a popis a také zvolit ikonu značky.</li>
+              <li data-i18n="cl_v12_3">Na mapě si všimnete souřadnic, tyto souřadnice jsou herní souřadnice.</li>
+              <li data-i18n="cl_v12_4">Pokud máte více informací o konkrétní značce, použijte tyto souřadnice, které mi pomohou ji najít.</li>
+              <li data-i18n="cl_v12_5">Některé lesní zahrady mají informace o tom, jaké bylinky tam můžete najít.</li>
+            </ul>
+          </div>
+
+          <div class="changelog">
+            <h4><span data-i18n="version_n">Verze</span> 1.0 <span class="updateday">01/03/2018</span></h4>
+            <ul class="update-list">
+              <li data-i18n="cl_v10_1">V této verzi mapy můžete umístit štítky na mapu a ty se uloží do lokálního úložiště ve vašem prohlížeči. I když ji zavřete, zůstanou tam. Značky se ztratí pouze vymazáním mezipaměti prohlížeče!</li>
+              <li data-i18n="cl_v10_2">Ke svým značkám můžete přidat název a popis a také zvolit ikonu značky.</li>
+              <li data-i18n="cl_v10_3">Mapa bude denně aktualizována o nové značky a prvky.</li>
+            </ul>
+          </div>
+
+          <div class="about-footer">
+            <div class="about-head">
+              <span class="about-title" data-i18n="about_title">Kingdom Come Deliverance Mapa</span>
+              <span class="about-version">v3.0</span>
+            </div>
+            <p class="panel-text">
+              <a class="link" href="https://kingdomcomemap.github.io" target="_blank" data-i18n="about_original_map">Původní mapa</a> <span data-i18n="about_by">od</span> <a class="link" href="https://github.com/kingdomcomemap/kingdomcomemap.github.io"target="_blank">RogerHN</a>.
             </p>
-            <p class="text creator">
-              Vytvořil SmiR
-            </p>
-            <p class="text">
-              Velké poděkování <a class="link" href="https://github.com/kingdomcomemap/kingdomcomemap.github.io"target="_blank">RogerHN</a> za poskytnutí mapy.
-            </p>
-            <p class="text">
-              <a class="link" href="https://kingdomcomemap.github.io" target="_blank">Oficiální mapa</a>
-            </p>
-            <p class="text">
-              <a class="link" href="https://www.kingdomcomerpg.com" target="_blank">Kingdom Come: Deliverance</a> logo, ikony a mapa jsou autorským právem a majetkem <a class="link" href="https://warhorsestudios.cz/"target="_blank">Warhorse Studios</a>.
+            <p class="panel-text">
+              <span data-i18n="about_copyright">The Kingdom Come: Deliverance logo, icons, and the map are copyright and property of</span>
+              <a class="link" href="https://warhorsestudios.cz/" target="_blank" rel="noopener">Warhorse Studios</a>.
             </p>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- ══ TOOLS PANEL ══ -->
+    <div class="side-panel" id="side-panel-tools">
+      <div class="sidebar-header">
+        <img class="sb-logo" src="assets/images/kcd2-ui/kcd1_logo.png" alt="Kingdom Come: Deliverance">
+        <div class="sb-tagline" data-i18n="tagline">Interaktivní mapa</div>
+      </div>
+      <div class="side-scroll">
+        <!-- Language. Czech is the default; the choice is remembered in localStorage. -->
+        <div class="tools-section">
+          <h3 data-i18n="lang_section">Jazyk / Language</h3>
+          <div class="region-switcher" role="group" data-i18n-aria="lang_group_aria" aria-label="Jazyk">
+            <button class="region-btn active" data-lang="cs" aria-pressed="true" onclick="switchLang('cs')">Čeština</button>
+            <button class="region-btn" data-lang="en" aria-pressed="false" onclick="switchLang('en')">English</button>
+          </div>
+        </div>
+
+        <div class="tools-section">
+          <h3 data-i18n="import_export_section">Import / Export štítků</h3>
+          <button class="tool-btn" onclick="exportMarkers()" style="border-left: 3px solid var(--accent);">
+            <svg class="tool-icon ui-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+            <span class="tool-txt">
+              <span class="tool-title" data-i18n="export_markers">Exportovat štítky</span>
+              <span class="tool-desc" data-i18n="export_desc">Uloží všechny tvoje štítky do souboru JSON</span>
+            </span>
+          </button>
+          <button class="tool-btn" onclick="showImportModal()" style="border-left: 3px solid var(--accent);">
+            <svg class="tool-icon ui-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg>
+            <span class="tool-txt">
+              <span class="tool-title" data-i18n="import_markers">Importovat štítky</span>
+              <span class="tool-desc" data-i18n="import_desc">Obnoví štítky ze zálohy uložené v souboru JSON</span>
+            </span>
+          </button>
+        </div>
+
+        <div class="tools-section">
+          <h3 data-i18n="data_section">Správa dat</h3>
+          <button class="tool-btn danger" onclick="clearMarkers()">
+            <svg class="tool-icon ui-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+            <span class="tool-txt">
+              <span class="tool-title" data-i18n="clear_markers">Vymazat štítky</span>
+              <span class="tool-desc" data-i18n="clear_desc">Smaže všechny tvoje štítky z mapy (nelze vzít zpět)</span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scrim behind the open sidebar on mobile (tap to close) -->
+  <div id="sidebar-scrim" onclick="toggleSidebar()" aria-hidden="true"></div>
+
+  <!-- ══ MAP ══ -->
+  <div id="map-container">
+    <div id="map"></div>
+
+    <div id="map-controls">
+      <button onclick="resetView()" data-i18n-title="reset_view" data-i18n-aria="reset_view" title="Zobrazit celou mapu" aria-label="Zobrazit celou mapu">⌂</button>
+      <button onclick="toggleFullscreen()" data-i18n-title="fullscreen" data-i18n-aria="fullscreen" title="Celá obrazovka" aria-label="Celá obrazovka">⛶</button>
+      <button onclick="copyCurrentLink()" data-i18n-title="copy_view_link" data-i18n-aria="copy_view_link" title="Kopírovat odkaz na tento pohled" aria-label="Kopírovat odkaz na tento pohled">🔗</button>
+    </div>
+
+    <div id="map-hint">
+      <span data-i18n="map_hint" data-i18n-html>Tip: <b>Klikněte pravým tlačítkem</b> kamkoli na mapu pro přidání vlastního markeru.</span>
+      <button onclick="dismissMapHint()" data-i18n-aria="got_it_aria" aria-label="Jasně" data-i18n="got_it">Rozumím</button>
+    </div>
+
+    <div id="zoom-display">Přiblížení 0</div>
+    <div id="coords-display">X: 0 &nbsp; Y: 0</div>
+    <button id="legend-btn" onclick="toggleLegend()" data-i18n-title="legend_show" title="Zobrazit legendu ikon">🗝️ <span data-i18n="legend">Legenda</span></button>
+    <div id="legend-panel">
+      <div id="legend-content"></div>
+    </div>
+  </div>
+
+  <!-- ══ OVERLAYS ══ -->
+  <div id="toast"></div>
+
+  <div class="modal-overlay" id="import-modal" onclick="if(event.target===this)closeImportModal()" onkeydown="_trapModalTab(event, this)">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="import-title">
+      <h2 id="import-title" data-i18n="import_modal_title">Importovat štítky</h2>
+      <p style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;" data-i18n="import_modal_body" data-i18n-html>Vyber soubor s exportovanou zálohou. <strong>Současné štítky budou nahrazeny</strong> obsahem souboru.</p>
+      <input type="file" id="import-file" accept=".json,application/json" onchange="importFromFile(this)">
+      <div class="form-actions">
+        <button class="btn btn-secondary" onclick="closeImportModal()" data-i18n="cancel">Zrušit</button>
       </div>
     </div>
   </div>
 
-    <div id="map" class="sidebar-map"></div>
-    <!-- jQuery -->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <!-- Leaflet -->
-    <script src="js/leaflet.js"></script>
-    <script src="js/libs/smoothwheelzoom.js"></script>
-    <script src="js/libs/tilelayer.canvas.js"></script>
-    <!-- Leaflet Coordinates -->
-    <script src="js/Leaflet.Coordinates-0.1.3.min.js" charset="utf-8"></script>
-    <!-- Leaflet Hash -->
-    <script src="js/leaflet-hash.min.js" charset="utf-8"></script>
-    <!-- Fullscren Control -->
-    <script src="js/FullScreen.js" charset="utf-8"></script>
-    <!-- Sidebar v2 -->
-    <script src="js/leaflet-sidebar.js" type="text/javascript"></script>
-    <!-- i18next -->
-    <script src="js/i18next-1.6.3.js"></script>
-    <!-- JS -->
-    <script src="js/markers.js" type="text/javascript"></script>
-    <script src="js/usr_markers.js" type="text/javascript"></script>
-    <script src="js/lang.js"></script>
-    <!-- js -->
-    <script src="js/functions.js" type="text/javascript"></script>
+  <div class="modal-overlay" id="confirm-modal" onclick="if(event.target===this)confirmClose(false)" onkeydown="_trapModalTab(event, this)">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="confirm-title" style="max-width:380px;">
+      <h2 id="confirm-title" data-i18n="confirm_title">Opravdu?</h2>
+      <p id="confirm-message" style="font-size:13px;color:var(--text-secondary);line-height:1.5;margin-bottom:4px;"></p>
+      <div class="form-actions">
+        <button class="btn btn-secondary" onclick="confirmClose(false)" data-i18n="cancel">Zrušit</button>
+        <button class="btn btn-primary" id="confirm-ok" onclick="confirmClose(true)" data-i18n="confirm_ok">Potvrdit</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Legacy master switches. #allmarkers drives "Show/Hide All" in js/functions.js
+       and #usermarkers owns the shared-markers layer group; both must exist but
+       stay invisible in the KCD2 chrome. -->
+  <div hidden>
+    <input type="checkbox" id="usermarkers" checked />
+    <input type="checkbox" id="allmarkers" />
+  </div>
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Leaflet (kept local — swapping the CDN build would change map behaviour) -->
+  <script src="js/leaflet.js"></script>
+  <script src="js/libs/smoothwheelzoom.js"></script>
+  <script src="js/libs/tilelayer.canvas.js"></script>
+  <!-- Leaflet Hash -->
+  <script src="js/leaflet-hash.min.js" charset="utf-8"></script>
+  <!-- JS -->
+  <script src="js/markers.js" type="text/javascript"></script>
+  <script src="js/usr_markers.js" type="text/javascript"></script>
+  <!-- UI chrome (rail, panels, categories, search, dialogs). Must load before
+       functions.js: it renders the .markers-list checkboxes and exposes the
+       sidebar object that functions.js drives. -->
+  <!-- Translation dictionary. Must load first: ui.js renders the category list
+       through t(), and both it and functions.js build popup HTML from it. -->
+  <script src="js/i18n.js" type="text/javascript"></script>
+  <script src="js/ui.js" type="text/javascript"></script>
+  <!-- js -->
+  <script src="js/functions.js" type="text/javascript"></script>
 </body>
 
 </html>
