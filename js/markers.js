@@ -373,19 +373,19 @@ Spade to bury Henry's parents
 	"coords": [1600, 3708],
 },
 {
-"name": "<span data-i18n='bandit_camp'>Tábor banditů</span>",
+"name": "<span data-i18n='bandit_camp_small'>Tábor banditů</span>",
 "group": "bandit_camp",
 "icon": "bandit_camp",
 "coords": [1735,720],
 },
 {
-"name": "<span data-i18n='bandit_camp'>Tábor banditů</span>",
+"name": "<span data-i18n='bandit_camp_small'>Tábor banditů</span>",
 "group": "bandit_camp",
 "icon": "bandit_camp",
 "coords": [1748,2979],
 },
 {
-"name": "<span data-i18n='bandit_camp'>Tábor banditů</span>",
+"name": "<span data-i18n='bandit_camp_small'>Tábor banditů</span>",
 "group": "bandit_camp",
 "icon": "bandit_camp",
 "chest": "",
@@ -539,7 +539,7 @@ Spade to bury Henry's parents
 },
 {
 //FT NEUHOF
-"name": "<span data-i18n='fast_travel'>Neuhof</span>",
+"name": "<span data-i18n='ft_neuhof'>Neuhof</span>",
 "desc": "Rychlé Cestování",
 "group": "fast_travel",
 "icon": "fast_travel",
@@ -547,7 +547,7 @@ Spade to bury Henry's parents
 },
 {
 //FT SKALITZ
-"name": "<span data-i18n='fast_travel'>Skalice</span>",
+"name": "<span data-i18n='ft_skalitz'>Skalice</span>",
 "desc": "Rychlé Cestování",
 "group": "fast_travel",
 "icon": "fast_travel",
@@ -555,7 +555,7 @@ Spade to bury Henry's parents
 },
 {
 //FT TALMBERG
-"name": "<span data-i18n='fast_travel'>Talmberg</span>",
+"name": "<span data-i18n='ft_talmberg'>Talmberg</span>",
 "desc": "Rychlé Cestování",
 "group": "fast_travel",
 "icon": "fast_travel",
@@ -563,7 +563,7 @@ Spade to bury Henry's parents
 },
 {
 //FT SAMOPESH
-"name": "<span data-i18n='fast_travel'>Samopeš</span>",
+"name": "<span data-i18n='ft_samopesh'>Samopeš</span>",
 "desc": "Rychlé Cestování",
 "group": "fast_travel",
 "icon": "fast_travel",
@@ -571,7 +571,7 @@ Spade to bury Henry's parents
 },
 {
 //FT VRANIK
-"name": "<span data-i18n='fast_travel'>Vraník</span>",
+"name": "<span data-i18n='ft_vranik'>Vraník</span>",
 "desc": "Rychlé Cestování",
 "group": "fast_travel",
 "icon": "fast_travel",
@@ -579,7 +579,7 @@ Spade to bury Henry's parents
 },
 {
 //FT UZHITZ
-"name": "<span data-i18n='fast_travel'>Užice</span>",
+"name": "<span data-i18n='ft_uzhitz'>Užice</span>",
 "desc": "Rychlé Cestování",
 "group": "fast_travel",
 "icon": "fast_travel",
@@ -587,7 +587,7 @@ Spade to bury Henry's parents
 },
 {
 //FT RATTAY upper
-"name": "<span data-i18n='fast_travel'>Rataje horní brána</span>",
+"name": "<span data-i18n='ft_rattay_upper'>Rataje horní brána</span>",
 "desc": "Rychlé Cestování",
 "group": "fast_travel",
 "icon": "fast_travel",
@@ -595,7 +595,7 @@ Spade to bury Henry's parents
 },
 {
 //FT PRIBYSLAVITZ
-"name": "<span data-i18n='fast_travel'>Přibyslavice</span>",
+"name": "<span data-i18n='ft_pribyslavitz'>Přibyslavice</span>",
 "desc": "Rychlé Cestování",
 "group": "fast_travel",
 "icon": "fast_travel",
@@ -603,7 +603,7 @@ Spade to bury Henry's parents
 },
 {
 //FT ROVNA
-"name": "<span data-i18n='fast_travel'>Rovná</span>",
+"name": "<span data-i18n='ft_rovna'>Rovná</span>",
 "desc": "Rychlé Cestování",
 "group": "fast_travel",
 "icon": "fast_travel",
@@ -612,7 +612,7 @@ Spade to bury Henry's parents
 
 {
 //FT RATTAY MILL
-"name": "<span data-i18n='fast_travel'>Rataje mlýn</span>",
+"name": "<span data-i18n='ft_rattay_mill'>Rataje mlýn</span>",
 "desc": "Rychlé Cestování",
 "group": "fast_travel",
 "icon": "fast_travel",
@@ -620,7 +620,7 @@ Spade to bury Henry's parents
 },
 {
 //FT INN AT THE GLADES
-"name": "<span data-i18n='fast_travel'>Zájezdní hostinec Na Mýtince</span>",
+"name": "<span data-i18n='ft_inn_at_the_glades'>Zájezdní hostinec Na Mýtince</span>",
 "desc": "Rychlé Cestování",
 "group": "fast_travel",
 "icon": "fast_travel",
@@ -628,7 +628,7 @@ Spade to bury Henry's parents
 },
 {
 //FT MERHOJED
-"name": "<span data-i18n='fast_travel'>Mrchojedy</span>",
+"name": "<span data-i18n='ft_merhojed'>Mrchojedy</span>",
 "desc": "Rychlé Cestování",
 "group": "fast_travel",
 "icon": "fast_travel",
@@ -636,7 +636,7 @@ Spade to bury Henry's parents
 },
 {
 //FT SASAU
-"name": "<span data-i18n='fast_travel'>Sázava</span>",
+"name": "<span data-i18n='ft_sasau'>Sázava</span>",
 "desc": "Rychlé Cestování",
 "group": "fast_travel",
 "icon": "fast_travel",
@@ -644,7 +644,7 @@ Spade to bury Henry's parents
 },
 {
 //FT MONASTERY
-"name": "<span data-i18n='fast_travel'>Klášter</span>",
+"name": "<span data-i18n='ft_monastery'>Klášter</span>",
 "desc": "Rychlé Cestování",
 "group": "fast_travel",
 "icon": "fast_travel",
@@ -652,7 +652,7 @@ Spade to bury Henry's parents
 },
 {
 //FT LEDETCHKO
-"name": "<span data-i18n='fast_travel'>Ledečko</span>",
+"name": "<span data-i18n='ft_ledecko'>Ledečko</span>",
 "desc": "Rychlé Cestování",
 "group": "fast_travel",
 "icon": "fast_travel",
@@ -660,7 +660,7 @@ Spade to bury Henry's parents
 },
 {
 //FT RATTAY Down
-"name": "<span data-i18n='fast_travel'>Rataje dolní brána</span>",
+"name": "<span data-i18n='ft_rattay_down'>Rataje dolní brána</span>",
 "desc": "Rychlé Cestování",
 "group": "fast_travel",
 "icon": "fast_travel",

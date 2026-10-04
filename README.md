@@ -10,9 +10,9 @@ This is a fork of [Kingdom Come Map](https://kingdomcomemap.github.io) by [Roger
 
 - **Full game map** — the complete 8192 × 8192 map rendered from a pyramid of 1,366 JPG tiles (zoom levels 0–5)
 - **1,086 in-game markers** — interesting sites, nests, accidents, graves, shrines, fish traps, camps, woodland gardens, beehives, hunting and fishing spots, fast travel points, caves, mines and every trade and service
-- **43 marker categories in 5 groups** — each category is switched on and off individually and shows a live count; every group has one master switch that toggles all of its categories at once, and its header folds the whole group away. *Show all* / *Hide all* sit above the list, and they leave the village-name layer untouched
+- **43 marker categories in 4 groups** — the layout follows [`markers_groups.txt`](markers_groups.txt)
 - **Display options** — a collapsible *Zobrazení / Display* block at the top of the markers panel toggles the village-name labels
-- **Bilingual, switchable live** — Czech and English for the whole interface *and* every marker name, herb, requirement and lock level. Czech is the default on a first visit; the choice is remembered and can be changed at any time under **Tools → Janguage / Language**. Search matches category and marker names in both languages at once, so `kovář` still finds the blacksmith in the English UI.
+- **Bilingual, switchable live** — Czech and English for the whole interface *and* every marker name, herb, requirement and lock level. Czech is the default on a first visit; the choice is remembered and can be changed at any time under **Tools → Janguage / Language**.
 - **Community markers** — 55 treasure chests and treasure maps with hints, lock difficulty and required skills
 - **Forage data** — woodland gardens list the herbs found there with their own icons and, where known, quantities
 - **Settlement labels** — 13 named villages as permanent text labels, with their own toggle
@@ -23,7 +23,7 @@ This is a fork of [Kingdom Come Map](https://kingdomcomemap.github.io) by [Roger
 - **Shareable URLs** — every marker has a *Copy link* button, and the URL hash keeps your current position, so you can link directly to a spot
 - **Responsive** — the sidebar collapses to an icon rail and becomes an overlay on phones
 - **Fullscreen and smooth zoom** — fullscreen control plus smoothed mouse-wheel zooming
-- **One typeface** — the map surface uses the same Source Sans 3 as the sidebar, so marker tooltips, popups, village names and map controls all match the chrome
+- **One typeface, one deliberate exception** — the map surface uses the same Source Sans 3 as the sidebar, so marker tooltips, popups and map controls all match the chrome.
 
 ---
 
@@ -65,6 +65,7 @@ kcdmap-cz.github.io/
 ├── assets/
 │   ├── images/              # 151 marker icons + backgrounds
 │   └── images/kcd2-ui/      # Sidebar logo and rail icons
+├── markers_groups.txt       # Reference layout for the 4 category groups
 ├── kcd2_icon.png
 └── README.md
 ```

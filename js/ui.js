@@ -44,76 +44,73 @@ function searchNorm(s) {
 
 /* ═══════════════════════════════════════════════
    ██ CATEGORY GROUPS
-   Same five groups and the same 43 marker categories the original sidebar
-   listed. Every id doubles as the marker group id, and each category keeps a
-   real checkbox inside a .markers-list container — js/functions.js drives the
-   map layers straight off those inputs.
+   Four groups and 43 marker categories, laid out by markers_groups.txt in the
+   repo root and sorted alphabetically inside each group (Czech collation, so Ř
+   and Š land where a Czech reader expects them). Every id doubles as the marker
+   group id, and each category keeps a real checkbox inside a .markers-list
+   container — js/functions.js drives the map layers straight off those inputs.
    ═══════════════════════════════════════════════ */
 
 var ICON_BASE = 'assets/images/';
 
 var CATEGORY_GROUPS = [
   {
-    id: 'trade', name: 'Města a obchody', color: '#c9a84c', categories: [
-      { id: 'fast_travel', name: 'Rychlé cestování' },
+    id: 'npc', name: 'NPC', color: '#c9a84c', categories: [
+      { id: 'apothecary', name: 'Aptikář' },
+      { id: 'herbalist', name: 'Bylinář' },
       { id: 'tavern', name: 'Hospoda' },
       { id: 'lodgings', name: 'Hostinec s ubytováním' },
-      { id: 'bed', icon: 'your_bed', name: 'Postel' },
-      { id: 'baths', name: 'Lázně' },
-      { id: 'grindstone', name: 'Brusné kolo' },
-      { id: 'trader', name: 'Kupec' },
-      { id: 'blacksmith', name: 'Kovář' },
-      { id: 'armourer', name: 'Platnéř' },
-      { id: 'weaponsmith', name: 'Zbrojíř' },
-      { id: 'cobbler', name: 'Švec' },
-      { id: 'tailor', name: 'Krejčí' },
-      { id: 'tanner', name: 'Koželouh' },
-      { id: 'baker', name: 'Pekař' },
-      { id: 'butcher', name: 'Řezník' },
-      { id: 'miller', name: 'Mlinář' },
-      { id: 'herbalist', name: 'Bylinář' },
-      { id: 'apothecary', name: 'Aptikář' },
-      { id: 'alchemy_bench', name: 'Alchymistický stůl' },
       { id: 'horse_trader', name: 'Koňský handléř' },
+      { id: 'blacksmith', name: 'Kovář' },
+      { id: 'tanner', name: 'Koželouh' },
+      { id: 'tailor', name: 'Krejčí' },
+      { id: 'trader', name: 'Kupec' },
+      { id: 'baths', name: 'Lázně' },
+      { id: 'huntsman', name: 'Lovec' },
+      { id: 'miller', name: 'Mlinář' },
+      { id: 'baker', name: 'Pekař' },
       { id: 'scribe', name: 'Písař' },
+      { id: 'armourer', name: 'Platnéř' },
+      { id: 'butcher', name: 'Řezník' },
+      { id: 'cobbler', name: 'Švec' },
+      { id: 'weaponsmith', name: 'Zbrojíř' },
       { id: 'vegetable_shop', name: 'Zelinář' }
     ]
   },
   {
-    id: 'hunting', name: 'Lov a rybářství', color: '#8fae5a', categories: [
-      { id: 'huntsman', name: 'Lovec' },
-      { id: 'deer_hunting_spot', name: 'Loviště vysoké' },
-      { id: 'boar_hunting_spot', name: 'Loviště divočáků' },
-      { id: 'fishing_spot', name: 'Rybářský plácek' },
-      { id: 'fish_trap', name: 'Rybářská past' }
-    ]
-  },
-  {
-    id: 'nature', name: 'Příroda a podzemí', color: '#6fae7a', categories: [
-      { id: 'woodland_garden', name: 'Lesní zahrada' },
-      { id: 'beehive', name: 'Úl' },
-      { id: 'cave', name: 'Jeskyně' },
-      { id: 'mine', name: 'Vchod do dolu' },
+    id: 'sights', name: 'Zajímavosti', color: '#c25a5a', categories: [
+      { id: 'shrine', name: 'Boží muka' },
       { id: 'nest', name: 'Hnízdo' },
-      { id: 'grave', name: 'Hrob' }
-    ]
-  },
-  {
-    id: 'places', name: 'Památky a nebezpečí', color: '#c25a5a', categories: [
-      { id: 'interesting_site', name: 'Zajímavost' },
+      { id: 'grave', name: 'Hrob' },
+      { id: 'cave', name: 'Jeskyně' },
+      { id: 'boar_hunting_spot', name: 'Loviště divočáků' },
+      { id: 'deer_hunting_spot', name: 'Loviště vysoké' },
       { id: 'accident', name: 'Nehoda' },
-      { id: 'combat_arena', name: 'Kobyliště' },
-      { id: 'archery_range', name: 'Lukostřelnice' },
+      { id: 'fish_trap', name: 'Rybářská past' },
+      { id: 'fishing_spot', name: 'Rybářský plácek' },
+      { id: 'conciliation_cross', name: 'Smírčí kříž' },
       { id: 'camp', name: 'Tábor' },
       { id: 'bandit_camp', name: 'Tábor banditů' },
-      { id: 'conciliation_cross', name: 'Smírčí kříž' },
-      { id: 'shrine', name: 'Boží muka' }
+      { id: 'beehive', name: 'Úl' },
+      { id: 'mine', name: 'Vchod do dolu' },
+      { id: 'interesting_site', name: 'Zajímavost' }
+    ]
+  },
+  {
+    id: 'useful', name: 'Užitečná místa', color: '#6fae7a', categories: [
+      { id: 'alchemy_bench', name: 'Alchymistický stůl' },
+      { id: 'grindstone', name: 'Brusné kolo' },
+      { id: 'combat_arena', name: 'Kobyliště' },
+      { id: 'woodland_garden', name: 'Lesní zahrada' },
+      { id: 'archery_range', name: 'Lukostřelnice' },
+      { id: 'bed', icon: 'your_bed', name: 'Postel' },
+      { id: 'fast_travel', name: 'Rychlé cestování' }
     ]
   },
   {
     id: 'treasure', name: 'Poklady', color: '#e0c24c', categories: [
-      { id: 'treasure_chest', name: 'Truhla s pokladem' },
-      { id: 'treasure_map', name: 'Mapa k pokladu' }
+      { id: 'treasure_map', name: 'Mapa k pokladu' },
+      { id: 'treasure_chest', name: 'Truhla s pokladem' }
     ]
   }
 ];
@@ -167,7 +164,15 @@ function renderCategoryList() {
   if (!list) return;
 
   if (!storeGet(STORAGE.collapsed)) storeSet(STORAGE.collapsed, '{}');
-  try { collapsedGroups = JSON.parse(storeGet(STORAGE.collapsed)) || {}; } catch (e) { collapsedGroups = {}; }
+  var saved = {};
+  try { saved = JSON.parse(storeGet(STORAGE.collapsed)) || {}; } catch (e) { saved = {}; }
+  collapsedGroups = {};
+  CATEGORY_GROUPS.forEach(function (group) {
+    if (typeof saved[group.id] === 'boolean') collapsedGroups[group.id] = saved[group.id];
+  });
+  if (Object.keys(saved).length !== Object.keys(collapsedGroups).length) {
+    storeSet(STORAGE.collapsed, JSON.stringify(collapsedGroups));
+  }
 
   var html = '';
   CATEGORY_GROUPS.forEach(function (group) {

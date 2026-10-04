@@ -161,15 +161,21 @@ function  fallbackLabel(id) {
 }
 
 /* Herbs, requirements and lock levels carry their own id, so they resolve
-   straight from the dictionary. */
-function  idLabel(id) {
-  var  key = String(id == null ? '' : id);
-  var  translated = I18N[currentLang][key];
-  if (typeof translated === "string") return translated;
-  var  fallback = I18N[I18N_DEFAULT][key];
-  if (typeof fallback === "string") return fallback;
-  return fallbackLabel(id);
-}
+   straight from the dictionary. It is also called with a marker *group* id for
+   the native hover title, so a group falls back to its category caption —
+   otherwise every group without a bare key would show "fast travel". */
+ function  idLabel(id) {
+   var  key = String(id == null ? '' : id);
+   var  translated = I18N[currentLang][key];
+   if (typeof translated === "string") return translated;
+   var  fallback = I18N[I18N_DEFAULT][key];
+   if (typeof fallback === "string") return fallback;
+   var  caption = I18N[currentLang]["cat_" + key];
+   if (typeof caption === "string") return caption;
+   var  captionDefault = I18N[I18N_DEFAULT]["cat_" + key];
+   if (typeof captionDefault === "string") return captionDefault;
+   return fallbackLabel(id);
+ }
 
 /* An icon is usually also a category, so fall back through the icon caption and
    the category caption before giving up. That keeps js/ui.js and the icon picker

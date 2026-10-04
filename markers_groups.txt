@@ -1,0 +1,54 @@
+NPC
+____________
+Lázně
+Kupec
+Kovář
+Platnéř
+Zbrojíř
+Švec
+Krejčí
+Koželouh
+Pekař
+Řezník
+Mlinář
+Bylinář
+Aptikář
+Koňský handléř
+Písař
+Zelinář
+Lovec
+Hospoda
+Hostinec s ubytováním
+
+ZAJÍMAVOSTI
+_____________
+Zajímavost
+Nehoda
+Tábor
+Tábor banditů
+Smírčí kříž
+Boží muka
+Loviště vysoké
+Loviště divočáků
+Rybářský plácek
+Rybářská past
+ÚL
+Jeskyně
+Vchod do dolu
+Hnízdo
+Hrob
+
+UŽITEČNÁ MÍSTA
+_______________
+Brusné kolo
+Rychlé cestování
+Alchymistický stůl
+Kobyliště
+Lukostřelnice
+Lesní zahrada
+Postel
+
+POKLADY
+_________________
+Truhla s pokladem
+Mapa k pokladu
